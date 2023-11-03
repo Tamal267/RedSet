@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.sampleStudyController">
+   <children>
+      <Button fx:id="video" mnemonicParsing="false" onMouseClicked="#videoBtn" prefHeight="250.0" prefWidth="305.0" styleClass="study" stylesheets="@studybtn.css">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <Label fx:id="mainTopic" text="GRAPH THEORY">
+                     <font>
+                        <Font name="Cambria Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="subTopic" prefHeight="43.0" prefWidth="283.0" style="-fx-alignment: CENTER;" text="DFS BFS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

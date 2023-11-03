@@ -1,0 +1,8 @@
+.study{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, repeat, #b192f6, #5ce0e6);
+}
+.study:hover{
+    -fx-background-color: #8C52FFFF;
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}

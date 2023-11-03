@@ -1,0 +1,48 @@
+2023/11/01 22:28:16
+Accepted
+Time: 12ms
+Memory: 9KB
+
+
+-------------
+
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+int solve(int dice,int target)
+{
+    if(dice==0&& target==0)
+    {
+        return 1;
+    }
+    if(dice==0||target==0)
+    {
+        return 0;
+    }
+    int count=0;
+    for(int i=1;i<=6;i++)
+    {
+        if(target-i>=0)
+        {
+            count+=solve(dice-1,target-i);
+        }
+    }
+    return count;
+}
+int32_t main()
+{
+    fast();
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        cout<<solve(n,m)<<"\n";        
+    }
+}

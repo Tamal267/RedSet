@@ -1,0 +1,110 @@
+#nav{
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+#grid
+{
+    -fx-background-color: linear-gradient(from 0% 0% to 25% 120%, #000000, #a9a9a9);
+}
+#btn {
+    -fx-background-color: Ash; /* Default background color */
+    -fx-padding: 10px 20px; /* Padding for the button */
+    -fx-text-fill: white; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-border-radius: 5px;
+}
+.pending_course{
+    -fx-background-image: url(pending-tasks.png);
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45% 45%;
+    -fx-background-color: #E9C99B;
+}
+.pending_course:hover{
+    -fx-background-color: #f1ac4a;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+.completed{
+    -fx-background-image: url(graduate.png);
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45% 45%;
+    -fx-background-color: #9CE99B;
+}
+.completed:hover{
+    -fx-background-color: #47be45;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+.watch_time{
+    -fx-background-image: url(video.png);
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45% 45%;
+    -fx-background-color:  #9BDEE9;
+}
+.watch_time:hover{
+    -fx-background-color: #378c98;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+.certificate{
+    -fx-background-image: url(certificate.png);
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45% 45%;
+  -fx-background-color:   #F2B3F5;
+}
+.certificate:hover{
+    -fx-background-color: #c551cb;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+
+.standing{
+    -fx-background-image: url(standing.png);
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45% 45%;
+    -fx-background-color:  #BCB3F5;
+}
+.standing:hover{
+    -fx-background-color: #7165c0;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+.logout{
+    -fx-background-color: transparent;
+}
+.logout:hover{
+    -fx-background-color: #de7862;
+}
+.logout:pressed{
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+.menu{
+    -fx-background-color:  #404A4D;
+}
+.menu:hover{
+    -fx-border-width: 0 4.5 0 0;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+    -fx-border-color: #3cefff;
+}
+.selected_menu{
+    -fx-effect: innershadow(gaussian, rgb(203, 201, 201), 3, 0.5, .75, .75);
+}
+.grid{
+
+}
+.grid:hover{
+    -fx-effect: innershadow(gaussian, rgb(203, 201, 201), 3, 0.25, .5, .5);
+}
+.study{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, repeat, #8c52ff, #5ce0e6);
+}
+

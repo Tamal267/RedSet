@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Lattice.Compiler">
+   <children>
+      <WebView fx:id="webview" layoutX="331.0" layoutY="93.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane prefHeight="650.0" prefWidth="200.0" style="-fx-background-color: #493259;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox layoutX="18.0" layoutY="14.0" prefHeight="40.0" prefWidth="164.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #08f4fc; -fx-border-width: 0 0 2 0; -fx-border-radius: 10;">
+                     <children>
+                        <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="45.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/plus1.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox layoutX="18.0" layoutY="116.0" prefHeight="113.0" prefWidth="164.0">
+               <children>
+                  <AnchorPane fx:id="problemsbtn" onMouseClicked="#problems" prefHeight="200.0" prefWidth="200.0" styleClass="menubar" stylesheets="@btn.css">
+                     <children>
+                        <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="45.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/problems.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Problems" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="menubar" stylesheets="@btn.css">
+                     <children>
+                        <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="45.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/compiler.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Compiler" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane fx:id="groupbtn" onMouseClicked="#group" prefHeight="200.0" prefWidth="200.0" styleClass="menubar" stylesheets="@btn.css">
+                     <children>
+                        <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="45.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/groups.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Groups" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+
+               </children>
+            </VBox>
+         </children></AnchorPane>
+      <GridPane layoutX="222.0" layoutY="42.0" prefHeight="499.0" prefWidth="630.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="235.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane fx:id="borderPane">
+               <bottom>
+                  <HBox prefHeight="0.0" prefWidth="365.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#chooseFile" text="Choose File">
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#run" text="Run">
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </bottom>
+               <top>
+                  <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="C++ code" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Input" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <TextArea fx:id="inputBox" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="20.0" />
+                           </BorderPane.margin>
+                        </TextArea>
+                     </center>
+                     <bottom>
+                        <HBox prefHeight="32.0" prefWidth="346.0" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="20.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <top>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Output" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <TextArea fx:id="outputBox" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="20.0" />
+                           </BorderPane.margin>
+                        </TextArea>
+                     </center>
+                  </BorderPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

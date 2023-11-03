@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="50.0" prefWidth="3500.0" style="-fx-background-radius: 7;" styleClass="HBox" stylesheets="@../CSS/button.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Ranking.sampleIndividualRankingController">
+   <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="363.199951171875" minWidth="0.0" prefWidth="121.86668090820312" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="342.9333190917969" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="375.0" minWidth="10.0" prefWidth="178.6666870117187" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="353.3333374023438" minWidth="10.0" prefWidth="187.73325195312498" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="228.6666259765626" minWidth="10.0" prefWidth="196.7999023437501" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="173.60009765625" minWidth="10.0" prefWidth="173.60009765625" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="rank" alignment="CENTER_RIGHT" text="01" textAlignment="CENTER" textFill="#4e0f0f">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" alignment="CENTER" maxHeight="52.0" text="Yusuf Reza Hasnat" textFill="#4e0f0f" GridPane.columnIndex="1">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="dept" alignment="CENTER" maxHeight="52.0" text="CSE" textFill="#4e0f0f" GridPane.columnIndex="2">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalSolve" alignment="CENTER" text="0000" textFill="#4e0f0f" GridPane.columnIndex="4">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="level" alignment="CENTER" maxHeight="52.0" text="02" textFill="#4e0f0f" GridPane.columnIndex="3">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="penalty" alignment="CENTER" text="0000000" textFill="#4e0f0f" GridPane.columnIndex="5">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Cambria" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>
