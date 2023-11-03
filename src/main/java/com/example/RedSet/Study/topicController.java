@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class studyController implements Initializable {
+public class topicController implements Initializable {
 
     @FXML
     private TilePane tilepane;

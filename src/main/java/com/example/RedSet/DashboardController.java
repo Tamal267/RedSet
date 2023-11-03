@@ -73,10 +73,13 @@ public class DashboardController implements Initializable {
     private GridPane watch;
 
     @FXML
+    private NumberAxis xAxis;
+
+    @FXML
     void activitiesBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) activities.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Activities/panel.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),1520,780);
+        Scene scene = new Scene(fxmlLoader.load(), 1520, 780);
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -95,7 +98,7 @@ public class DashboardController implements Initializable {
     void latticeBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),1520,780);
+        Scene scene = new Scene(fxmlLoader.load(), 1520, 780);
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -171,6 +174,7 @@ public class DashboardController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
+
     @FXML
     void solvedBtn(MouseEvent event) {
 
@@ -183,68 +187,72 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<String> timeInfo=new ArrayList<>();
+        xAxis.setTickLabelFormatter(new NumberAxis.DefaultFormatter(xAxis) {
+            @Override
+            public String toString(Number object) {
+                return String.format("%.0f", object);
+            }
+        });
+        List<String> timeInfo = new ArrayList<>();
         try {
-            Connection connection= DBconnect.getConnect();
+            Connection connection = DBconnect.getConnect();
             File file = new File("userinfo.txt");
             Scanner scc = new Scanner(file);
-            String usname=scc.next();
-            PreparedStatement preparedStatement=connection.prepareStatement("SELECT  * FROM `users` WHERE username='" + usname + "';");
+            String usname = scc.next();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM `users` WHERE username='" + usname + "';");
             ResultSet resultSet = preparedStatement.executeQuery();
             String user = null;
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 String timeDetails = resultSet.getString("time");
                 String[] finalTimeDetails = timeDetails.split("\\s+");
                 timeInfo.addAll(Arrays.asList(finalTimeDetails));
-                user=resultSet.getString("username");
+                user = resultSet.getString("username");
             }
-            XYChart.Series<Number,Number>last15days=new XYChart.Series<Number,Number>();
-            LocalDateTime localTime=LocalDateTime.now();
-            DateTimeFormatter dateformate = DateTimeFormatter.ofPattern("dd HH mm ss");
+            XYChart.Series<Number, Double> lastdays = new XYChart.Series<Number, Double>();
+            LocalDateTime localTime = LocalDateTime.now();
+            DateTimeFormatter dateformate = DateTimeFormatter.ofPattern("MM dd HH");
             String ans = localTime.format(dateformate);
             Scanner sc = new Scanner(ans);
-            System.out.println(ans);
+            int month = sc.nextInt();
             int day = sc.nextInt();
             int hour = sc.nextInt();
-            int min = sc.nextInt();
-            int sec = sc.nextInt();
-            last15days.setName("Activity of User for Last 15 days");
-            for(int i=1;i<16;i++)
-            {
-                int hours = Integer.parseInt(timeInfo.get(day));
-                last15days.getData().add(new XYChart.Data<>(16-i, hours));
+            lastdays.setName("Activity of " + usname + " for Last 30 days (Hour vs Day)");
+            for (int i = 1; i < 31; i++) {
+                double hours = Double.parseDouble(timeInfo.get(day));
+                lastdays.getData().add(new XYChart.Data<>(31 - i, hours));
                 day--;
-                if(day == 0)
-                    day=31;
+                if (day == 0) {
+                    day = switch (month) {
+                        case 1, 3, 5, 7, 8, 10, 12 -> 31;
+                        default -> 30;
+                    };
+                }
             }
-            area.getData().add(last15days);
+            area.getData().add(lastdays);
             pie.setData(creatingPieChart());
             Font labelFont = Font.font("MS Outlook", FontWeight.BOLD, 15);
-            if(hour>4 && hour<12)
-            {
-                String greet="Good Morning,";
-                greet+=user;
-                greet+="!";
+            if (hour > 4 && hour < 12) {
+                String greet = "Good Morning,";
+                greet += user;
+                greet += "!";
                 intro.setText(greet);
                 intro.setFont(labelFont);
-            } else if (hour>12 && hour<4) {
-                String greet="Good Afternoon,";
-                greet+=user;
-                greet+="!";
+            } else if (hour > 12 && hour < 4) {
+                String greet = "Good Afternoon,";
+                greet += user;
+                greet += "!";
                 intro.setText(greet);
                 intro.setFont(labelFont);
-            } else if (hour>4 && hour<7) {
-                String greet="Good Evening,";
-                greet+=user;
-                greet+="!";
+            } else if (hour > 4 && hour < 7) {
+                String greet = "Good Evening,";
+                greet += user;
+                greet += "!";
                 intro.setText(greet);
                 intro.setFont(labelFont);
-            }
-            else
-            {
-                String greet="Welcome Back,";
-                greet+=user;
-                greet+="!";
+            } else {
+                String greet = "Welcome Back,";
+                greet += user;
+                greet += "!";
                 intro.setText(greet);
                 intro.setFont(labelFont);
             }
@@ -254,12 +262,12 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-    private ObservableList<PieChart.Data>creatingPieChart()
-    {
-        ObservableList<PieChart.Data>pieDate= FXCollections.observableArrayList();
-        pieDate.add(new PieChart.Data("I",40));
-        pieDate.add(new PieChart.Data("C",30));
-        pieDate.add(new PieChart.Data("P",30));
+
+    private ObservableList<PieChart.Data> creatingPieChart() {
+        ObservableList<PieChart.Data> pieDate = FXCollections.observableArrayList();
+        pieDate.add(new PieChart.Data("I", 40));
+        pieDate.add(new PieChart.Data("C", 30));
+        pieDate.add(new PieChart.Data("P", 30));
         return pieDate;
     }
 }
