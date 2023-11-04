@@ -80,7 +80,7 @@ public class SampleProblem implements Initializable {
         fileWriter.write(infoprb.getUsers());
         fileWriter.close();
         Stage stage = (Stage) solve.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/topicproblem-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/individualProblemview.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
         stage.setTitle("LatticeLine");
