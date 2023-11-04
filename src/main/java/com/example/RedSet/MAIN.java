@@ -34,6 +34,7 @@ public class MAIN extends Application {
         }
         else{
             fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
+
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Dashboard");
             stage.setScene(scene);

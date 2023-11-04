@@ -1,5 +1,6 @@
 package com.example.RedSet.Study;
 
+import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.MAIN;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
@@ -17,7 +19,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class topicController implements Initializable {
 
@@ -26,30 +34,38 @@ public class topicController implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     String  topic, subtopic;
+    topicInfo info = topicInfo.getInstance();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tilepane.setMaxWidth(Region.USE_PREF_SIZE);
         scrollPane.setFitToWidth(true);
-        BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("Topic.txt"));
-            String line;
-            int i = 0;
-            while ((line = reader.readLine()) != null) {
-                if (i % 2 == 0) {
-                    topic = line;
-                } else {
-                    subtopic = line;
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("/com/example/RedSet/Study/sampleStudy.fxml"));
-                    AnchorPane box = fxmlLoader.load();
-                    sampleStudyController temp = fxmlLoader.getController();
-                    temp.setData(topic, subtopic + " problems");
-                    tilepane.getChildren().add(box);
+            Connection connection = DBconnect.getConnect();
+            String query = "SELECT * FROM studyTopic";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            String topicName, problemids;
+            while (resultSet.next()) {
+                topicName =  resultSet.getString("topicName");
+                problemids = resultSet.getString("problemids");
+                System.out.println(topicName);
+                int sz = 0;
+                Scanner sc = new Scanner(problemids);
+                while(sc.hasNext()) {
+                    String temp = sc.next();
+                    sz++;
                 }
-                i++;
+                FXMLLoader fxmlLoader =  new FXMLLoader(topicController.class.getResource("/com/example/RedSet/Study/sampleStudy.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                sampleStudyController sprb = fxmlLoader.getController();
+                sprb.setData(topicName, String.valueOf(sz), problemids);
+                tilepane.getChildren().add(anchorPane);
+                String finalTopicName = topicName;
+                info.setMainTopic(finalTopicName);
+                info.setSubTopic(problemids);
             }
-            reader.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

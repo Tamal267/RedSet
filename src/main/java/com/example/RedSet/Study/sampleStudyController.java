@@ -24,17 +24,33 @@ public class sampleStudyController {
     private Button video;
     @FXML
     private ImageView image;
-    public String mntopic;
 
-    public void setData(String mn, String sb){
+
+    public String mntopic, problemids;
+
+    topicInfo info = topicInfo.getInstance();
+
+    public void setData(String mn, String sb, String problemIds){
         mainTopic.setText(mn);
         mntopic = mn;
         subTopic.setText(sb);
+        problemids = problemIds;
     }
 
     @FXML
     void videoBtn(MouseEvent event) throws IOException {
-        openWebpage.open("www.github.com/hasnat0006");
+        try {
+            info.setMainTopic(mntopic);
+            info.setSubTopic(problemids);
+            Stage stage = (Stage) video.getScene().getWindow();
+            FXMLLoader fxmlLoader1 = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/problem.fxml"));
+            Scene scene = new Scene(fxmlLoader1.load());
+            stage.setScene(scene);
+            stage.setTitle("LatticeLine");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

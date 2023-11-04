@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane prefHeight="45.0" prefWidth="2000.0" style="-fx-background-color: #abb;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.SampleProblem">
+  <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="serial" text="Label">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="problemName" text="Label" GridPane.columnIndex="1">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="freq" text="Label" GridPane.columnIndex="4">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="solve" mnemonicParsing="false" onMouseClicked="#solveBtn" style="-fx-background-color: transparent;" text="Button" GridPane.columnIndex="2">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="solution" mnemonicParsing="false" onMouseClicked="#solutionBtn" style="-fx-background-color: transparent;" text="Button" GridPane.columnIndex="3">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</GridPane>
