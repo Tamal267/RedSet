@@ -87,6 +87,19 @@ public class Assign extends editorUI implements Initializable {
     @FXML
     private BorderPane borderPane;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 
     @FXML
     void problems(MouseEvent event) throws IOException {

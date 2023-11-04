@@ -61,6 +61,10 @@ public class CrtProblem implements Initializable {
     String id, users, txt, acceptedCode, inp = "", timelimit;
 
     @FXML
+    private AnchorPane redsetbtn;
+
+
+    @FXML
     void nxtInput(MouseEvent event) {
         inp += encodeDecode.encode(inputBox.getText()) + " ";
         inputBox.setText("");
@@ -80,6 +84,16 @@ public class CrtProblem implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("compiler-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }

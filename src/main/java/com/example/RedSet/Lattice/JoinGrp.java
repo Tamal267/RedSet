@@ -37,6 +37,19 @@ public class JoinGrp implements Initializable {
     private TextArea gpBox;
 
     @FXML
+    private AnchorPane redsetbtn;
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+    @FXML
     void crtGroup(MouseEvent event) throws FileNotFoundException, SQLException {
         File file = new File("userinfo.txt");
         Scanner sc = new Scanner(file);

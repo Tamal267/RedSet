@@ -63,6 +63,10 @@ public class CrtConPrb {
 
     String id, users, txt, acceptedCode, inp = "", timelimit;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
     contestInfo info = contestInfo.getInstance();
 
     @FXML
@@ -127,7 +131,7 @@ public class CrtConPrb {
         }
         try {
             preparedStatement.executeUpdate();
-            status.setText("Passed");
+            showErrMsg.msg(status, "Passed");
         } catch (SQLException e) {
             showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
@@ -161,6 +165,16 @@ public class CrtConPrb {
         System.out.println(info.getContestName());
         Stage stage = (Stage) backbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);

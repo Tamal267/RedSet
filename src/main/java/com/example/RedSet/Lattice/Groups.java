@@ -49,6 +49,10 @@ public class Groups implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+
+    @FXML
+    private AnchorPane redsetbtn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         WebEngine webengine = webview.getEngine();
@@ -249,6 +253,16 @@ public class Groups implements Initializable {
     void problems(MouseEvent event) throws IOException {
         Stage stage = (Stage) problemsbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);

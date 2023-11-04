@@ -47,6 +47,10 @@ public class ShowContests implements Initializable {
     @FXML
     private TilePane tilePane;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
     startEndTime stend = startEndTime.getInstance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -287,4 +291,13 @@ public class ShowContests implements Initializable {
         stage.setScene(scene);
     }
 
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 }

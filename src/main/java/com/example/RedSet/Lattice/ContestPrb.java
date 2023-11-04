@@ -74,6 +74,10 @@ public class ContestPrb extends editorUI implements Initializable {
     @FXML
     private TextArea text;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
 
     FileChooser fileChooser = new FileChooser();
 
@@ -85,6 +89,9 @@ public class ContestPrb extends editorUI implements Initializable {
 
     @FXML
     private BorderPane borderPane;
+
+    @FXML
+    private Button statusbtn;
 
 
     String curUser = "";        //login user
@@ -295,8 +302,8 @@ public class ContestPrb extends editorUI implements Initializable {
     }
 
     @FXML
-    void Status(MouseEvent event) throws IOException {
-        Stage stage = (Stage) statusbtns.getScene().getWindow();
+    void status(MouseEvent event) throws IOException {
+        Stage stage = (Stage) statusbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("status-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
@@ -307,6 +314,16 @@ public class ContestPrb extends editorUI implements Initializable {
     void accepted(MouseEvent event) throws IOException {
         Stage stage = (Stage) acceptedbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("accepted-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
@@ -408,5 +425,24 @@ public class ContestPrb extends editorUI implements Initializable {
         }
         curUser = cuSc.next();
         borderPane.setCenter(codeArea);
+
+
+        String duration = stend.getEnd();
+
+        Scanner sc = new Scanner(duration);
+        String year = sc.next();
+        String month = sc.next();
+        String day = sc.next();
+        String hour = sc.next();
+        String min = sc.next();
+        String sec = sc.next();
+
+        LocalDateTime date1 = LocalDateTime.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), Integer.parseInt(hour), Integer.parseInt(min), Integer.parseInt(sec));
+        LocalDateTime date2 = LocalDateTime.now();
+
+        if(date2.isAfter(date1)) {
+            statusbtns.setVisible(true);
+        }
+
     }
 }

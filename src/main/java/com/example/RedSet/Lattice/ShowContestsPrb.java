@@ -60,6 +60,10 @@ public class ShowContestsPrb implements Initializable {
     @FXML
     private Button rankbtn;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tilePane.setMaxWidth(Region.USE_PREF_SIZE);
@@ -326,4 +330,13 @@ public class ShowContestsPrb implements Initializable {
         stage.setScene(scene);
     }
 
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 }

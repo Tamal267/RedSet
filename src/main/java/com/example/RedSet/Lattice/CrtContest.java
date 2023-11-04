@@ -57,6 +57,10 @@ public class CrtContest implements Initializable{
     @FXML
     private Text status;
 
+    @FXML
+    private AnchorPane redsetbtn;
+
+
     String contestName = "", startTime = "", duration = "", problemsId = "", gpname = "";
 
     contestInfo info = contestInfo.getInstance();
@@ -113,6 +117,16 @@ public class CrtContest implements Initializable{
         System.out.println(contestName + " " + startTime + " " + duration + " " + problemsId);
         Stage stage = (Stage) addbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtconprb-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);

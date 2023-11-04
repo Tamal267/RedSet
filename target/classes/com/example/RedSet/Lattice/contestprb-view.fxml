@@ -22,7 +22,7 @@
             <children>
                 <VBox layoutX="18.0" layoutY="14.0" prefHeight="40.0" prefWidth="164.0">
                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #08f4fc; -fx-border-width: 0 0 2 0; -fx-border-radius: 10;">
+                        <AnchorPane fx:id="redsetbtn" onMouseClicked="#redset" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #08f4fc; -fx-border-width: 0 0 2 0; -fx-border-radius: 10;">
                             <children>
                                 <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
                                     <columnConstraints>
@@ -38,7 +38,7 @@
                                                 <Image url="@icons/plus1.png" />
                                             </image>
                                         </ImageView>
-                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" GridPane.columnIndex="1" />
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="RedSet" GridPane.columnIndex="1" />
                                     </children>
                                 </GridPane>
                             </children>
@@ -116,7 +116,14 @@
         <AnchorPane layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox layoutX="6.0" layoutY="600.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <HBox fx:id="statusbtns" layoutY="542.0" prefHeight="50.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
+            <HBox fx:id="statusbtns" layoutY="542.0" prefHeight="50.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0">
+               <children>
+                  <Button fx:id="statusbtn" mnemonicParsing="false" onMouseClicked="#status" styleClass="back" stylesheets="@btn.css" text="Status">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children></HBox>
             <HBox alignment="TOP_RIGHT" layoutX="320.0" layoutY="485.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Button fx:id="backbtn" mnemonicParsing="false" onMouseClicked="#back" styleClass="back" stylesheets="@btn.css" text="Back">

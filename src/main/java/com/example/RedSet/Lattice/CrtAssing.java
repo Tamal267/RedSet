@@ -66,6 +66,10 @@ public class CrtAssing implements Initializable {
     String id, users, txt, acceptedCode, inp = "", timelimit;
 
     @FXML
+    private AnchorPane redsetbtn;
+
+
+    @FXML
     void nxtInput(MouseEvent event) {
         inp += encodeDecode.encode(inputBox.getText()) + " ";
         inputBox.setText("");
@@ -126,7 +130,7 @@ public class CrtAssing implements Initializable {
         }
         try {
             preparedStatement.executeUpdate();
-            status.setText("Assignment Passed");
+            showErrMsg.msg(status, "Assignment Passed");
         } catch (SQLException e) {
             showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
@@ -155,6 +159,16 @@ public class CrtAssing implements Initializable {
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) backbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("eachgroup-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+
+    @FXML
+    void redset(MouseEvent event) throws IOException {
+        Stage stage = (Stage) redsetbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
