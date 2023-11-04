@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Lattice.Members">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Lattice.ShowContestsUpcoming">
     <children>
         <WebView fx:id="webview" layoutX="180.0" layoutY="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
         <AnchorPane prefHeight="650.0" prefWidth="200.0" style="-fx-background-color: #493259;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -48,7 +47,7 @@
                 </VBox>
                 <VBox layoutX="18.0" layoutY="116.0" prefHeight="113.0" prefWidth="164.0">
                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="menubar" stylesheets="@btn.css">
+                        <AnchorPane fx:id="problemsbtn" onMouseClicked="#problems" prefHeight="200.0" prefWidth="200.0" styleClass="menubar" stylesheets="@btn.css">
                             <children>
                                 <GridPane layoutX="10.0" layoutY="7.0" prefHeight="29.0" prefWidth="145.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="7.0">
                                     <columnConstraints>
@@ -115,12 +114,13 @@
                 </VBox>
             </children></AnchorPane>
       <HBox layoutX="634.0" layoutY="550.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" />
-      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="212.0" prefHeight="501.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <HBox fx:id="teacherbtns" layoutX="202.0" layoutY="544.0" prefHeight="50.0" prefWidth="615.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="212.0" prefHeight="501.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-              <TilePane fx:id="tilePane" style="-fx-background-color: transparent;" />
+              <TilePane fx:id="tilePane" prefWidth="3000.0" style="-fx-background-color: transparent;" />
          </content>
       </ScrollPane>
-      <HBox alignment="TOP_RIGHT" layoutX="815.0" layoutY="550.0" prefHeight="50.0" prefWidth="85.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="TOP_RIGHT" layoutX="815.0" layoutY="550.0" prefHeight="50.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button fx:id="backbtn" mnemonicParsing="false" onMouseClicked="#back" styleClass="back" stylesheets="@btn.css" text="Back">
                <HBox.margin>
@@ -129,22 +129,5 @@
             </Button>
          </children>
       </HBox>
-      <GridPane fx:id="makeTeacherGrid" layoutX="230.0" layoutY="5.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextArea fx:id="userbox" prefHeight="200.0" prefWidth="200.0" promptText="Enter Username" />
-            <Button mnemonicParsing="false" onMouseClicked="#maketeacher" styleClass="assign" stylesheets="@btn.css" text="Make Teacher" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Button>
-         </children>
-      </GridPane>
     </children>
 </AnchorPane>

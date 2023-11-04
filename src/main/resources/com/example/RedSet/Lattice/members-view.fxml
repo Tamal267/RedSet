@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -114,7 +115,7 @@
                 </VBox>
             </children></AnchorPane>
       <HBox layoutX="634.0" layoutY="550.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" />
-      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="212.0" prefHeight="501.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="212.0" prefHeight="501.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <content>
               <TilePane fx:id="tilePane" style="-fx-background-color: transparent;" />
          </content>
@@ -128,5 +129,22 @@
             </Button>
          </children>
       </HBox>
+      <GridPane fx:id="makeTeacherGrid" layoutX="230.0" layoutY="5.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" visible="false" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextArea fx:id="userbox" prefHeight="200.0" prefWidth="200.0" promptText="Enter Username" />
+            <Button mnemonicParsing="false" onMouseClicked="#maketeacher" styleClass="assign" stylesheets="@btn.css" text="Make Teacher" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>

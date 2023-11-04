@@ -98,7 +98,8 @@ public class DashboardController implements Initializable {
     void latticeBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1520, 780);
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -181,8 +182,13 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void contestBtn(MouseEvent event) {
-
+    void contestBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @Override

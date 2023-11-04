@@ -75,8 +75,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D; -fx-scale-x: 1.04; -fx-scale-y: 1.04;" styleClass="selected_menu" stylesheets="@CSS/dash.css" text="DASHBOARD" textFill="#bebebe" GridPane.columnIndex="1">
@@ -105,7 +103,7 @@
                         <Image url="@../PIC/open-book.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="lattice" mnemonicParsing="false" onMouseClicked="#latticeBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@CSS/dash.css" text="LATTICE" textAlignment="RIGHT" textFill="#bebebe" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="lattice" mnemonicParsing="false" onMouseClicked="#latticeBtn" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@CSS/dash.css" text="LATTICELINE" textAlignment="RIGHT" textFill="#bebebe" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Cambria Bold" size="16.0" />
                      </font>
@@ -131,29 +129,6 @@
                         <Image url="@../PIC/scroll (1).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="rank" mnemonicParsing="false" onMouseClicked="#rankBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@CSS/dash.css" text="RANKING" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Cambria Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Button>
-                  <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
-                     <image>
-                        <Image url="@../PIC/ranking (2).png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
-                     <image>
-                        <Image url="@../PIC/clipboard.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="activities" mnemonicParsing="false" onMouseClicked="#activitiesBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@CSS/dash.css" text="ACTIVITES" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Cambria Bold" size="16.0" />
-                     </font>
-                  </Button>
                </children>
             </GridPane>
          </children>

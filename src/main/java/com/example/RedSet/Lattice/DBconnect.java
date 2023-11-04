@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBconnect {
-    private static final String url = "jdbc:mysql://localhost:3306/lattice";
+    private static final String url = "jdbc:mysql://localhost:3306/lattice;encrypt=true;integratedSecurity=true;";
 
     private static final String username = "eagle";
     private static final String password = "eagle";

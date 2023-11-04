@@ -7,7 +7,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -19,18 +18,20 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class Members implements Initializable {
+public class ShowContestsUpcoming implements Initializable {
     @FXML
     private AnchorPane compilerbtn;
 
@@ -47,84 +48,14 @@ public class Members implements Initializable {
     private TilePane tilePane;
 
     @FXML
-    private Button backbtn;
-
-    @FXML
     private AnchorPane redsetbtn;
 
-    @FXML
-    private TextArea userbox;
 
-    @FXML
-    private GridPane makeTeacherGrid;
-
-    String gpname;
-
-
-    @FXML
-    void maketeacher(MouseEvent event) throws SQLException {
-        String givenUsr = userbox.getText();
-        Connection connection = DBconnect.getConnect();
-        String query = "SELECT * FROM `gp` WHERE name='" + gpname + "';";
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        while(resultSet.next()){
-            String stdents = resultSet.getString("stdents");
-            String teachers = resultSet.getString("teachers");
-            int flag = 0;
-            Scanner sc = new Scanner(stdents);
-            String updateSt = "";
-            while (sc.hasNext()){
-                String aname = sc.next();
-                if(Objects.equals(aname, givenUsr)){
-                    flag = 1;
-                    continue;
-                }
-                updateSt += aname;
-            }
-            if(flag == 1){
-                teachers += " " + givenUsr;
-                stdents = updateSt;
-                query = "UPDATE `gp` SET teachers='" + teachers + "', stdents='" + updateSt + "' WHERE name='" + gpname + "';";
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.executeUpdate();
-                stdents = stdents.replace(' ', '\n');
-                teachers = teachers.replace(' ', '\n');
-                tilePane.getChildren().clear();
-                for (int i=1;i<=2;i++) {
-                    BorderPane borderPane = new BorderPane();
-                    Text txt = new Text();
-                    if (i == 1) txt.setText("Students\n\n" + stdents);
-                    else txt.setText("Teachers\n\n" + teachers);
-//                txt.setStyle("-fx-font-size: 30");
-//                txt.setWrappingWidth(250);
-                    borderPane.setId(gpname);
-                    ScrollPane scrollPane1 = new ScrollPane();
-                    scrollPane1.setContent(txt);
-                    scrollPane1.setMaxSize(300, 600);
-                    scrollPane1.setMinSize(300, 600);
-                    txt.setFill(Color.WHITE);
-                    txt.setTextAlignment(TextAlignment.CENTER);
-                    txt.wrappingWidthProperty().bind(scrollPane1.widthProperty());
-                    scrollPane1.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE; -fx-background-color:  transparent; -fx-background: transparent;");
-                    scrollPane1.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                    scrollPane1.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                    BorderPane.setMargin(scrollPane1, new Insets(20));
-                    borderPane.setCenter(scrollPane1);
-                    borderPane.setMaxSize(320, 620);
-                    borderPane.setMinSize(320, 620);
-                    tilePane.getChildren().add(borderPane);
-                }
-            }
-            else{
-                userbox.setText("Username not found");
-            }
-        }
-    }
-
+    startEndTime stend = startEndTime.getInstance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tilePane.setMaxWidth(Region.USE_PREF_SIZE);
+        scrollPane.setFitToWidth(true);
         WebEngine webengine = webview.getEngine();
 
         String htmlContent = "<!DOCTYPE html>\n" +
@@ -192,9 +123,6 @@ public class Members implements Initializable {
         webengine.loadContent(htmlContent);
 
 
-        tilePane.setMaxWidth(Region.USE_PREF_SIZE);
-        scrollPane.setFitToWidth(true);
-
         File file = new File("userinfo.txt");
         Scanner usinf = null;
         try {
@@ -205,68 +133,104 @@ public class Members implements Initializable {
         String usname = usinf.next();
         String username = new String();
         String connect = new String();
-        file = new File("groupname.txt");
+        File file1 = new File("groupname.txt");
+        Scanner gpsc = null;
         try {
-            usinf = new Scanner(file);
+            gpsc = new Scanner(file1);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        gpname = usinf.next();
-        String stdents = new String();
-        String teachers = new String();
+        String gpname = gpsc.next();
+        String contestName = new String();
+        String startTime = new String();
+        String duration = new String();
+        String problemsIds = new String();
+        String ranking = new String();
+        String users = new String();
         ArrayList<assignMent> assignments = new ArrayList<>();
         try {
             Connection connection = DBconnect.getConnect();
-            String query = "SELECT * FROM `gp` WHERE name='" + gpname + "'";
+            String query = "SELECT * FROM `contest`;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet =  preparedStatement.executeQuery();
 
             while(resultSet.next()){
-                stdents = resultSet.getString("stdents");
-                teachers = resultSet.getString("teachers");
-                stdents = stdents.replace(' ', '\n');
-                teachers = teachers.replace(' ', '\n');
-            }
-            for (int i=1;i<=2;i++) {
-                BorderPane borderPane = new BorderPane();
-                Text txt = new Text();
-                if(i == 1) txt.setText("Students\n\n" + stdents);
-                else txt.setText("Teachers\n\n" + teachers);
+                contestName = resultSet.getString("contestName");
+                startTime = resultSet.getString("startTime");
+
+                stend.setContestName(contestName);
+                stend.setStart(startTime);
+
+                Scanner sc = new Scanner(startTime);
+                String year = sc.next(), month = sc.next(), day = sc.next(), hour = sc.next(), min = sc.next(), sec = sc.next();
+                String startTimecon = year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec;
+
+                duration = resultSet.getString("duration");
+
+                sc = new Scanner(duration);
+                year = sc.next();
+                month = sc.next();
+                day = sc.next();
+                hour = sc.next();
+                min = sc.next();
+                sec = sc.next();
+                String durationcon =  year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec;
+                stend.setEnd(duration);
+                String msg = "";
+                LocalDateTime chk = LocalDateTime.now();
+                DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss");
+                String nowstr = chk.format(fmt);
+                if(startTime.compareTo(nowstr) > 0) {
+                    msg = "Upcoming...";
+                    problemsIds = resultSet.getString("problemsIds");
+                    ranking = resultSet.getString("ranking");
+                    String showText = contestName + "\n" + startTimecon + "\n" + durationcon + "\n" + msg;
+                    BorderPane borderPane = new BorderPane();
+                    Text txt = new Text();
+                    txt.setText(showText);
 //                txt.setStyle("-fx-font-size: 30");
 //                txt.setWrappingWidth(250);
-                borderPane.setId(gpname);
-                ScrollPane scrollPane1 = new ScrollPane();
-                scrollPane1.setContent(txt);
-                scrollPane1.setMaxSize(300, 600);
-                scrollPane1.setMinSize(300, 600);
-                txt.setFill(Color.WHITE);
-                txt.setTextAlignment(TextAlignment.CENTER);
-                txt.wrappingWidthProperty().bind(scrollPane1.widthProperty());
-                scrollPane1.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE; -fx-background-color:  transparent; -fx-background: transparent;");
-                scrollPane1.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                scrollPane1.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                BorderPane.setMargin(scrollPane1, new Insets(20));
-                borderPane.setCenter(scrollPane1);
-                borderPane.setMaxSize(320, 620);
-                borderPane.setMinSize(320, 620);
-                tilePane.getChildren().add(borderPane);
+                    borderPane.setId(contestName);
+                    StackPane stackPane = new StackPane();
+                    String finalProblemsIds = problemsIds;
+                    stackPane.setOnMouseClicked(e -> {
+                        try {
+                            FileWriter fileWriter = new FileWriter("problem.txt");
+                            fileWriter.write(finalProblemsIds);
+                            fileWriter.close();
+                            Stage stage = (Stage) borderPane.getScene().getWindow();
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showcontestsprb-view.fxml"));
+                            Scene scene = new Scene(fxmlLoader.load());
+                            stage.setTitle("LatticeLine");
+                            stage.setScene(scene);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    });
+                    stackPane.getChildren().add(txt);
+                    stackPane.setMaxSize(300, 300);
+                    stackPane.setMinSize(300, 300);
+                    txt.setTextAlignment(TextAlignment.CENTER);
+                    txt.wrappingWidthProperty().bind(stackPane.widthProperty());
+                    txt.setFill(Color.WHITE);
+                    stackPane.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
+                    stackPane.setOnMouseEntered(e -> {
+                        stackPane.setStyle("-fx-background-radius: 10 10 30 10; -fx-border-radius: 10 10 30 10; -fx-border-width: 2; -fx-border-color: YELLOW;");
+                    });
+                    stackPane.setOnMouseExited(e -> {
+                        stackPane.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
+                    });
+                    BorderPane.setMargin(stackPane, new Insets(20));
+                    borderPane.setCenter(stackPane);
+                    borderPane.setMaxSize(320, 320);
+                    borderPane.setMinSize(320, 320);
+                    tilePane.getChildren().add(borderPane);
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        File fl = new File("isteacher.txt");
-        Scanner scT = null;
-        try {
-            scT = new Scanner(fl);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        String fndTch = scT.next();
-        if (Objects.equals(fndTch, "teacher")) {
-            makeTeacherGrid.setVisible(true);
-        } else {
-            makeTeacherGrid.setVisible(false);
-        }
+
     }
 
     @FXML
@@ -278,7 +242,16 @@ public class Members implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
+    @FXML
+    private AnchorPane problemsbtn;
+    @FXML
+    void problems(MouseEvent event) throws IOException {
+        Stage stage = (Stage) problemsbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 
     @FXML
     void group(MouseEvent event) throws IOException {
@@ -288,6 +261,9 @@ public class Members implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
+
+    @FXML
+    private Button backbtn;
 
     @FXML
     void back(MouseEvent event) throws IOException {
