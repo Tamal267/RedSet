@@ -11,3 +11,13 @@
 * Showing members and teachers of a group
 * Teachers can add a user as teacher from the group
 * And more
+
+#### Problem Section
+
+![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems.png?raw=true)
+
+It is global problem section. Any user can solve a problem.
+
+![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems.png?raw=true)
+
+Compiler shows output including time and memory. You can choose a file to compile from choose button.
