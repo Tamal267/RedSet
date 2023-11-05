@@ -82,7 +82,7 @@
                        </Button>
                        <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                            <image>
-                               <Image url="@../../PIC/scroll.png" />
+                               <Image url="@../../PIC/scroll (1).png" />
                            </image>
                        </ImageView>
                        <Button fx:id="dashboard" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#dashboardBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D; -fx-scale-x: 1.04; -fx-scale-y: 1.04;" styleClass="menu" text="DASHBOARD" textFill="#bebebe" GridPane.columnIndex="1">
