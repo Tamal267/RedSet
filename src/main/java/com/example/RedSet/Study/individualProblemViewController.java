@@ -1,6 +1,7 @@
 package com.example.RedSet.Study;
 
 import com.example.RedSet.Lattice.*;
+import com.example.RedSet.MAIN;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,32 +96,66 @@ public class individualProblemViewController extends editorUI implements Initial
     private TextArea text;
 
     @FXML
-    void backBtn(MouseEvent event) {
+    void backBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Study/problem.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void contestBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void dashboardBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
     @FXML
-    void contestBtn(MouseEvent event) {
+    void latticeBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
     @FXML
-    void dashboardBtn(MouseEvent event) {
+    void logoutBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) logout.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Ranking");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
     @FXML
-    void latticeBtn(MouseEvent event) {
-
-    }
-
-    @FXML
-    void logoutBtn(MouseEvent event) {
-
-    }
-
-    @FXML
-    void profileBtn(MouseEvent event) {
+    void profileBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) profile.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Ranking");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 

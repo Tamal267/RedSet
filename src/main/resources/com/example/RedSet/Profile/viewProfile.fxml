@@ -42,8 +42,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Button fx:id="dashboard" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#dashboardBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@../CSS/dash.css" text="DASHBOARD" textFill="#bebebe" GridPane.columnIndex="1">
@@ -98,42 +96,25 @@
                         <Image url="@../../PIC/scroll (1).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="rank" mnemonicParsing="false" onMouseClicked="#rankBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@../CSS/dash.css" text="RANKING" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Cambria Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Button>
-                  <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
-                     <image>
-                        <Image url="@../../PIC/ranking (2).png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
-                     <image>
-                        <Image url="@../../PIC/clipboard.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="activities" mnemonicParsing="false" onMouseClicked="#activitiesBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@../CSS/dash.css" text="ACTIVITES" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Cambria Bold" size="16.0" />
-                     </font>
-                  </Button>
                </children>
             </GridPane>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="255.0" layoutY="213.0" prefHeight="780.0" prefWidth="1298.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="194.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../PIC/User.png" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane maxHeight="176.0" minHeight="150.0" prefHeight="176.0" prefWidth="198.0">
+                     <children>
+                        <Circle fx:id="in" fill="DODGERBLUE" layoutX="98.0" layoutY="82.0" radius="98.0" stroke="#e85900" strokeType="INSIDE" strokeWidth="4.0" style="-fx-fill: transparent; -fx-stroke-dash-array: 25;" />
+                        <ImageView fitHeight="159.0" fitWidth="172.0" layoutX="23.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../PIC/User.png" />
+                           </image>
+                        </ImageView>
+                        <Circle fx:id="out" fill="DODGERBLUE" layoutX="98.0" layoutY="82.0" radius="110.0" stroke="#ea0000" strokeType="INSIDE" strokeWidth="4.0" style="-fx-fill: transparent; -fx-stroke-dash-array: 15;" />
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
             <GridPane hgap="100.0" layoutX="253.0" layoutY="228.0" prefHeight="554.0" prefWidth="1220.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="225.0">
@@ -162,7 +143,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="fullname" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="Yusuf Reza Hasnat" GridPane.rowIndex="1">
+                  <TextField fx:id="fullname" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="Yusuf Reza Hasnat" GridPane.rowIndex="1">
                      <font>
                         <Font name="MS Outlook" size="24.0" />
                      </font>
@@ -206,7 +187,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="level" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="02" GridPane.rowIndex="7">
+                  <TextField fx:id="level" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="02" GridPane.rowIndex="7">
                      <font>
                         <Font name="MS Outlook" size="24.0" />
                      </font>
@@ -219,7 +200,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="phone" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="01790879452" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="phone" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="01790879452" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font name="MS Outlook" size="24.0" />
                      </font>
@@ -232,7 +213,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="email" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="yusufrezahasnat0006@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="email" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="yusufrezahasnat0006@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="MS Outlook" size="24.0" />
                      </font>
@@ -247,7 +228,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <Button fx:id="edit" alignment="CENTER" maxHeight="42.0" mnemonicParsing="false" onMouseClicked="#editBtn" prefHeight="42.0" prefWidth="100.0" styleClass="save" stylesheets="@emni.css" text="EDIT">
+                        <Button fx:id="edit" alignment="CENTER" maxHeight="42.0" mnemonicParsing="false" onMouseClicked="#editBtn" prefHeight="42.0" prefWidth="100.0" styleClass="save" stylesheets="@profile.css" text="EDIT">
                            <font>
                               <Font name="MS Outlook" size="19.0" />
                            </font>
