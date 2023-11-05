@@ -157,6 +157,7 @@ public class ContestPrb extends editorUI implements Initializable {
 //        outputBox.clear();
 //        outputBox.appendText(out);
 
+        outBox.clear();
         Connection connection1 = DBconnect.getConnect();
         String query1 = "SELECT * FROM `contest` WHERE contestName='" + stend.getContestName() + "'";
         PreparedStatement preparedStatement1 = connection1.prepareStatement(query1);

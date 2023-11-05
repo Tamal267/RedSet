@@ -180,6 +180,7 @@ public class Compiler extends editorUI implements Initializable {
 //        String out = CppCompiler.compileAndRunFromFile(codeBox.getText(), inputBox.getText());
 //        outputBox.clear();
 //        outputBox.appendText(out);
+        outputBox.clear();
         String encodedCode = Base64.getEncoder().encodeToString(codeArea.getText().getBytes());
         String encodedInput = Base64.getEncoder().encodeToString(inputBox.getText().getBytes());
         Map<String, String> map = CompilerOnline.compile(encodedCode, encodedInput, "cpp", "1");

@@ -114,12 +114,11 @@ public class CrtConPrb {
         Scanner sc = new Scanner(file);
         String gpname = sc.next();
         String insertStr = "'" + id + "', '" + txt + "', '" + acceptedCode + "', '" + inp + "', '" + users + "', '" + timelimit + "'";
-        System.out.println(insertStr);
-        System.out.println(insertStr);
         Connection connection = null;
         try {
             connection = DBconnect.getConnect();
         } catch (SQLException e) {
+            System.out.println("Database Error");
             throw new RuntimeException(e);
         }
         String query = "INSERT INTO `conProb` VALUES (" + insertStr + ");";
@@ -132,14 +131,13 @@ public class CrtConPrb {
         try {
             preparedStatement.executeUpdate();
             showErrMsg.msg(status, "Passed");
+            inp = "";
         } catch (SQLException e) {
             showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
         String ids = info.getProblemsIds();
         ids += " " + encodeDecode.encode(id);
-        System.out.println(ids);
         info.setProblemsIds(ids);
-        inp = "";
     }
     @FXML
     void chooseFile(MouseEvent event) throws FileNotFoundException {

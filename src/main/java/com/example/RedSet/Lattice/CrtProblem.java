@@ -123,6 +123,7 @@ public class CrtProblem implements Initializable {
             preparedStatement = connection.prepareStatement(query);
         } catch (SQLException e) {
             status.setText("An error occured. Duplication may occur. Check it.");
+            inp = "";
         }
         try {
             preparedStatement.executeUpdate();
@@ -130,7 +131,6 @@ public class CrtProblem implements Initializable {
         } catch (SQLException e) {
             status.setText("An error occured. Duplication may occur. Check it.");
         }
-        inp = "";
     }
     @FXML
     void chooseFile(MouseEvent event) throws FileNotFoundException {

@@ -68,8 +68,6 @@ public class CompilerOnline {
 
             if(output != null) output = output.substring(1, output.length() - 3);
 
-            System.out.println(output);
-
             String encodeOut = "";
             int flag = 1;
             String dOut = "";

@@ -131,10 +131,10 @@ public class CrtAssing implements Initializable {
         try {
             preparedStatement.executeUpdate();
             showErrMsg.msg(status, "Assignment Passed");
+            inp = "";
         } catch (SQLException e) {
             showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
-        inp = "";
     }
     @FXML
     void chooseFile(MouseEvent event) throws FileNotFoundException {

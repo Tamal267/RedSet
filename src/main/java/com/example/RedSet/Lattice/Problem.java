@@ -154,6 +154,7 @@ public class Problem extends editorUI implements Initializable {
 //        outputBox.clear();
 //        outputBox.appendText(out);
 
+        outBox.clear();
         LocalDateTime tmm = LocalDateTime.now();
         DateTimeFormatter pat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String time = tmm.format(pat);

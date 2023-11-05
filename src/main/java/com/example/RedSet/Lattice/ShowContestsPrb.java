@@ -265,7 +265,6 @@ public class ShowContestsPrb implements Initializable {
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e->{
             LocalDateTime date2 = LocalDateTime.now();
-            System.out.println(date1 + " " + date2);
             h = ChronoUnit.HOURS.between(date2, date1);
             m = ChronoUnit.MINUTES.between(date2, date1);
             s = ChronoUnit.SECONDS.between(date2, date1);

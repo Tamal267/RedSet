@@ -154,10 +154,9 @@ public class Assign extends editorUI implements Initializable {
     void run(MouseEvent event) throws IOException, SQLException {
 //        outputBox.setWrapText(true);
 //        String out = CppCompiler.compileAndRunFromFile(codeBox.getText(), inputBox.getText());
-//        outputBox.clear();
 //        outputBox.appendText(out);
 
-
+        outBox.clear();
         LocalDateTime tmm = LocalDateTime.now();
         DateTimeFormatter pat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String time = tmm.format(pat);
