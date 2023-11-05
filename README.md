@@ -1,5 +1,5 @@
 
-#### Features of Latticeline
+### Features of Latticeline
 
 * Solving Problem from problem section
 * Create Group, Join Group

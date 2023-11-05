@@ -114,7 +114,6 @@ public class CrtAssing implements Initializable {
         Scanner sc = new Scanner(file);
         String gpname = sc.next();
         String insertStr = "'" + gpname + "', '" + txt + "', '" + acceptedCode + "', '" + inp + "', '" + id + "', '" + users + "', '" + timelimit + "'";
-        System.out.println(insertStr);
         Connection connection = null;
         try {
             connection = DBconnect.getConnect();

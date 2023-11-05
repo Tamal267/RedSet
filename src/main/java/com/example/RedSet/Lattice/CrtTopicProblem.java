@@ -133,9 +133,9 @@ public class CrtTopicProblem implements Initializable {
             status.setText("Assignment Passed");
         } catch (SQLException e) {
             status.setText("An error occured. Duplication may occur. Check it.");
+            inp = "";
         }
         System.out.println(encodeDecode.encode(id));
-        inp = "";
     }
     @FXML
     void chooseFile(MouseEvent event) throws FileNotFoundException {

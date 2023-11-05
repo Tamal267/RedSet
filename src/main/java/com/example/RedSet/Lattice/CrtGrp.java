@@ -42,6 +42,16 @@ public class CrtGrp implements Initializable {
 
     @FXML
     void crtGroup(MouseEvent event) throws FileNotFoundException, SQLException {
+        Scanner scg = new Scanner(gpBox.getText());
+        int cnt = 0;
+        while(scg.hasNext()){
+            String temp = scg.next();
+            cnt++;
+            if(cnt > 1){
+                showErrMsg.msg(status, "Space not allowed");
+                return ;
+            }
+        }
         File file = new File("userinfo.txt");
         Scanner sc = new Scanner(file);
         String teacher = sc.next();
@@ -61,7 +71,7 @@ public class CrtGrp implements Initializable {
         }
         try {
             preparedStatement.executeUpdate();
-            status.setText("Passed");
+            showErrMsg.msg(status, "Passed");
             query = "SELECT * FROM `users` WHERE username='" + teacher + "';";
             preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -73,7 +83,7 @@ public class CrtGrp implements Initializable {
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
-            status.setText("An error occured. Duplication may occur. Check it.");
+            showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
     }
     @FXML
