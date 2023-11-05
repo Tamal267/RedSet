@@ -18,6 +18,22 @@
 
 It is global problem section. Any user can solve a problem.
 
-![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems.png?raw=true)
+![compiler_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Compiler.png?raw=true)
 
 Compiler shows output including time and memory. You can choose a file to compile from choose button.
+
+![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Groups.png?raw=true)
+
+You can create c group. Group name will unique. You can join a group as a student also.
+
+![eachgroup_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/EachGroup.png?raw=true)
+
+Create Assignment, Announce are like google classroom. Other options will impress you. Assignment are showing in each of the boxex.
+
+![crtassign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/CrtAssign.png?raw=true)
+
+Only Teachers can create assignment.
+
+![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Assign.png?raw=true)
+
+Screenshoot of an assignment.
