@@ -1,0 +1,43 @@
+.back{
+    -fx-background-color: #5ebde8;
+}
+.back:hover{
+    -fx-background-color: #0fee21;
+}
+.assign{
+    -fx-background-color: #00fc84;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-border-width: 2;
+    -fx-border-color: #5ebde8;
+}
+.assign:hover{
+    -fx-background-color: #de6cd2;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-border-width: 2;
+    -fx-border-color: #5ebde8;
+}
+.border{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 2 2 2;
+    -fx-border-color: WHITE;
+}
+.rankHeader{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 2 2 2;
+    -fx-border-color: #de6cd2;
+    -fx-background-color: #de6cd2;
+}
+.menubar{
+    -fx-border-color:  #08f4fc;
+    -fx-border-width:  0 0 2 0;
+    -fx-border-radius:  10;
+}
+.menubar:hover{
+    -fx-border-color: #c7fc08;
+    -fx-border-width:  0 0 2 0;
+    -fx-border-radius:  10;
+}

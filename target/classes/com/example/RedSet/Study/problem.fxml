@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -89,7 +90,7 @@
                                 <Image url="@../../PIC/dashboard (6).png" />
                             </image>
                         </ImageView>
-                        <Button fx:id="study" mnemonicParsing="false" onMouseClicked="#studyBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D; -fx-scale-y: 1.04; -fx-translate-x: 1.04;" styleClass="selected_menu" stylesheets="@../CSS/dash.css" text="STUDY" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D; -fx-scale-y: 1.04; -fx-translate-x: 1.04;" styleClass="selected_menu" stylesheets="@../CSS/dash.css" text="STUDY" textFill="#bebebe" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font name="Cambria Bold" size="16.0" />
                             </font>
@@ -176,7 +177,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="659.9999877929688" minHeight="10.0" prefHeight="642.2000244140625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="327.0000061035156" minHeight="10.0" prefHeight="32.799975585937545" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <ScrollPane fx:id="scrollPane">
@@ -184,6 +186,18 @@
                   <VBox fx:id="tilepane" spacing="10.0" />
                </content>
                 </ScrollPane>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="60.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/emni.css" text="BACK">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin>
+            </HBox>
             </children>
         </GridPane>
     </children>

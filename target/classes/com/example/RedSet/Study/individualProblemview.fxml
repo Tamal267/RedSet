@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.individualProblemViewController">
@@ -133,12 +132,12 @@
                 </Label>
                 <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="SOLUTION" textAlignment="CENTER" textFill="#651f1f" GridPane.columnIndex="1">
                     <font>
-                        <Font name="Georgia" size="22.0" />
+                        <Font name="Georgia Bold" size="22.0" />
                     </font>
                 </Label>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="62.0" styleClass="back" stylesheets="@../CSS/dash.css" text="BACK">
+                        <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/emni.css" text="BACK">
                             <font>
                                 <Font name="Consolas" size="14.0" />
                             </font>
@@ -154,32 +153,28 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="488.53330688476564" minHeight="10.0" prefHeight="469.33326416015626" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="439.1999755859375" minHeight="10.0" prefHeight="116.06673583984372" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="439.1999755859375" minHeight="10.0" prefHeight="44.20002441406251" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="439.1999755859375" minHeight="10.0" prefHeight="111.39997558593751" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <TextArea fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
-                  <GridPane GridPane.rowIndex="1">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.60009765625" minWidth="10.0" prefWidth="162.53338623046875" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.46661376953125" minWidth="10.0" prefWidth="337.46661376953125" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <TextArea fx:id="outBox" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                  <HBox maxHeight="50.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" GridPane.rowIndex="1">
                      <children>
-                        <TextArea fx:id="outBox" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#chooseFile" prefHeight="40.0" prefWidth="100.0" styleClass="assign" stylesheets="@../Lattice/btn.css" text="Choose File">
-                                 <font>
-                                    <Font name="Cambria Bold" size="13.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="submitbtn1" mnemonicParsing="false" onMouseClicked="#run" prefHeight="40.0" prefWidth="100.0" styleClass="assign" stylesheets="@../Lattice/btn.css" text="Submit" />
-                           </children>
-                        </VBox>
+                        <Button mnemonicParsing="false" onMouseClicked="#chooseFile" prefHeight="40.0" prefWidth="100.0" styleClass="assign" stylesheets="@../Lattice/btn.css" text="Choose File">
+                           <font>
+                              <Font name="Cambria Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="submitbtn1" mnemonicParsing="false" onMouseClicked="#run" prefHeight="40.0" prefWidth="100.0" styleClass="assign" stylesheets="@../Lattice/btn.css" text="Submit" />
                      </children>
-                  </GridPane>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </HBox>
                </children>
             </GridPane>
             </children>
