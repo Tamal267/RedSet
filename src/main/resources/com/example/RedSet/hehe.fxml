@@ -316,7 +316,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Button alignment="CENTER" maxHeight="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="save" stylesheets="@Profile/emni.css" text="SAVE" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                  <Button alignment="CENTER" maxHeight="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="save" stylesheets="@Profile/profile.css" text="SAVE" GridPane.columnIndex="1" GridPane.rowIndex="10">
                      <font>
                         <Font name="MS Outlook" size="19.0" />
                      </font>

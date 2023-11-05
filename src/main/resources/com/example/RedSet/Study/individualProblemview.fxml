@@ -137,7 +137,7 @@
                 </Label>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/emni.css" text="BACK">
+                        <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/profile.css" text="BACK">
                             <font>
                                 <Font name="Consolas" size="14.0" />
                             </font>

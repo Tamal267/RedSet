@@ -188,7 +188,7 @@
                 </ScrollPane>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="60.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/emni.css" text="BACK">
+                  <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="60.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/profile.css" text="BACK">
                      <font>
                         <Font name="Cambria Bold" size="16.0" />
                      </font>

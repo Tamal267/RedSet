@@ -1,21 +1,25 @@
 package com.example.RedSet.Profile;
 
 import com.example.RedSet.MAIN;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class editProfileController {
-
-    @FXML
-    private Button activities;
+public class editProfileController implements Initializable{
 
     @FXML
     private Button contest;
@@ -48,9 +52,6 @@ public class editProfileController {
     private TextField phone;
 
     @FXML
-    private Button rank;
-
-    @FXML
     private PasswordField renewpass;
 
     @FXML
@@ -60,14 +61,9 @@ public class editProfileController {
     private Button study;
 
     @FXML
-    void activitiesBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) activities.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Activities/panel.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
+    private Circle in;
+    @FXML
+    private Circle out;
 
 
     @FXML
@@ -92,16 +88,6 @@ public class editProfileController {
     void logoutBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void rankBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) rank.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Ranking/individualRanking.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Ranking");
         stage.setScene(scene);
@@ -142,5 +128,23 @@ public class editProfileController {
         stage.setTitle("Ranking");
         stage.setScene(scene);
         stage.centerOnScreen();
+    }
+    private void setContinuousRotate(Circle c, int angle, double duration) {
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(duration), event -> {
+            c.setRotate(c.getRotate() + angle);
+        });
+
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setContinuousRotate(out, 1, 0.015);
+        setContinuousRotate(in,-1,0.015);
     }
 }
