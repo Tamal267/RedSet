@@ -161,11 +161,6 @@ public class ShowContests implements Initializable {
                 contestName = resultSet.getString("contestName");
                 startTime = resultSet.getString("startTime");
 
-                stend.setContestName(contestName);
-
-                stend.setStart(startTime);
-
-
 
                 Scanner sc = new Scanner(startTime);
                 String year = sc.next(), month = sc.next(), day = sc.next(), hour = sc.next(), min = sc.next(), sec = sc.next();
@@ -183,21 +178,24 @@ public class ShowContests implements Initializable {
                 min = sc.next();
                 sec = sc.next();
                 String durationcon =  year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec;
-                stend.setEnd(duration);
                 String msg = "";
                 LocalDateTime chk = LocalDateTime.now();
                 DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss");
                 String nowstr = chk.format(fmt);
+                int flag;
                 if(startTime.compareTo(nowstr) > 0) {
+                    flag = 0;
                     msg = "Upcoming...";
                 }
 
-                if(duration.compareTo(nowstr) < 0) {
+                else if(duration.compareTo(nowstr) < 0) {
                     msg = "Ended";
+                    flag = 1;
                 }
 
                 else {
                     msg = "Running...";
+                    flag = 1;
                 }
 
                 problemsIds = resultSet.getString("problemsIds");
@@ -211,18 +209,26 @@ public class ShowContests implements Initializable {
                 borderPane.setId(contestName);
                 StackPane stackPane = new StackPane();
                 String finalProblemsIds = problemsIds;
+                String finalDuration = duration;
+                String finalStartTime = startTime;
+                String finalContestName = contestName;
                 stackPane.setOnMouseClicked(e -> {
-                    try {
-                        FileWriter fileWriter = new FileWriter("problem.txt");
-                        fileWriter.write(finalProblemsIds);
-                        fileWriter.close();
-                        Stage stage = (Stage) borderPane.getScene().getWindow();
-                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showcontestsprb-view.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
-                        stage.setTitle("LatticeLine");
-                        stage.setScene(scene);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                    if(flag == 1) {
+                        stend.setContestName(finalContestName);
+                        stend.setEnd(finalDuration);
+                        stend.setStart(finalStartTime);
+                        try {
+                            FileWriter fileWriter = new FileWriter("problem.txt");
+                            fileWriter.write(finalProblemsIds);
+                            fileWriter.close();
+                            Stage stage = (Stage) borderPane.getScene().getWindow();
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showcontestsprb-view.fxml"));
+                            Scene scene = new Scene(fxmlLoader.load());
+                            stage.setTitle("LatticeLine");
+                            stage.setScene(scene);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
                 });
                 stackPane.getChildren().add(txt);

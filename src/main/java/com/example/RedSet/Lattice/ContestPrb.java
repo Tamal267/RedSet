@@ -444,6 +444,9 @@ public class ContestPrb extends editorUI implements Initializable {
         if(date2.isAfter(date1)) {
             statusbtns.setVisible(true);
         }
+        else{
+            statusbtns.setVisible(false);
+        }
 
     }
 }

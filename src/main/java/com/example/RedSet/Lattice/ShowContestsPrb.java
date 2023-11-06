@@ -249,7 +249,10 @@ public class ShowContestsPrb implements Initializable {
             }
         }
 
+
         String duration = stend.getEnd();
+
+        System.out.println(duration);
 
         Scanner sc = new Scanner(duration);
         String year = sc.next();
@@ -268,6 +271,7 @@ public class ShowContestsPrb implements Initializable {
             h = ChronoUnit.HOURS.between(date2, date1);
             m = ChronoUnit.MINUTES.between(date2, date1);
             s = ChronoUnit.SECONDS.between(date2, date1);
+            System.out.println(h + " " + m + " " + s);
             m = m % 60;
             s = s - h * 3600 - m * 60;
             if(h < 0 || s < 0 || m < 0)  extime.setText("00:00:00");

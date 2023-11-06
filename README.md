@@ -44,3 +44,10 @@ Screenshoot of an assignment.
 
 Teachers can create announce, students can read.
 
+![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Contest.png?raw=true)
+
+User can enter to the contest if the contest is in running or ended state.
+
+![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ContestPrbs.png?raw=true)
+
+You can see a countdown at the bottom of the contest page.
