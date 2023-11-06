@@ -59,8 +59,9 @@ public class CrtAnnounce {
             String ann = resultSet.getString("announce");
             String enc = encodeDecode.encode(anbox.getText());
             ann += " " + enc;
-            query = "UPDATE  gp SET announce='" + ann + "' WHERE name='" + gpname + "';";
-            preparedStatement.executeUpdate(query);
+            String query1 = "UPDATE  gp SET announce='" + ann + "' WHERE name='" + gpname + "';";
+            PreparedStatement preparedStatement1 = connection.prepareStatement(query1);
+            preparedStatement1.executeUpdate(query1);
         }
     }
 

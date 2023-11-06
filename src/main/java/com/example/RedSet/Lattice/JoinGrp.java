@@ -65,12 +65,12 @@ public class JoinGrp implements Initializable {
         try {
             preparedStatement = connection.prepareStatement(query);
         } catch (SQLException e) {
-            status.setText("An error occured. Duplication may occur. Check it.");
+            showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
         }
         ResultSet resultSet = null;
         try {
             resultSet = preparedStatement.executeQuery();
-            status.setText("Passed");
+            showErrMsg.msg(status, "Passed");
         } catch (SQLException e) {
             status.setText("An error occured. Duplication may occur. Check it.");
         }
