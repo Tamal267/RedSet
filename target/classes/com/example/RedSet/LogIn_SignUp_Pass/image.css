@@ -1,0 +1,19 @@
+.back{
+
+    -fx-background-image: url(login.jpg);
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+}
+.leftside{
+
+    -fx-background-image: url(leftlogin.gif);
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+}
+.background_log_sign {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, repeat, #8E6EEF, #5ce0e6);
+}

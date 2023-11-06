@@ -26,7 +26,7 @@ Compiler shows output including time and memory. You can choose a file to compil
 #### Groups Section
 ![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Groups.png?raw=true)
 
-You can create c group. Group name will unique. You can join a group as a student also.
+You can create a group. Group name will unique. You can join a group as a student also.
 
 ![eachgroup_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/EachGroup.png?raw=true)
 
@@ -46,8 +46,8 @@ Teachers can create announce, students can read.
 
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Contest.png?raw=true)
 
-User can enter to the contest if the contest is in running or ended state.
+User can enter to the contest if the contest is in running or in ended state.
 
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ContestPrbs.png?raw=true)
 
-You can see a countdown at the bottom of the contest page.
+You can see a countdown at the bottom inside a contest page.

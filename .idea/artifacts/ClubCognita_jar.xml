@@ -1,0 +1,89 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ClubCognita:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ClubCognita_jar</output-path>
+    <root id="archive" name="ClubCognita.jar">
+      <element id="module-output" name="ClubCognita" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/reactfx/reactfx/2.0-M5/reactfx-2.0-M5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-web/22-ea+11/javafx-web-22-ea+11-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp-jvm/5.0.0-alpha.11/okhttp-jvm-5.0.0-alpha.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/fxmisc/wellbehaved/wellbehavedfx/0.3.3/wellbehavedfx-0.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-media/22-ea+11/javafx-media-22-ea+11-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio/3.0.0-alpha.5/okio-3.0.0-alpha.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/5.0.0-alpha.11/okhttp-5.0.0-alpha.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.4.20/kotlin-stdlib-jdk7-1.4.20.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.7.10/kotlin-stdlib-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20230227/json-20230227.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.4.20/kotlin-stdlib-jdk8-1.4.20.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/fxmisc/flowless/flowless/0.7.2/flowless-0.7.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-media/22-ea+11/javafx-media-22-ea+11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio-jvm/3.2.0/okio-jvm-3.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-web/22-ea+11/javafx-web-22-ea+11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/fxmisc/undo/undofx/2.1.1/undofx-2.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/fxmisc/richtext/richtextfx/0.11.2/richtextfx-0.11.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/dlsc/formsfx/formsfx-core/11.6.0/formsfx-core-11.6.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="io.github.typhon0.AnimateFX" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="project" name="mail" />
+      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.6.0" />
+      <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.9" />
+      <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+      <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp-jvm:5.0.0-alpha.11" />
+      <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:5.0.0-alpha.11" />
+      <element id="library" level="project" name="Maven: com.squareup.okio:okio-jvm:3.2.0" />
+      <element id="library" level="project" name="Maven: com.squareup.okio:okio:3.0.0-alpha.5" />
+      <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.2" />
+      <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.7.0" />
+      <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.0.3" />
+      <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
+      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.15" />
+      <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.2" />
+      <element id="library" level="project" name="Maven: org.fxmisc.flowless:flowless:0.7.2" />
+      <element id="library" level="project" name="Maven: org.fxmisc.richtext:richtextfx:0.11.2" />
+      <element id="library" level="project" name="Maven: org.fxmisc.undo:undofx:2.1.1" />
+      <element id="library" level="project" name="Maven: org.fxmisc.wellbehaved:wellbehavedfx:0.3.3" />
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.20" />
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.20" />
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.20" />
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
+      <element id="library" level="project" name="Maven: org.jetbrains:annotations:13.0" />
+      <element id="library" level="project" name="Maven: org.json:json:20230227" />
+      <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.2" />
+      <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.2" />
+      <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.9.2" />
+      <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.9.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:linux:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:linux:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:linux:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:linux:20.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:22-ea+11" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:linux:22-ea+11" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:22-ea+11" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:linux:22-ea+11" />
+      <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+      <element id="library" level="project" name="Maven: org.reactfx:reactfx:2.0-M5" />
+      <element id="library" level="project" name="mysql-connector-j-8.1.0" />
+      <element id="library" level="project" name="PIC" />
+    </root>
+  </artifact>
+</component>

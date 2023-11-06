@@ -1,0 +1,71 @@
+#shiny_r {
+    -fx-background-color:
+            linear-gradient(#6a53ab, #645788),
+            linear-gradient(#5224d0, #432e80),
+            linear-gradient(#63619a, #474085),
+            linear-gradient(#372b59 0%, #3d325b 50%, #221052 100%),
+            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #e9deff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 5.3 10.7 5.3 10.7;
+}
+#shiny_r:hover {
+    -fx-background-color:
+            linear-gradient(#220afc, #490cec),
+            linear-gradient(#450be5, #2f20b7),
+            linear-gradient(#300b9d, #551af6),
+            linear-gradient(#7c50ec 0%, #3f09ea 50%, #4312c7 100%),
+            linear-gradient(from 0% 0% to 15% 50%, rgb(233, 222, 255), rgba(255,255,255,0));
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #0a0a0a;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 5.3 10.7 5.3 10.7;
+
+}
+
+.HBox{
+//  #CADCDA intial
+//  #94A09F on mouse
+    -fx-background-color: #CADCDA;
+}
+.HBox:hover {
+    -fx-background-color: #94A09F;
+}
+/* Normal button style */
+.button {
+    /*-fx-font-size: 14px; !* Set your desired font size *!*/
+    -fx-padding: 10px; /* Set your desired padding */
+    -fx-background-color: #cad4db; /* Set your desired background color */
+    -fx-text-fill: #ffffff; /* Set your desired text color */
+    -fx-border-radius: 5px; /* Set your desired border radius */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+/* Button style on hover */
+.button:hover {
+    -fx-scale-x: 1.05; /* Increase width by 5% on hover */
+    -fx-scale-y: 1.05; /* Increase height by 5% on hover */
+    /*-fx-background-color: #899dab; !* Change background color on hover *!*/
+}
+.learn{
+    -fx-cursor: hand;
+    -fx-border-color:  #395653;
+    -fx-border-width: 0 7 0 0;
+}
+.learn:hover{
+    -fx-border-color: #51ABF3;
+    -fx-border-width: 0 7 0 0;
+    -fx-scale-x: 1.09;
+    -fx-scale-y: 1.09   ;
+}
+.ranking{
+    -fx-background-color:  linear-gradient(#2cbcbe 0%,  #448485 100%);
+                            /*linear-gradient(90deg, rgba(10,199,171,1) 0%, rgba(164,220,231,1) 50%, rgba(61,224,197,1) 100%);*/
+}
+
+
+
+
