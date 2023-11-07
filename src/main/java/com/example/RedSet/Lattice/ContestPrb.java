@@ -100,6 +100,8 @@ public class ContestPrb extends editorUI implements Initializable {
 
     startEndTime stend = startEndTime.getInstance();
 
+    int prevSub = 0;
+
 
     @FXML
     void problems(MouseEvent event) throws IOException {
@@ -244,8 +246,8 @@ public class ContestPrb extends editorUI implements Initializable {
             mxMemory = Math.max(mxMemory, parseInt(mapUc.get("memory")));
         }
         if (ac == 1) {
-            slv++;
-            prepen += penaccept;
+            if(prevSub == 0) slv++;
+            if(prevSub == 0) prepen += penaccept;
             pen = prepen;
             System.out.println("penalty " + slv + " " + pen);
             String msg = time + "\nAccepted\n" + "Time: " + Integer.toString(mxTime) + "ms\n" + "Memory: " + Integer.toString(mxMemory) + "KB\n";
@@ -412,6 +414,7 @@ public class ContestPrb extends editorUI implements Initializable {
                 outBox.setText(encodeDecode.decode(temp));
                 codeArea.clear();
                 codeArea.replaceText(0, 0, encodeDecode.decode(atext));
+                prevSub = 1;
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

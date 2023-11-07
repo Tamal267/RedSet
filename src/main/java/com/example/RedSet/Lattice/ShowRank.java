@@ -177,7 +177,7 @@ public class ShowRank implements Initializable {
     @FXML
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) backbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("eachgroup-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showcontestsprb-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
