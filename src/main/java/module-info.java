@@ -29,4 +29,6 @@ module com.example.login {
     opens com.example.RedSet.Profile to javafx.fxml;
     exports com.example.RedSet.Activites;
     opens com.example.RedSet.Activites to javafx.fxml;
+    exports com.example.RedSet.Notes;
+    opens com.example.RedSet.Notes to javafx.fxml;
 }

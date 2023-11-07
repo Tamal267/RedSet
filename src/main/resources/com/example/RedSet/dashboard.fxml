@@ -170,7 +170,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="completed" onMouseClicked="#completedBtn" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="completed" stylesheets="@CSS/dash.css" GridPane.columnIndex="1">
+            <GridPane fx:id="completed" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="completed" stylesheets="@CSS/dash.css" GridPane.columnIndex="1">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -180,7 +180,7 @@
                   <RowConstraints maxHeight="129.0666519165039" minHeight="10.0" prefHeight="59.00000762939453" valignment="TOP" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="35.0" prefWidth="170.0" text="COMPLETED" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Label prefHeight="35.0" prefWidth="170.0" text="POINT" textAlignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="Californian FB Bold" size="25.0" />
                      </font>
@@ -188,14 +188,14 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="31.0" prefWidth="170.0" text="0" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="point" prefHeight="31.0" prefWidth="170.0" text="0" textAlignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Californian FB Bold" size="26.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="watch" onMouseClicked="#watchBtn" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="watch_time" stylesheets="@CSS/dash.css" GridPane.columnIndex="2">
+            <GridPane fx:id="watch" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="watch_time" stylesheets="@CSS/dash.css" GridPane.columnIndex="2">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -205,7 +205,7 @@
                   <RowConstraints maxHeight="129.0666519165039" minHeight="10.0" prefHeight="59.00000762939453" valignment="TOP" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="35.0" prefWidth="170.0" text="WATCH HOUR" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Label fx:id="unit" prefHeight="35.0" prefWidth="170.0" text="WATCH HOUR" textAlignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="Californian FB Bold" size="22.0" />
                      </font>
@@ -213,14 +213,14 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="31.0" prefWidth="170.0" text="100H" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="th" prefHeight="31.0" prefWidth="170.0" text="100H" textAlignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Californian FB Bold" size="26.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="solved" onMouseClicked="#solvedBtn" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="certificate" stylesheets="@CSS/dash.css" GridPane.columnIndex="3">
+            <GridPane fx:id="Notes" onMouseClicked="#notes" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="certificate" stylesheets="@CSS/dash.css" GridPane.columnIndex="3">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -230,7 +230,7 @@
                   <RowConstraints maxHeight="129.0666519165039" minHeight="10.0" prefHeight="59.00000762939453" valignment="TOP" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="35.0" prefWidth="170.0" text="SOLVED" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Label prefHeight="35.0" prefWidth="170.0" text="NOTES" textAlignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="Californian FB Bold" size="25.0" />
                      </font>
@@ -238,7 +238,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="31.0" prefWidth="170.0" text="12" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label prefHeight="31.0" prefWidth="170.0" textAlignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Californian FB Bold" size="26.0" />
                      </font>

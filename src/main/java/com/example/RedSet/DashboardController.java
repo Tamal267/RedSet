@@ -1,6 +1,7 @@
 package com.example.RedSet;
 
 import com.example.RedSet.Lattice.HelloApplication;
+import com.example.RedSet.Notes.leaderinfo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -60,8 +61,9 @@ public class DashboardController implements Initializable {
     private ProgressBar prog;
     @FXML
     private Button rank;
+
     @FXML
-    private GridPane solved;
+    private GridPane Notes;
 
     @FXML
     private GridPane standing;
@@ -74,6 +76,18 @@ public class DashboardController implements Initializable {
 
     @FXML
     private NumberAxis xAxis;
+
+
+    @FXML
+    private Label th;
+
+    @FXML
+    private Label unit;
+
+    @FXML
+    private Label point;
+
+    String usname;
 
     @FXML
     void activitiesBtn(MouseEvent event) throws IOException {
@@ -139,7 +153,7 @@ public class DashboardController implements Initializable {
     @FXML
     void standingBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) standing.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Ranking/individualRanking.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/showleaderboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Ranking");
         stage.setScene(scene);
@@ -177,8 +191,13 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void solvedBtn(MouseEvent event) {
-
+    void notes(MouseEvent event) throws IOException {
+        Stage stage = (Stage) profile.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/notesview.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Notes");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -204,7 +223,7 @@ public class DashboardController implements Initializable {
             Connection connection = DBconnect.getConnect();
             File file = new File("userinfo.txt");
             Scanner scc = new Scanner(file);
-            String usname = scc.next();
+            usname = scc.next();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM `users` WHERE username='" + usname + "';");
             ResultSet resultSet = preparedStatement.executeQuery();
             String user = null;
@@ -266,6 +285,36 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        }
+        try {
+            Connection connection = DBconnect.getConnect();
+            String query = "SELECT * FROM `users`";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<leaderinfo> leaderList = new ArrayList<>();
+            while (resultSet.next()) {
+                String time = resultSet.getString("time");
+                String name = resultSet.getString("username");
+                double tm = 0;
+                Scanner sc = new Scanner(time);
+                while (sc.hasNext()) {
+                    tm += sc.nextDouble();
+                }
+                leaderList.add(new leaderinfo(tm, name));
+            }
+            leaderList.sort(leaderinfo::comp);
+            int iter = 1;
+            for(leaderinfo i:leaderList){
+                if(Objects.equals(usname, i.getUsernmame())){
+                    th.setText(String.valueOf(iter) + " th");
+                    point.setText(String.valueOf((int)(1000*i.getTime())));
+                    unit.setText("IN LEADERBOARD");
+                    break;
+                }
+                iter++;
+            }
+        } catch(SQLException e){
+            System.out.println(e);
         }
     }
 
