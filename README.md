@@ -14,17 +14,17 @@
 
 #### Problems Section
 
-![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems.png?raw=true)
+![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems1.png?raw=true)
 
 It is global problem section. Any user can solve a problem.
 
 #### Compiler Section
-![compiler_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Compiler.png?raw=true)
+![compiler_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Compiler1.png?raw=true)
 
 Compiler shows output including time and memory. You can choose a file to compile from choose button.
 
 #### Groups Section
-![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Groups.png?raw=true)
+![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Groups1.png?raw=true)
 
 You can create a group. Group name will unique. You can join a group as a student also.
 
