@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -125,11 +126,6 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </TextArea>
-            <TextArea fx:id="solution" editable="false" prefHeight="200.0" prefWidth="200.0" text="No accepted code yet&#10;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Cambria" size="18.0" />
-               </font>
-            </TextArea>
             <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="EDITORIAL" textAlignment="CENTER">
                <font>
                   <Font name="Georgia" size="22.0" />
@@ -152,6 +148,7 @@
                   <Insets right="25.0" />
                </padding>
             </HBox>
+            <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

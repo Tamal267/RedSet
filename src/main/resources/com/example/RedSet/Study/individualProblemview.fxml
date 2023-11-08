@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -157,7 +158,6 @@
                   <RowConstraints maxHeight="439.1999755859375" minHeight="10.0" prefHeight="111.39997558593751" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextArea fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
                   <TextArea fx:id="outBox" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
                   <HBox maxHeight="50.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" GridPane.rowIndex="1">
                      <children>
@@ -175,6 +175,7 @@
                         <Insets left="15.0" right="15.0" />
                      </padding>
                   </HBox>
+                  <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </GridPane>
             </children>

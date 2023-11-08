@@ -66,7 +66,7 @@ public class individualProblemViewController extends editorUI implements Initial
     private Button back;
 
     @FXML
-    private TextArea borderPane;
+    private BorderPane borderPane;
 
     @FXML
     private Button contest;
@@ -330,7 +330,7 @@ public class individualProblemViewController extends editorUI implements Initial
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-//        borderPane.setCenter(codeArea);
+        borderPane.setCenter(codeArea);
     }
 
 }
