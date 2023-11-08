@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DBconnect {
     private static final String url = "jdbc:mysql://localhost:3306/lattice";
 
-    private static final String username = "eagle";
-    private static final String password = "eagle";
+    private static final String username = "root";
+    private static final String password = "root";
 
     public static Connection getConnect() throws SQLException {
         return DriverManager.getConnection(url, username, password);

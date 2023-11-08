@@ -242,14 +242,7 @@ public class logInSignUpController implements Initializable {
     }
 
     boolean isEmail(String s){
-        int cnt = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i) == '@')
-                cnt++;
-            else if(s.charAt(i) == ' ')
-                return false;
-        }
-        return cnt == 1;
+        return textValidation.isValid(s, "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
     }
 
     @FXML
@@ -291,20 +284,20 @@ public class logInSignUpController implements Initializable {
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
-            String mailSub = "Thanks for creating an account in REDSET";
+            String mailSub = "Thanks for creating an account in RedSet";
 
             String mailBody = "Dear " + FULL_NAME + ",\n\n\n"+
-                    "We are thrilled to welcome you to REDSET!" +
+                    "We are thrilled to welcome you to RedSet!" +
                     "Your recent decision to create an account with us has made our day," +
                     "and we wanted to express our heartfelt thanks for choosing to be a part of our community." +
                     "\n\n"+
-                    "At REDSET, we are committed to providing an exceptional online judge [LATTICE_LINE] and community experience," +
+                    "At RedSet, we are committed to providing an exceptional online judge [LATTICE_LINE] and community experience," +
                     "and we believe you've made a fantastic choice in joining us. Your new account opens the door to a world of" +
                     "exciting opportunities, and we can't wait to share them with you."+
                     "\n"+
                     "\n\n"+
                     "Warm regards,\n" +
-                    "REDSET TEAM\n" +
+                    "RedSet TEAM\n" +
                     "Yusuf Reza Hasnat\n" +
                     "Syed Mafijul Islam\n" +
                     "Tanvin Sarkar Pallab\n" +
@@ -320,7 +313,7 @@ public class logInSignUpController implements Initializable {
         }
         else{
             signupPassword.setText("Password can't be empty!");
-            signupRetypePassword.setText("Password can't be empty!");
+            signupRetypePassword.setText("Re-Type password can't be empty!");
         }
     }
 
