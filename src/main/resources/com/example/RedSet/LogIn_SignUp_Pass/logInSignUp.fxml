@@ -36,6 +36,11 @@
                   <RowConstraints maxHeight="80.19998168945312" minHeight="10.0" prefHeight="54.933398437500045" valignment="TOP" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
+                  <ImageView fitHeight="321.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@leftlogin.gif" />
+                     </image>
+                  </ImageView>
                   <Label alignment="CENTER" prefHeight="40.0" prefWidth="149.0" text="LOG IN" textFill="#f0feff" GridPane.rowIndex="1">
                      <font>
                         <Font name="Cambria Bold" size="32.0" />
@@ -61,29 +66,47 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox prefHeight="55.0" prefWidth="315.0" GridPane.rowIndex="3">
+                  <VBox fx:id="vbox" prefHeight="55.0" prefWidth="315.0" GridPane.rowIndex="3">
                      <children>
                         <Label prefHeight="35.0" prefWidth="141.0" text="Password" textAlignment="CENTER" textFill="#d0e9ea">
                            <font>
                               <Font name="Californian FB Bold" size="23.0" />
                            </font>
-                           <padding>
-                              <Insets left="25.0" />
-                           </padding>
                         </Label>
                         <PasswordField fx:id="loginpasswordbox" prefHeight="42.0" prefWidth="314.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;">
                            <font>
                               <Font name="Cambria" size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets right="20.0" />
                            </VBox.margin>
                         </PasswordField>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </VBox>
+                  <CheckBox fx:id="loginShowpass" mnemonicParsing="false" onMouseClicked="#loginShowpassBtn" text="SHOW PASSWORD" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="255.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <Label fx:id="IncorrectLabel" textFill="#ff2800" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Californian FB" size="25.0" />
+                     </font>
+                  </Label>
                   <Button fx:id="loginLogin" mnemonicParsing="false" onMouseClicked="#loginLoginBtn" prefHeight="38.0" prefWidth="114.0" style="-fx-border-radius: 8; -fx-background-color: #5400ff;" text="LOG IN" textFill="WHITE" GridPane.rowIndex="6">
                      <font>
                         <Font name="Candara Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="forgetpass" mnemonicParsing="false" onMouseClicked="#forgetpassBtn" prefHeight="46.0" prefWidth="276.0" style="-fx-background-color: transparent;" text="Forgotten password?" textFill="#5400ff" underline="true" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Candara Bold" size="20.0" />
                      </font>
                   </Button>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="315.0" GridPane.rowIndex="8">
@@ -95,29 +118,6 @@
                         </Button>
                      </children>
                   </HBox>
-                  <ImageView fitHeight="321.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@leftlogin.gif" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="forgetpass" mnemonicParsing="false" onMouseClicked="#forgetpassBtn" prefHeight="46.0" prefWidth="276.0" style="-fx-background-color: transparent;" text="Forgotten password?" textFill="#5400ff" underline="true" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="Candara Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="IncorrectLabel" textFill="#ff2800" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Californian FB" size="25.0" />
-                     </font>
-                  </Label>
-                  <CheckBox fx:id="loginShowpass" mnemonicParsing="false" onMouseClicked="#loginShowpassBtn" text="SHOW PASSWORD" textFill="WHITE" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Century" size="14.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets right="255.0" />
-                     </GridPane.margin>
-                  </CheckBox>
                </children>
             </GridPane>
             <GridPane fx:id="signupBox" layoutX="775.0" layoutY="41.0" opacity="0.9" prefHeight="589.0" prefWidth="434.0">
@@ -251,6 +251,14 @@
                         </Label>
                      </children>
                   </VBox>
+                  <TextField fx:id="textField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="418.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
             </GridPane>
          </children></AnchorPane>

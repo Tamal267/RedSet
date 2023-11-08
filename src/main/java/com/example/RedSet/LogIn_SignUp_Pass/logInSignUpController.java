@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -86,6 +87,14 @@ public class logInSignUpController implements Initializable {
     private TextField signupUsername;
 
     @FXML
+    private VBox vbox;
+
+    @FXML
+    TextField textField;
+
+
+
+    @FXML
     void createaccBtn(MouseEvent event) {
         TranslateTransition slide = new TranslateTransition();
         slide .setNode(img);
@@ -105,9 +114,16 @@ public class logInSignUpController implements Initializable {
     }
     int flag = 0;
     ArrayList<Users> users = new ArrayList<Users>();
-
     @FXML
     void loginLoginBtn(MouseEvent event) throws IOException {
+        String actual_pass = "";
+        if(loginShowpass.isSelected()){
+            actual_pass = textField.getText();
+        }
+        else{
+            actual_pass = loginpasswordbox.getText();
+        }
+        System.out.println(actual_pass);
         // if matched then go to dashboard;
         Connection connection = null;
         String usname = "";
@@ -121,7 +137,7 @@ public class logInSignUpController implements Initializable {
             int flag = 0;
             while (resultSet.next()) {
                 String password = resultSet.getString("password");
-                if (Objects.equals(password, loginpasswordbox.getText())) {
+                if (Objects.equals(password, actual_pass)) {
                     flag = 1;
                     usname = resultSet.getString("username");
                     break;
@@ -134,7 +150,7 @@ public class logInSignUpController implements Initializable {
                 resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     String password = resultSet.getString("password");
-                    if (Objects.equals(password, loginpasswordbox.getText())) {
+                    if (Objects.equals(password, actual_pass)) {
                         flag = 1;
                         usname = resultSet.getString("username");
                         break;
@@ -210,25 +226,22 @@ public class logInSignUpController implements Initializable {
     }
     @FXML
     private CheckBox loginShowpass;
-
     @FXML
-    void loginShowpassBtn(MouseEvent event) {
+    public void loginShowpassBtn(MouseEvent event) {
         if(loginShowpass.isSelected()){
-            IncorrectLabel.setVisible(false);
-            loginpasswordbox.setPromptText(loginpasswordbox.getText());
-            loginpasswordbox.setText("");
-            IncorrectLabel.setText("");
-            loginpasswordbox.setDisable(true);
+            textField.setText(loginpasswordbox.getText());
+            vbox.getChildren().remove(loginpasswordbox);
+            textField.setVisible(true);
+            vbox.getChildren().add(textField);
         }
         else{
-            IncorrectLabel.setVisible(true);
-            loginpasswordbox.setText(loginpasswordbox.getPromptText());
-            loginpasswordbox.setPromptText("Password");
-            loginpasswordbox.setDisable(false);
+            loginpasswordbox.setText(textField.getText());
+            vbox.getChildren().remove(textField);
+            textField.setVisible(false);
+            vbox.getChildren().add(loginpasswordbox);
         }
+
     }
-
-
     boolean isNumber(String s){
         System.out.println(s);
         int cnt = 0;
@@ -319,6 +332,5 @@ public class logInSignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

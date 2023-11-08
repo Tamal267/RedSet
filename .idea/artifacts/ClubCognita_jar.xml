@@ -2,7 +2,7 @@
   <artifact type="jar" name="ClubCognita:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ClubCognita_jar</output-path>
     <root id="archive" name="ClubCognita.jar">
-      <element id="module-output" name="ClubCognita" />
+      <element id="module-output" name="RedSet" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/reactfx/reactfx/2.0-M5/reactfx-2.0-M5.jar" path-in-jar="/" />
