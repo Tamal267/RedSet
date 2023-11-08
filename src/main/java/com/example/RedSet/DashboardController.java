@@ -131,7 +131,7 @@ public class DashboardController implements Initializable {
     @FXML
     void pendingBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) pending.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/study.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Lattice/showcontestsrunning-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Ranking");
         stage.setScene(scene);
