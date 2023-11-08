@@ -119,6 +119,7 @@ public class logInSignUpController implements Initializable {
         stage.centerOnScreen();
     }
     int flag = 0;
+
     ArrayList<Users> users = new ArrayList<Users>();
     @FXML
     void loginLoginBtn(MouseEvent event) throws IOException {

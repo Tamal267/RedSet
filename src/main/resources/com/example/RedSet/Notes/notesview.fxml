@@ -38,7 +38,7 @@
                   </LinearGradient>
                </fill>
             </QuadCurve>
-            <Button fx:id="profile" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="47.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#profileBtn" prefHeight="106.0" prefWidth="102.0" style="-fx-background-color: transparent;" text="EDIT" textFill="WHITE" underline="true">
+            <Button fx:id="profile" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="47.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#profileBtn" prefHeight="106.0" prefWidth="102.0" style="-fx-background-color: transparent;" text="PROFILE" textFill="WHITE" underline="true">
                <graphic>
                   <ImageView fitHeight="76.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Colonna MT" size="20.0" />
+                  <Font name="Colonna MT" size="18.0" />
                </font>
             </Button>
             <Button fx:id="logout" layoutX="25.0" layoutY="670.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 10;" styleClass="logout" stylesheets="@../CSS/dash.css" text="Log Out" textFill="#e7f7fa" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="680.0">
@@ -145,6 +145,9 @@
             </ScrollPane>
          </children>
       </GridPane>
-      <Button fx:id="addbtn" layoutX="213.0" layoutY="673.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="40.0" prefWidth="102.0" stylesheets="@../CSS/button.css" text="ADD Note" AnchorPane.bottomAnchor="7.0" />
+      <Button fx:id="addbtn" layoutX="213.0" layoutY="673.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="40.0" prefWidth="127.0" styleClass="save" stylesheets="@../Profile/profile.css" text="ADD NOTE" AnchorPane.bottomAnchor="7.0">
+         <font>
+            <Font name="Calibri" size="17.0" />
+         </font></Button>
    </children>
 </AnchorPane>

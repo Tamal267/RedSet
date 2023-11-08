@@ -17,12 +17,12 @@
    <children>
       <Text fx:id="serial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
-            <Font size="20.0" />
+            <Font name="Californian FB" size="22.0" />
          </font>
       </Text>
       <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1">
          <font>
-            <Font size="20.0" />
+            <Font name="Californian FB" size="22.0" />
          </font>
       </Text>
    </children>
