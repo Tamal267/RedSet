@@ -93,6 +93,12 @@ public class logInSignUpController implements Initializable {
     TextField textField;
 
 
+    @FXML
+    private TextField signupshowpasstextfeild1;
+
+    @FXML
+    private TextField signupshowpasstextfeild2;
+
 
     @FXML
     void createaccBtn(MouseEvent event) {
@@ -208,20 +214,16 @@ public class logInSignUpController implements Initializable {
     @FXML
     void signupShowpassBtn(MouseEvent event) {
         if(signupShowpass.isSelected()){
-            signupPassword.setPromptText(signupPassword.getText());
-            signupPassword.setText("");
-            signupPassword.setDisable(true);
-            signupRetypePassword.setPromptText(signupRetypePassword.getText());
-            signupRetypePassword.setText("");
-            signupRetypePassword.setDisable(true);
+            signupshowpasstextfeild1.setText(signupPassword.getText());
+            signupshowpasstextfeild2.setText(signupRetypePassword.getText());
+            signupshowpasstextfeild1.setVisible(true);
+            signupshowpasstextfeild2.setVisible(true);
         }
         else{
-            signupPassword.setText(signupPassword.getPromptText());
-            signupPassword.setPromptText("Password");
-            signupPassword.setDisable(false);
-            signupRetypePassword.setText(signupRetypePassword.getPromptText());
-            signupRetypePassword.setPromptText("Password");
-            signupRetypePassword.setDisable(false);
+            signupPassword.setText(signupshowpasstextfeild1.getText());
+            signupRetypePassword.setText(signupshowpasstextfeild2.getText());
+            signupshowpasstextfeild1.setVisible(false);
+            signupshowpasstextfeild2.setVisible(false);
         }
     }
     @FXML
@@ -260,7 +262,16 @@ public class logInSignUpController implements Initializable {
 
     @FXML
     void signupBtn(MouseEvent event) throws IOException {
-        String USERPASS, USERNAME, FULL_NAME, STD_ID, EMAIL, INSTITUTION;
+        String actual_sign_up_pass = "", actual_sign_up_retype_pass = "";
+        String USERPASS = "", USERNAME, FULL_NAME, STD_ID, EMAIL, INSTITUTION;
+        if(signupShowpass.isSelected()){
+            actual_sign_up_pass = signupshowpasstextfeild1.getText();
+            actual_sign_up_retype_pass = signupshowpasstextfeild2.getText();
+        }else {
+            actual_sign_up_pass = signupPassword.getText();
+            actual_sign_up_retype_pass = signupRetypePassword.getText();
+        }
+
         if(signupFullname.getText().isEmpty()) {
             signupFullname.setText("Full Name can't be empty!");
         }else if(!isNumber(signupStdID.getText())) {
@@ -271,9 +282,25 @@ public class logInSignUpController implements Initializable {
             signupEmail.setText("Invalid mail address!");
         }else if(signupUniversity.getText().isEmpty()){
             signupUniversity.setText("University name can't be empty!");
-        }
-        else if(Objects.equals(signupPassword.getText(), signupRetypePassword.getText()) && !signupPassword.getText().isEmpty()){
-            USERPASS = signupPassword.getText();
+        }else if(!Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass)) {
+//            signupshowpasstextfeild1.setVisible(true);
+//            signupshowpasstextfeild2.setVisible(true);
+//            signupshowpasstextfeild1.setText("Password can't be empty!");
+//            signupshowpasstextfeild2.setText("Re_type password can't be empty!");
+            if(!signupShowpass.isSelected()){
+                signupPassword.setPromptText("Password can't be empty!");
+                signupRetypePassword.setPromptText("Re-Type password can't be empty!");
+                signupPassword.setText("");
+                signupRetypePassword.setText("");
+            }
+            else{
+                signupshowpasstextfeild1.setPromptText("Password not matched!");
+                signupshowpasstextfeild2.setPromptText("Password not matched!");
+                signupshowpasstextfeild1.setText("");
+                signupshowpasstextfeild2.setText("");
+            }
+        }else if(Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass) && !signupPassword.getText().isEmpty()){
+            USERPASS = actual_sign_up_pass;
             USERNAME = signupUsername.getText();
             FULL_NAME = signupFullname.getText();
             STD_ID = signupStdID.getText();
@@ -325,9 +352,10 @@ public class logInSignUpController implements Initializable {
             SendMail.sendEmail(mailBody,mailSub,mail,user);
         }
         else{
-            signupPassword.setText("Password can't be empty!");
-            signupRetypePassword.setText("Re-Type password can't be empty!");
+//            signupPassword.setPromptText("Password can't be empty!");
+//            signupRetypePassword.setPromptText("Re-Type password can't be empty!");
         }
+        System.out.println(USERPASS);
     }
 
     @Override

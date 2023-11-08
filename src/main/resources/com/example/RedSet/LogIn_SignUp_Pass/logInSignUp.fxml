@@ -221,6 +221,22 @@
                         <Insets right="225.0" />
                      </GridPane.margin>
                   </CheckBox>
+                  <TextField fx:id="signupshowpasstextfeild1" prefHeight="48.0" prefWidth="395.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="signupshowpasstextfeild2" prefHeight="48.0" prefWidth="395.0" promptText="Re-type Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
             </GridPane>
             <GridPane fx:id="img" layoutX="450.0" prefHeight="665.0" prefWidth="764.0" style="-fx-background-color: #02000e;">
