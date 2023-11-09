@@ -2,6 +2,7 @@ package com.example.RedSet;
 
 import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.Notes.leaderinfo;
+import com.example.RedSet.Study.openWebpage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import com.example.RedSet.Lattice.DBconnect;
@@ -76,6 +78,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private NumberAxis xAxis;
+
+    @FXML
+    private VBox vbox;
 
 
     @FXML
@@ -210,6 +215,12 @@ public class DashboardController implements Initializable {
         stage.centerOnScreen();
     }
 
+
+    @FXML
+    void about(MouseEvent event) {
+        openWebpage.open("https://github.com/Tamal267/RedSet/tree/main");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         xAxis.setTickLabelFormatter(new NumberAxis.DefaultFormatter(xAxis) {
@@ -318,11 +329,29 @@ public class DashboardController implements Initializable {
         }
     }
 
-    private ObservableList<PieChart.Data> creatingPieChart() {
+    private ObservableList<PieChart.Data> creatingPieChart() throws SQLException {
         ObservableList<PieChart.Data> pieDate = FXCollections.observableArrayList();
-        pieDate.add(new PieChart.Data("I", 40));
-        pieDate.add(new PieChart.Data("C", 30));
-        pieDate.add(new PieChart.Data("P", 30));
+        Connection connection = DBconnect.getConnect();
+        String query = "SELECT * FROM `studyTopic`";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Map<String, Integer> map = new HashMap<>();
+        int cnt = 0;
+        while(resultSet.next()){
+            String topicName = resultSet.getString("topicName");
+            String problemids = resultSet.getString(("problemids"));
+            Scanner sc = new Scanner(problemids);
+            int c = 0;
+            while(sc.hasNext()){
+                String temp = sc.next();
+                c++;
+            }
+            cnt += c;
+            map.put(topicName, c);
+            pieDate.add(new PieChart.Data(topicName, c));
+            Label label = new Label(topicName + " : " + c);
+            vbox.getChildren().add(label);
+        }
         return pieDate;
     }
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.web.WebEngine;
@@ -150,6 +151,7 @@ public class ViewAnnounce implements Initializable {
                     BorderPane borderPane = new BorderPane();
                     Text txt = new Text();
                     txt.setText(asn);
+                    txt.setFont(Font.font(15));
 //                txt.setWrappingWidth(250);
                     borderPane.setId(asn);
                     StackPane stackPane = new StackPane();

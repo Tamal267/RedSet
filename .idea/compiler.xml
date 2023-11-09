@@ -9,5 +9,8 @@
         <module name="RedSet" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ClubCognita" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>

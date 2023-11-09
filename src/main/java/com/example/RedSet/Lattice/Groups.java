@@ -153,7 +153,7 @@ public class Groups implements Initializable {
                 BorderPane borderPane = new BorderPane();
                 Text txt = new Text();
                 txt.setText(group);
-//                txt.setStyle("-fx-font-size: 30");
+                txt.setStyle("-fx-font-size: 15; -fx-font-weight: bold;");
 //                txt.setWrappingWidth(250);
                 borderPane.setId(group);
                 StackPane stackPane = new StackPane();
