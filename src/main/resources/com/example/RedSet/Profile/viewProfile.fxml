@@ -179,33 +179,7 @@
                         <Font name="MS Outlook" size="24.0" />
                      </font>
                   </TextField>
-                  <Label text="DEPARTMENT" textFill="#e9deff" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Cambria" size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="level" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="02" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="MS Outlook" size="24.0" />
-                     </font>
-                  </TextField>
-                  <Label text="LEVEL" textFill="#e9deff" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Cambria" size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="phone" editable="false" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="01790879452" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="MS Outlook" size="24.0" />
-                     </font>
-                  </TextField>
-                  <Label text="PHONE NUMBER" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label text="Institute" textFill="#e9deff" GridPane.columnIndex="1">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -226,15 +200,12 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <children>
-                        <Button fx:id="edit" alignment="CENTER" maxHeight="42.0" mnemonicParsing="false" onMouseClicked="#editBtn" prefHeight="42.0" prefWidth="100.0" styleClass="save" stylesheets="@profile.css" text="EDIT">
-                           <font>
-                              <Font name="MS Outlook" size="19.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Button fx:id="edit" alignment="CENTER" maxHeight="42.0" mnemonicParsing="false" onMouseClicked="#editBtn" prefHeight="42.0" prefWidth="100.0" styleClass="save" stylesheets="@profile.css" text="EDIT" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="MS Outlook" size="19.0" />
+                     </font>
+                  </Button>
                </children>
             </GridPane>
          </children>

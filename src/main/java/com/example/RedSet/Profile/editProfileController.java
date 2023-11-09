@@ -1,5 +1,6 @@
 package com.example.RedSet.Profile;
 
+import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.MAIN;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -15,9 +16,18 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class editProfileController implements Initializable{
 
@@ -65,6 +75,8 @@ public class editProfileController implements Initializable{
     @FXML
     private Circle out;
 
+    String usname;
+
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
@@ -105,7 +117,32 @@ public class editProfileController implements Initializable{
     }
 
     @FXML
-    void saveBtn(MouseEvent event) throws IOException {
+    void saveBtn(MouseEvent event) throws IOException, SQLException {
+        Connection connection = DBconnect.getConnect();
+        String query= "SELECT * FROM `users` WHERE username='" + usname + "';";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String password = new String();
+        while (resultSet.next()){
+            password = resultSet.getString("password");
+        }
+        if(Objects.equals(password, oldpass.getText())){
+            if(Objects.equals(newpass, renewpass)){
+                query = "UPDATE users SET fullName='" + fullname.getText() + "', email='" + email.getText() + "', password='" + newpass.getText() + "' WHERE username='" + usname + "';";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.executeUpdate();
+//                level.setVisible(true);
+//                level.setText("Update Success");
+            }
+            else {
+//                level.setVisible(true);
+//                level.setText("Check new password");
+            }
+        }
+        else{
+//            level.setVisible(true);
+//            level.setText("Check you old password");
+        }
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -146,5 +183,13 @@ public class editProfileController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         setContinuousRotate(out, 1, 0.015);
         setContinuousRotate(in,-1,0.015);
+        File file = new File("userinfo.txt");
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        usname = sc.next();
     }
 }

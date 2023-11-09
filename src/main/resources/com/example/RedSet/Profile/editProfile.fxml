@@ -175,45 +175,11 @@
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </TextField>
-                        <TextField promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="Computer Science &amp; Engineering" GridPane.rowIndex="7">
+                        <TextField fx:id="level" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="02" visible="false" GridPane.rowIndex="9">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </TextField>
-                        <Label text="DEPARTMENT" textFill="#e9deff" GridPane.rowIndex="6">
-                            <font>
-                                <Font name="Cambria" size="24.0" />
-                            </font>
-                            <padding>
-                                <Insets right="10.0" />
-                            </padding>
-                        </Label>
-                        <TextField fx:id="level" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="02" GridPane.rowIndex="9">
-                            <font>
-                                <Font name="MS Outlook" size="24.0" />
-                            </font>
-                        </TextField>
-                        <Label text="LEVEL" textFill="#e9deff" GridPane.rowIndex="8">
-                            <font>
-                                <Font name="Cambria" size="24.0" />
-                            </font>
-                            <padding>
-                                <Insets right="10.0" />
-                            </padding>
-                        </Label>
-                        <TextField fx:id="phone" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="01790879452" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <font>
-                                <Font name="MS Outlook" size="24.0" />
-                            </font>
-                        </TextField>
-                        <Label text="PHONE NUMBER" textFill="#e9deff" GridPane.columnIndex="1">
-                            <font>
-                                <Font name="Cambria" size="24.0" />
-                            </font>
-                            <padding>
-                                <Insets right="10.0" />
-                            </padding>
-                        </Label>
                         <TextField fx:id="email" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="yusufrezahasnat0006@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />

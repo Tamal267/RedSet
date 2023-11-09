@@ -1,5 +1,6 @@
 package com.example.RedSet.Profile;
 
+import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.MAIN;
 import javafx.animation.KeyFrame;
@@ -7,6 +8,8 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import javafx.fxml.FXML;
@@ -18,7 +21,12 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class viewProfileController implements Initializable {
     @FXML
@@ -47,6 +55,8 @@ public class viewProfileController implements Initializable {
     private TextField level;
     @FXML
     private TextField phone;
+
+    String usname;
 
     @FXML
     private Circle in;
@@ -125,5 +135,38 @@ public class viewProfileController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setContinuousRotate(out, 1, 0.015);
         setContinuousRotate(in,-1,0.015);
+        File file = new File("userinfo.txt");
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        usname = sc.next();
+        Connection connection = null;
+        try {
+            connection = DBconnect.getConnect();
+            String query= "SELECT * FROM `users` WHERE username='" + usname + "';";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println(query);
+            String password = new String(), fullNamee = new String(), studentIde = new String(),  emaile = new String(), institutee = new String();
+            while (resultSet.next()){
+                password = resultSet.getString("password");
+                fullNamee = resultSet.getString("fullName");
+                studentIde = resultSet.getString("studentId");
+                emaile = resultSet.getString("email");
+                institutee = resultSet.getString("institute");
+                System.out.println(fullNamee + " " + studentIde);
+            }
+            username.setText(usname);
+            fullname.setText(fullNamee);
+            stdId.setText(studentIde);
+            email.setText(emaile);
+            dept.setText(institutee);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
