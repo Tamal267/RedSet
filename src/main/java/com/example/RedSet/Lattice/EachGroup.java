@@ -318,6 +318,7 @@ public class EachGroup implements Initializable {
         Stage stage = (Stage) announcebtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }

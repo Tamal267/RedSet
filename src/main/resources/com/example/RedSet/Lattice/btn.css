@@ -41,3 +41,19 @@
     -fx-border-width:  0 0 2 0;
     -fx-border-radius:  10;
 }
+#dlt{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 2 2 2;
+    -fx-border-color: WHITE;
+    -fx-background-color: transparent;
+    -fx-text-fill: WHITE;
+}
+#dlt:hover{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 2 2 2;
+    -fx-border-color: WHITE;
+    -fx-background-color: #794b08;
+    -fx-text-fill: WHITE;
+}

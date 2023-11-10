@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class CrtAnnounce {
@@ -50,19 +52,14 @@ public class CrtAnnounce {
     void announce(MouseEvent event) throws FileNotFoundException, SQLException {
         File file = new File("groupname.txt");
         Scanner sc = new Scanner(file);
+        LocalDateTime local = LocalDateTime.now();
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss");
+        String date = local.format(fmt);
         String gpname = sc.next();
         Connection connection = DBconnect.getConnect();
-        String query = "SELECT * FROM `gp` WHERE name='" + gpname + "';";
+        String query = "INSERT INTO announce VALUES('" + anbox.getText() + "', '" + date + "', '" + gpname + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        ResultSet resultSet =  preparedStatement.executeQuery();
-        while(resultSet.next()){
-            String ann = resultSet.getString("announce");
-            String enc = encodeDecode.encode(anbox.getText());
-            ann += " " + enc;
-            String query1 = "UPDATE  gp SET announce='" + ann + "' WHERE name='" + gpname + "';";
-            PreparedStatement preparedStatement1 = connection.prepareStatement(query1);
-            preparedStatement1.executeUpdate(query1);
-        }
+        preparedStatement.executeUpdate();
     }
 
     @FXML
@@ -98,6 +95,7 @@ public class CrtAnnounce {
         Stage stage = (Stage) backbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }

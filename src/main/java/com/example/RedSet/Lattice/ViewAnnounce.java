@@ -139,15 +139,14 @@ public class ViewAnnounce implements Initializable {
 
         try {
             Connection connection = DBconnect.getConnect();
-            String query = "SELECT * FROM `gp` WHERE name='" + gpname + "';";
+            String query = "SELECT * FROM `announce` WHERE gp='" + gpname + "';";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet =  preparedStatement.executeQuery();
 
             while(resultSet.next()){
-                String as = resultSet.getString("announce");
-                Scanner sc = new Scanner(as);
-                while(sc.hasNext()) {
-                    String asn = encodeDecode.decode(sc.next());
+                String as = resultSet.getString("text");
+                String date = resultSet.getString("date");
+                    String asn = as;
                     BorderPane borderPane = new BorderPane();
                     Text txt = new Text();
                     txt.setText(asn);
@@ -161,16 +160,39 @@ public class ViewAnnounce implements Initializable {
                     txt.setTextAlignment(TextAlignment.CENTER);
                     txt.wrappingWidthProperty().bind(stackPane.widthProperty());
                     txt.setFill(Color.WHITE);
+                    Button dlt = new Button("X");
                     stackPane.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
+//                    dlt.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
+                    dlt.setId("dlt");
+                    dlt.setOnMouseClicked(e -> {
+                        String qu = "DELETE FROM `announce` WHERE text='" + as + "' && (gp='" + gpname + "' && date ='" + date + "');";
+                        System.out.println(qu);
+                        try {
+                            PreparedStatement pre = connection.prepareStatement(qu);
+                            pre.executeUpdate();
+                            Stage stage = (Stage) dlt.getScene().getWindow();
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
+                            Scene scene = new Scene(fxmlLoader.load());
+                            scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
+                            stage.setTitle("LatticeLine");
+                            stage.setScene(scene);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    });
+                    borderPane.setStyle("-fx-padding: 22;");
                     BorderPane.setMargin(stackPane, new Insets(20));
+                    BorderPane.setMargin(dlt, new Insets(20));
                     borderPane.setCenter(stackPane);
+                    borderPane.setTop(new HBox(dlt));
                     borderPane.setMaxSize(520, 520);
                     borderPane.setMinSize(520, 520);
                     tilePane.getChildren().add(borderPane);
                 }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
         }
         File fl = new File("isteacher.txt");
         Scanner scT = null;
