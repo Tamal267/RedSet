@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.LogIn_SignUp_Pass.logInSignUpController">
+    <children>
+        <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #02000e;" styleClass="background_log_sign" stylesheets="@image.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane fx:id="loginBox" layoutX="10.0" layoutY="10.0" opacity="0.9" prefHeight="640.0" prefWidth="458.0" style="-fx-background-color: #02000e;">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="311.99998626708987" minHeight="10.0" prefHeight="254.4666778564453" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="240.80000305175784" minHeight="0.0" prefHeight="56.266699218750034" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="310.6" minHeight="10.0" prefHeight="86.66666870117189" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="321.59999389648436" minHeight="10.0" prefHeight="87.39997558593751" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="223.19998779296873" minHeight="10.0" prefHeight="13.800024414062477" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="223.19998779296873" minHeight="10.0" prefHeight="29.60003662109375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="223.19998779296873" minHeight="10.0" prefHeight="55.800036621093795" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="151.199951171875" minHeight="10.0" prefHeight="19.600024414062545" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.19998168945312" minHeight="10.0" prefHeight="54.933398437500045" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="321.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@leftlogin.gif" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="149.0" text="LOG IN" textFill="#f0feff" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Cambria Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="55.0" prefWidth="315.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="162.0" text="Username" textAlignment="CENTER" textFill="#d0e9ea">
+                           <font>
+                              <Font name="Californian FB Bold" size="23.0" />
+                           </font>
+                           <padding>
+                              <Insets left="25.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="loginUsernameBox" prefHeight="42.0" prefWidth="314.0" promptText="Username or email" style="-fx-background-color: #e9deff; -fx-background-radius: 5;">
+                           <font>
+                              <Font name="Cambria" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbox" prefHeight="55.0" prefWidth="315.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="141.0" text="Password" textAlignment="CENTER" textFill="#d0e9ea">
+                           <font>
+                              <Font name="Californian FB Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="loginpasswordbox" prefHeight="42.0" prefWidth="314.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;">
+                           <font>
+                              <Font name="Cambria" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="20.0" />
+                           </VBox.margin>
+                        </PasswordField>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </VBox>
+                  <CheckBox fx:id="loginShowpass" mnemonicParsing="false" onMouseClicked="#loginShowpassBtn" text="SHOW PASSWORD" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="255.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <Label fx:id="IncorrectLabel" textFill="#ff2800" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Californian FB" size="25.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="loginLogin" mnemonicParsing="false" onMouseClicked="#loginLoginBtn" prefHeight="38.0" prefWidth="114.0" style="-fx-border-radius: 8; -fx-background-color: #5400ff;" text="LOG IN" textFill="WHITE" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Candara Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="forgetpass" mnemonicParsing="false" onMouseClicked="#forgetpassBtn" prefHeight="46.0" prefWidth="276.0" style="-fx-background-color: transparent;" text="Forgotten password?" textFill="#5400ff" underline="true" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Candara Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="315.0" GridPane.rowIndex="8">
+                     <children>
+                        <Button fx:id="createacc" mnemonicParsing="false" onMouseClicked="#createaccBtn" prefHeight="33.0" prefWidth="182.0" style="-fx-background-color: #36A420; -fx-border-radius: 8;" text="CREATE AN ACCOUNT" textFill="WHITE">
+                           <font>
+                              <Font name="Candara Bold" size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane fx:id="signupBox" layoutX="775.0" layoutY="41.0" opacity="0.9" prefHeight="589.0" prefWidth="434.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="60.2" minHeight="10.0" prefHeight="45.866669464111325" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="93.33331985473633" minHeight="10.0" prefHeight="66.1999725341797" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="107.20002593994143" minHeight="10.0" prefHeight="63.46662902832031" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="110.59999389648439" minHeight="10.0" prefHeight="66.13337097167968" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="104.79998779296875" minHeight="10.0" prefHeight="60.5333251953125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="92.19998779296876" minHeight="10.0" prefHeight="63.533343505859364" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="91.00003662109373" minHeight="10.0" prefHeight="64.93331298828127" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="99.39999999999998" minHeight="10.0" prefHeight="56.20001220703125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="99.39999999999998" minHeight="10.0" prefHeight="32.19998779296873" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="87.20004882812498" minHeight="10.0" prefHeight="61.599963378906295" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="80.19998168945312" minHeight="10.0" prefHeight="67.39995117187499" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                    <Label alignment="CENTER" prefHeight="38.0" prefWidth="197.0" text="SIGN UP" textFill="WHITE">
+                        <font>
+                            <Font name="Cambria Bold" size="32.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="signupFullname" prefHeight="48.0" prefWidth="314.0" promptText="Full name" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="signupStdID" prefHeight="48.0" prefWidth="314.0" promptText="Student Id" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="signupUsername" prefHeight="48.0" prefWidth="314.0" promptText="Username" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="3">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="signupEmail" prefHeight="48.0" prefWidth="314.0" promptText="Email" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="4">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </TextField>
+                  <TextField fx:id="signupUniversity" prefHeight="48.0" prefWidth="314.0" promptText="University/College/School" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                    <PasswordField fx:id="signupPassword" prefHeight="48.0" prefWidth="314.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="6">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </PasswordField>
+                    <PasswordField fx:id="signupRetypePassword" prefHeight="48.0" prefWidth="314.0" promptText="Re-type Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" GridPane.rowIndex="7">
+                        <font>
+                            <Font name="Cambria" size="20.0" />
+                        </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                    </PasswordField>
+                    <Button fx:id="signup" mnemonicParsing="false" onMouseClicked="#signupBtn" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: green; -fx-border-radius: 8;" text="SIGN UP" textFill="WHITE" GridPane.rowIndex="9">
+                        <font>
+                            <Font name="Candara Bold" size="17.0" />
+                        </font>
+                    </Button>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="315.0" GridPane.rowIndex="10">
+                     <children>
+                          <Button fx:id="signupLogin" mnemonicParsing="false" onMouseClicked="#signupLoginBtn" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #5400ff; -fx-border-radius: 8;" text="LOG IN" textFill="#aafcff">
+                              <font>
+                                  <Font name="Calibri Bold" size="17.0" />
+                              </font>
+                          </Button>
+                     </children>
+                  </HBox>
+                  <CheckBox fx:id="signupShowpass" mnemonicParsing="false" onMouseClicked="#signupShowpassBtn" text="SHOW PASSWORD" textFill="WHITE" GridPane.rowIndex="8">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="225.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <TextField fx:id="signupshowpasstextfeild1" prefHeight="48.0" prefWidth="395.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="signupshowpasstextfeild2" prefHeight="48.0" prefWidth="395.0" promptText="Re-type Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+            <GridPane fx:id="img" layoutX="450.0" prefHeight="665.0" prefWidth="764.0" style="-fx-background-color: #02000e;">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="576.7999877929688" minHeight="10.0" prefHeight="421.6666320800781" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="315.8666748046875" minHeight="10.0" prefHeight="227.53336791992194" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="454.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../PIC/login.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="127.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/MCC LOGO.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="JOIN THE LEGACY" textFill="#e9deff">
+                           <font>
+                              <Font name="Stencil" size="44.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <TextField fx:id="textField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="418.0" promptText="Password" style="-fx-background-color: #e9deff; -fx-background-radius: 5;" visible="false">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+    </children>
+</AnchorPane>
