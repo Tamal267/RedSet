@@ -141,7 +141,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button maxHeight="50.0" maxWidth="200.0" mnemonicParsing="false" onMouseClicked="#about" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="RedSet" textFill="#e7f7fa">
+                  <Button maxHeight="50.0" maxWidth="200.0" mnemonicParsing="false" onMouseClicked="#about" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" styleClass="logout" stylesheets="@CSS/dash.css" text="RedSet" textFill="#e7f7fa">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -171,7 +171,7 @@
          <children>
             <GridPane fx:id="pending" onMouseClicked="#pendingBtn" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="pending_course" stylesheets="@CSS/dash.css">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="142.40003967285156" minHeight="10.0" prefHeight="114.66666412353516" valignment="CENTER" vgrow="SOMETIMES" />
@@ -179,7 +179,7 @@
                   <RowConstraints maxHeight="129.0666519165039" minHeight="10.0" prefHeight="59.00000762939453" valignment="TOP" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="35.0" prefWidth="170.0" text="PENDING" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Label prefHeight="35.0" prefWidth="170.0" text="CONTEST" textAlignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="Californian FB Bold" size="25.0" />
                      </font>
@@ -187,7 +187,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="31.0" prefWidth="170.0" text="1000" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label prefHeight="31.0" prefWidth="170.0" text="RUNNING" textAlignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Californian FB Bold" size="26.0" />
                      </font>
@@ -196,7 +196,7 @@
             </GridPane>
             <GridPane fx:id="completed" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="completed" stylesheets="@CSS/dash.css" GridPane.columnIndex="1">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="142.40003967285156" minHeight="10.0" prefHeight="114.66666412353516" valignment="CENTER" vgrow="SOMETIMES" />
@@ -221,7 +221,7 @@
             </GridPane>
             <GridPane fx:id="watch" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="watch_time" stylesheets="@CSS/dash.css" GridPane.columnIndex="2">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="142.40003967285156" minHeight="10.0" prefHeight="114.66666412353516" valignment="CENTER" vgrow="SOMETIMES" />
@@ -246,7 +246,7 @@
             </GridPane>
             <GridPane fx:id="Notes" onMouseClicked="#notes" prefHeight="170.0" prefWidth="184.0" style="-fx-background-radius: 10;" styleClass="certificate" stylesheets="@CSS/dash.css" GridPane.columnIndex="3">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="142.40003967285156" minHeight="10.0" prefHeight="114.66666412353516" valignment="CENTER" vgrow="SOMETIMES" />
@@ -271,7 +271,7 @@
             </GridPane>
             <GridPane fx:id="standing" onMouseClicked="#standingBtn" prefHeight="202.0" prefWidth="192.0" style="-fx-background-radius: 10;" styleClass="standing" stylesheets="@CSS/dash.css" GridPane.columnIndex="4">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="142.40003967285156" minHeight="10.0" prefHeight="114.66666412353516" valignment="CENTER" vgrow="SOMETIMES" />
@@ -287,7 +287,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label prefHeight="31.0" prefWidth="170.0" text="100th" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label prefHeight="31.0" prefWidth="170.0" text="LEADERBOARD" textAlignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Californian FB Bold" size="26.0" />
                      </font>

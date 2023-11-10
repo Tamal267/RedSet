@@ -46,7 +46,7 @@
     -fx-border-radius: 10;
     -fx-border-width: 0 2 2 2;
     -fx-border-color: WHITE;
-    -fx-background-color: transparent;
+    -fx-background-color: BLACK;
     -fx-text-fill: WHITE;
 }
 #dlt:hover{
@@ -54,6 +54,5 @@
     -fx-border-radius: 10;
     -fx-border-width: 0 2 2 2;
     -fx-border-color: WHITE;
-    -fx-background-color: #794b08;
-    -fx-text-fill: WHITE;
+    -fx-text-fill: #8aff00;
 }
