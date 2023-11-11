@@ -101,7 +101,7 @@
                                 <Image url="@../../PIC/open-book.png" />
                             </image>
                         </ImageView>
-                        <Button fx:id="lattice" mnemonicParsing="false" onMouseClicked="#latticeBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@../CSS/dash.css" text="LATTICE" textAlignment="RIGHT" textFill="#bebebe" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="lattice" mnemonicParsing="false" onMouseClicked="#latticeBtn" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #404A4D;" styleClass="menu" stylesheets="@../CSS/dash.css" text="LATTICELINE" textAlignment="RIGHT" textFill="#bebebe" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Cambria Bold" size="16.0" />
                             </font>
