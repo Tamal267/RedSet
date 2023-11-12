@@ -153,7 +153,7 @@ public class ShowContests implements Initializable {
         ArrayList<assignMent> assignments = new ArrayList<>();
         try {
             Connection connection = DBconnect.getConnect();
-            String query = "SELECT * FROM `contest` WHERE groupName='" + gpname + "';";
+            String query = "SELECT * FROM `contest` WHERE groupName='" + gpname + "' ORDER BY startTime DESC;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet =  preparedStatement.executeQuery();
 
@@ -296,7 +296,6 @@ public class ShowContests implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
 
     @FXML
     void redset(MouseEvent event) throws IOException {

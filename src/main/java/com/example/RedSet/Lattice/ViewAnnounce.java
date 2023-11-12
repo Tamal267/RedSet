@@ -139,14 +139,14 @@ public class ViewAnnounce implements Initializable {
 
         try {
             Connection connection = DBconnect.getConnect();
-            String query = "SELECT * FROM `announce` WHERE gp='" + gpname + "';";
+            String query = "SELECT * FROM `announce` WHERE gp='" + gpname + "' ORDER BY date DESC;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet =  preparedStatement.executeQuery();
 
             while(resultSet.next()){
                 String as = resultSet.getString("text");
                 String date = resultSet.getString("date");
-                    String asn = as;
+                    String asn = encodeDecode.decode(as);
                     BorderPane borderPane = new BorderPane();
                     Text txt = new Text();
                     txt.setText(asn);

@@ -57,7 +57,7 @@ public class CrtAnnounce {
         String date = local.format(fmt);
         String gpname = sc.next();
         Connection connection = DBconnect.getConnect();
-        String query = "INSERT INTO announce VALUES('" + anbox.getText() + "', '" + date + "', '" + gpname + "');";
+        String query = "INSERT INTO announce VALUES('" + encodeDecode.encode(anbox.getText()) + "', '" + date + "', '" + gpname + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.executeUpdate();
     }

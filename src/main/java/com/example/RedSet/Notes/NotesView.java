@@ -2,6 +2,7 @@ package com.example.RedSet.Notes;
 
 import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
+import com.example.RedSet.Lattice.encodeDecode;
 import com.example.RedSet.MAIN;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -145,24 +146,23 @@ public class NotesView implements Initializable {
         usname = sc.next();
         try {
             Connection connection = DBconnect.getConnect();
-            String query = "SELECT * FROM `notes` where user='" + usname + "';";
+            String query = "SELECT * FROM `notes` where user='" + usname + "' ORDER BY date DESC;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<noteinfo> arr = new ArrayList<>();
 
             while(resultSet.next()){
-                String title = resultSet.getString("title");
-                String note = resultSet.getString("note");
+                String title = encodeDecode.decode(resultSet.getString("title"));
+                String note = encodeDecode.decode(resultSet.getString("note"));
                 String date = resultSet.getString("date");
                 arr.add(new noteinfo(title, note, usname, date));
                 System.out.println("hellow");
             }
-            arr.sort(noteinfo::comp);
             for(noteinfo i:arr){
                 FXMLLoader fxmlLoader = new FXMLLoader(NotesView.class.getResource("/com/example/RedSet/Notes/singlenote.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 SingleNote singleNote = fxmlLoader.getController();
-                singleNote.setData(i.title, i.note);
+                singleNote.setData(i);
                 tilepane.getChildren().add(anchorPane);
             }
         } catch (SQLException e) {

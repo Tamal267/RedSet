@@ -2,6 +2,7 @@ package com.example.RedSet.Notes;
 
 import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
+import com.example.RedSet.Lattice.encodeDecode;
 import com.example.RedSet.MAIN;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,7 +55,7 @@ public class CrtNote {
     String usname;
 
     @FXML
-    void add(MouseEvent event) throws SQLException, FileNotFoundException {
+    void add(MouseEvent event) throws SQLException, IOException {
         File file = new File("userinfo.txt");
         Scanner sc = new Scanner(file);
         usname = sc.next();
@@ -62,9 +63,15 @@ public class CrtNote {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss");
         String date = localTime.format(fmt);
         Connection connection = DBconnect.getConnect();
-        String query = "INSERT INTO `notes` VALUES('" + titleBox.getText() + "', '" + noteBox.getText() + "', '" + usname + "', '" + date + "');";
+        String query = "INSERT INTO `notes` VALUES('" + encodeDecode.encode(titleBox.getText()) + "', '" + encodeDecode.encode(noteBox.getText()) + "', '" + usname + "', '" + date + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.executeUpdate();
+        Stage stage = (Stage) addbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/notesview.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Notes");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     @FXML

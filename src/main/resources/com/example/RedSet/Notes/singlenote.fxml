@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #76b5c5; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Notes.SingleNote">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Notes.SingleNote">
    <children>
-      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="40.0" layoutY="53.0" prefHeight="547.0" prefWidth="560.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0">
          <top>
-            <TextArea fx:id="titlebox" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="titlebox" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></TextArea>
          </top>
          <center>
-            <TextArea fx:id="notebox" prefHeight="488.0" prefWidth="560.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="notebox" prefHeight="488.0" prefWidth="560.0" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font></TextArea>
          </center>
       </BorderPane>
+      <Button fx:id="dlt" layoutX="20.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#delete" styleClass="save" stylesheets="@../Profile/profile.css" text="DELETE" AnchorPane.bottomAnchor="0.0" />
+      <Button fx:id="upd" layoutX="99.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#update" styleClass="save" stylesheets="@../Profile/profile.css" text="UPDATE" AnchorPane.bottomAnchor="0.0" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
