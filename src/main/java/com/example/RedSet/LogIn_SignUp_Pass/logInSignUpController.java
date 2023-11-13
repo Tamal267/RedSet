@@ -243,7 +243,6 @@ public class logInSignUpController implements Initializable {
             textField.setVisible(false);
             vbox.getChildren().add(loginpasswordbox);
         }
-
     }
     boolean isNumber(String s){
         System.out.println(s);
@@ -257,8 +256,14 @@ public class logInSignUpController implements Initializable {
         return cnt > 0;
     }
 
-    boolean isEmail(String s){
-        return textValidation.isValid(s, "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+    void isEmail(String s) throws LoginSignupException {
+        if(!textValidation.isValid(s, "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")){
+            throw new LoginSignupException(s);
+        }
+    }
+
+    void isFullname(String s) throws LoginSignupException {
+        if(!textValidation.isValid(s, "^[a-zA-Z\\s]+")); throw new LoginSignupException(s);
     }
 
     @FXML
@@ -273,14 +278,24 @@ public class logInSignUpController implements Initializable {
             actual_sign_up_retype_pass = signupRetypePassword.getText();
         }
 
-        if(signupFullname.getText().isEmpty()) {
+        try{
+            isEmail(signupEmail.getText());
+        } catch (LoginSignupException e){
+            System.out.println(e);
+            signupEmail.setText("Invalid mail address!");
+        }
+
+        try{
+            isFullname(String.valueOf(signupFullname.getText().isEmpty()));
+        } catch (LoginSignupException e) {
+            System.out.println(e);
             signupFullname.setText("Full Name can't be empty!");
-        }else if(!isNumber(signupStdID.getText())) {
+        }
+
+        if(!isNumber(signupStdID.getText())) {
             signupStdID.setText("Invalid student ID!");
         }else if(signupUsername.getText().isEmpty()) {
             signupUsername.setText("Username can't be empty!");
-        }else if(signupEmail.getText().isEmpty() || !isEmail(signupEmail.getText())){
-            signupEmail.setText("Invalid mail address!");
         }else if(signupUniversity.getText().isEmpty()){
             signupUniversity.setText("University name can't be empty!");
         }else if(!Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass)) {
