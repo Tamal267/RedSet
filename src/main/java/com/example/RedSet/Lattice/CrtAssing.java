@@ -61,17 +61,27 @@ public class CrtAssing implements Initializable {
     @FXML
     private TextArea timelimitbox;
 
+
+    @FXML
+    private Button showinputsbtn;
+
     FileChooser fileChooser = new FileChooser();
 
-    String id, users, txt, acceptedCode, inp = "", timelimit;
+    assigninfo asinfo = assigninfo.getInstance();
+    prevpage prevpg = prevpage.getInstance();
+
+    String id= asinfo.getId(), users, txt=asinfo.getText(), acceptedCode, inp = asinfo.getInp(), timelimit=asinfo.getTimelimit();
 
     @FXML
     private AnchorPane redsetbtn;
 
 
+
     @FXML
     void nxtInput(MouseEvent event) {
+        inp = asinfo.getInp();
         inp += encodeDecode.encode(inputBox.getText()) + " ";
+        asinfo.setInp(inp);
         inputBox.setText("");
     }
     @FXML
@@ -98,7 +108,9 @@ public class CrtAssing implements Initializable {
         id = idBox.getText();
         txt = encodeDecode.encode(txtBox.getText());
         acceptedCode = encodeDecode.encode(codeBox.getText());
+        inp = asinfo.getInp();
         inp += encodeDecode.encode(inputBox.getText()) + " ";
+        asinfo.setInp(inp);
         users = "-- ";
         if(Objects.equals(id, "") || Objects.equals(txt, "") || Objects.equals(acceptedCode, "") ){
             showErrMsg.msg(status, "All the boxes must be filled up");
@@ -125,14 +137,21 @@ public class CrtAssing implements Initializable {
         try {
             preparedStatement = connection.prepareStatement(query);
         } catch (SQLException e) {
-            showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
+            showErrMsg.msg(status, "An error occured. Duplicate Assignment.");
         }
         try {
             preparedStatement.executeUpdate();
             showErrMsg.msg(status, "Assignment Passed");
             inp = "";
         } catch (SQLException e) {
-            showErrMsg.msg(status, "An error occured. Duplication may occur. Check it.");
+            try {
+                query = "UPDATE `assignment` SET text='" + txt + "', code='" + acceptedCode + "', input='" + inp + "', assignId='" + id + "', timeLimit='" + timelimit + "' WHERE assignId='" + id + "';";
+                System.out.println(query);
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.executeUpdate();
+            } catch (SQLException E){
+                showErrMsg.msg(status, "An error occured.");
+            }
         }
     }
     @FXML
@@ -164,7 +183,6 @@ public class CrtAssing implements Initializable {
         stage.setScene(scene);
     }
 
-
     @FXML
     void redset(MouseEvent event) throws IOException {
         Stage stage = (Stage) redsetbtn.getScene().getWindow();
@@ -173,9 +191,28 @@ public class CrtAssing implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
+    @FXML
+    void showinputs(MouseEvent event) throws IOException {
+        prevpg.setPrev("crtassign-view.fxml");
+        asinfo.setId(idBox.getText());
+        asinfo.setText(txtBox.getText());
+        asinfo.setTimelimit(timelimitbox.getText());
+        asinfo.setCode(codeBox.getText());
+        asinfo.setInp(inp);
+        Stage stage = (Stage) showinputsbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showinputs-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        idBox.setText(asinfo.getId());
+        txtBox.setText(asinfo.getText());
+        codeBox.setText(asinfo.getCode());
+        timelimitbox.setText(asinfo.getTimelimit());
+        inp = asinfo.getInp();
     }
 }

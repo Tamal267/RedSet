@@ -47,8 +47,6 @@ public class Compiler extends editorUI implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         WebEngine webengine = webview.getEngine();

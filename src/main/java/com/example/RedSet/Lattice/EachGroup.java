@@ -67,6 +67,8 @@ public class EachGroup implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
+    assigninfo asinfo = assigninfo.getInstance();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -285,6 +287,11 @@ public class EachGroup implements Initializable {
 
     @FXML
     void crtassign(MouseEvent event) throws IOException {
+        asinfo.setInp("");
+        asinfo.setTimelimit("");
+        asinfo.setCode("");
+        asinfo.setId("");
+        asinfo.setText("");
         Stage stage = (Stage) crtassignbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtassign-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -334,6 +341,11 @@ public class EachGroup implements Initializable {
 
     @FXML
     void crtcontest(MouseEvent event) throws IOException {
+        asinfo.setInp("");
+        asinfo.setTimelimit("");
+        asinfo.setCode("");
+        asinfo.setId("");
+        asinfo.setText("");
         Stage stage = (Stage) crtcontestbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

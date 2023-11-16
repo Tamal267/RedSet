@@ -125,6 +125,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
+                        <Button fx:id="showinputsbtn" mnemonicParsing="false" onMouseClicked="#showinputs" styleClass="assign" stylesheets="@btn.css" text="Show Inputs" />
                      </children>
                   </HBox>
                   <BorderPane fx:id="borderText1" layoutX="13.0" layoutY="308.0" />

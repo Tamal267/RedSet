@@ -75,7 +75,10 @@ public class Assign extends editorUI implements Initializable {
     @FXML
     private TextArea text;
 
+    @FXML
+    private Button editbtn;
 
+    assigninfo asinfo = assigninfo.getInstance();
     FileChooser fileChooser = new FileChooser();
 
     String id, users, txt, acceptedCode, inp, timelimit;
@@ -151,6 +154,20 @@ public class Assign extends editorUI implements Initializable {
     }
 
     @FXML
+    void edit(MouseEvent event) throws IOException {
+        asinfo.setId(id);
+        asinfo.setText(txt);
+        asinfo.setTimelimit(timelimit);
+        asinfo.setCode(encodeDecode.decode(acceptedCode));
+        asinfo.setInp(inp);
+        Stage stage = (Stage) editbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtassign-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+    @FXML
     void run(MouseEvent event) throws IOException, SQLException {
 //        outputBox.setWrapText(true);
 //        String out = CppCompiler.compileAndRunFromFile(codeBox.getText(), inputBox.getText());
@@ -212,7 +229,6 @@ public class Assign extends editorUI implements Initializable {
                 file = new File("userinfo.txt");
                 sc = new Scanner(file);
                 usrs += " " + sc.nextLine() + " " + encodedMsg + " " + encodedCode;
-                System.out.println(encodedMsg);
                 query = "UPDATE assignment SET users='" + usrs + "' WHERE assignId='" + id + "';";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.executeUpdate();
@@ -282,14 +298,11 @@ public class Assign extends editorUI implements Initializable {
             id = sc.nextLine();
             System.out.println(id);
             problemId.setText(id);
-            txt = sc.nextLine();
-            byte[] decodedBytes = Base64.getDecoder().decode(txt);
-            String decodedString = new String(decodedBytes);
-            System.out.println(txt);
+            txt = encodeDecode.decode(sc.nextLine());
             acceptedCode = sc.nextLine();
             inp = sc.nextLine();
             timelimit = sc.nextLine();
-            text.setText("Time Limit: " + timelimit + "s\n\n" + decodedString);
+            text.setText("Time Limit: " + timelimit + "s\n\n" + txt);
             users = sc.nextLine();
 
             String fname;

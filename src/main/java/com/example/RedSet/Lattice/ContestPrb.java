@@ -77,7 +77,7 @@ public class ContestPrb extends editorUI implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
-
+    assigninfo asinfo = assigninfo.getInstance();
 
     FileChooser fileChooser = new FileChooser();
 
@@ -92,6 +92,9 @@ public class ContestPrb extends editorUI implements Initializable {
 
     @FXML
     private Button statusbtn;
+
+    @FXML
+    private Button editbtn;
 
 
     String curUser = "";        //login user
@@ -332,6 +335,20 @@ public class ContestPrb extends editorUI implements Initializable {
         stage.setScene(scene);
     }
 
+    @FXML
+    void edit(MouseEvent event) throws IOException {
+        asinfo.setId(id);
+        asinfo.setText(txt);
+        asinfo.setTimelimit(timelimit);
+        asinfo.setCode(encodeDecode.decode(acceptedCode));
+        asinfo.setInp(inp);
+        Stage stage = (Stage) editbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtconprb-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         executor = Executors.newSingleThreadExecutor();
@@ -384,14 +401,11 @@ public class ContestPrb extends editorUI implements Initializable {
             id = sc.nextLine();
             System.out.println(id);
             problemId.setText(id);
-            txt = sc.nextLine();
-            byte[] decodedBytes = Base64.getDecoder().decode(txt);
-            String decodedString = new String(decodedBytes);
-            System.out.println(txt);
+            txt = encodeDecode.decode(sc.nextLine());
             acceptedCode = sc.nextLine();
             inp = sc.nextLine();
             timelimit = sc.nextLine();
-            text.setText("Time Limit: " + timelimit + "s\n\n" + decodedString);
+            text.setText("Time Limit: " + timelimit + "s\n\n" + txt);
             users = sc.nextLine();
 
             String fname;

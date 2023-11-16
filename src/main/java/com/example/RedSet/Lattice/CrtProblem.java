@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -56,9 +57,15 @@ public class CrtProblem implements Initializable {
     @FXML
     private TextArea timelimitbox;
 
+    @FXML
+    private Button showinputsbtn;
+
     FileChooser fileChooser = new FileChooser();
 
-    String id, users, txt, acceptedCode, inp = "", timelimit;
+    assigninfo asinfo = assigninfo.getInstance();
+    prevpage prevpg = prevpage.getInstance();
+
+    String id= asinfo.getId(), users, txt=asinfo.getText(), acceptedCode, inp = asinfo.getInp(), timelimit=asinfo.getTimelimit();
 
     @FXML
     private AnchorPane redsetbtn;
@@ -66,7 +73,9 @@ public class CrtProblem implements Initializable {
 
     @FXML
     void nxtInput(MouseEvent event) {
+        inp = asinfo.getInp();
         inp += encodeDecode.encode(inputBox.getText()) + " ";
+        asinfo.setInp(inp);
         inputBox.setText("");
     }
     @FXML
@@ -103,7 +112,9 @@ public class CrtProblem implements Initializable {
         id = idBox.getText();
         txt = encodeDecode.encode(txtBox.getText());
         acceptedCode = encodeDecode.encode(codeBox.getText());
+        inp = asinfo.getInp();
         inp += encodeDecode.encode(inputBox.getText()) + " ";
+        asinfo.setInp(inp);
         users = "-- ";
         timelimit = timelimitbox.getText();
         File file = new File("groupname.txt");
@@ -122,14 +133,21 @@ public class CrtProblem implements Initializable {
         try {
             preparedStatement = connection.prepareStatement(query);
         } catch (SQLException e) {
-            status.setText("An error occured. Duplication may occur. Check it.");
+            status.setText("An error occured. Check it.");
             inp = "";
         }
         try {
             preparedStatement.executeUpdate();
             status.setText("Assignment Passed");
         } catch (SQLException e) {
-            status.setText("An error occured. Duplication may occur. Check it.");
+            try {
+                query = "UPDATE `problems` SET statement='" + txt + "', code='" + acceptedCode + "', input='" + inp + "', problemid='" + id + "', timeLimit='" + timelimit + "' WHERE problemid='" + id + "';";
+                System.out.println(query);
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.executeUpdate();
+            } catch (SQLException E){
+                showErrMsg.msg(status, "An error occured.");
+            }
         }
     }
     @FXML
@@ -151,9 +169,27 @@ public class CrtProblem implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
+    @FXML
+    void showinputs(MouseEvent event) throws IOException {
+        prevpg.setPrev("crtassign-view.fxml");
+        asinfo.setId(idBox.getText());
+        asinfo.setText(txtBox.getText());
+        asinfo.setTimelimit(timelimitbox.getText());
+        asinfo.setCode(codeBox.getText());
+        asinfo.setInp(inp);
+        Stage stage = (Stage) showinputsbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showinputs-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
 
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        idBox.setText(asinfo.getId());
+        txtBox.setText(asinfo.getText());
+        codeBox.setText(asinfo.getCode());
+        timelimitbox.setText(asinfo.getTimelimit());
     }
 }

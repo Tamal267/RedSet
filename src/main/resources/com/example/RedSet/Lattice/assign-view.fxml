@@ -123,6 +123,11 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="editbtn" mnemonicParsing="false" onMouseClicked="#edit" styleClass="back" stylesheets="@btn.css" text="Edit">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <HBox alignment="TOP_RIGHT" layoutX="320.0" layoutY="485.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
