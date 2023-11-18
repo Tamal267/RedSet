@@ -46,7 +46,7 @@ public class sampleStudyController {
             FXMLLoader fxmlLoader1 = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/problem.fxml"));
             Scene scene = new Scene(fxmlLoader1.load());
             stage.setScene(scene);
-            stage.setTitle("LatticeLine");
+            stage.setTitle("PROBLEM");
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

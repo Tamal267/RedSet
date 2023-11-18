@@ -70,10 +70,6 @@ public class topicController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
-    @FXML
-    private Button activities;
-
     @FXML
     private Button dashboard;
 
@@ -81,21 +77,11 @@ public class topicController implements Initializable {
     private Button logout;
 
     @FXML
-    void activitiesBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) activities.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Activities/panel.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) dashboard.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("DASHBOARD");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -105,7 +91,7 @@ public class topicController implements Initializable {
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("LOG IN");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -118,22 +104,12 @@ public class topicController implements Initializable {
 
     @FXML
     private Button profile;
-
-    @FXML
-    private Button rank;
-
-
-    @FXML
-    void contestBtn(MouseEvent event) {
-
-    }
-
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("LATTICELINE");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -143,17 +119,7 @@ public class topicController implements Initializable {
         Stage stage = (Stage) profile.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void rankBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) rank.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Ranking/individualRanking.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROFILE");
         stage.setScene(scene);
         stage.centerOnScreen();
     }

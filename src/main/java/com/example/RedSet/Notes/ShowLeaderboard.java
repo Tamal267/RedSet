@@ -49,7 +49,7 @@ public class ShowLeaderboard implements Initializable {
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LatticeLine");
+        stage.setTitle("CONTEST");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -59,7 +59,7 @@ public class ShowLeaderboard implements Initializable {
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LatticeLine");
+        stage.setTitle("DASHBOARD");
         stage.setScene(scene);
         stage.centerOnScreen();
 
@@ -81,7 +81,8 @@ public class ShowLeaderboard implements Initializable {
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("LOG IN");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.centerOnScreen();
 
@@ -92,7 +93,7 @@ public class ShowLeaderboard implements Initializable {
         Stage stage = (Stage) profile.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROFILE");
         stage.setScene(scene);
         stage.centerOnScreen();
 
@@ -103,7 +104,7 @@ public class ShowLeaderboard implements Initializable {
         Stage stage = (Stage) study.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROBLEMS");
         stage.setScene(scene);
         stage.centerOnScreen();
     }

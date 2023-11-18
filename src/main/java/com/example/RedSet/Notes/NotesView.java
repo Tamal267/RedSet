@@ -156,7 +156,6 @@ public class NotesView implements Initializable {
                 String note = encodeDecode.decode(resultSet.getString("note"));
                 String date = resultSet.getString("date");
                 arr.add(new noteinfo(title, note, usname, date));
-                System.out.println("hellow");
             }
             for(noteinfo i:arr){
                 FXMLLoader fxmlLoader = new FXMLLoader(NotesView.class.getResource("/com/example/RedSet/Notes/singlenote.fxml"));

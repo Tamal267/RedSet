@@ -31,6 +31,7 @@ public class OTPmatchingController {
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/LogInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Log In");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.centerOnScreen();
 

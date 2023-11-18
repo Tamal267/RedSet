@@ -53,7 +53,7 @@ public class SampleProblem implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/solutionview.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
-        stage.setTitle("Ranking");
+        stage.setTitle("SOLUTION");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -84,7 +84,7 @@ public class SampleProblem implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/individualProblemview.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
-        stage.setTitle("LatticeLine");
+        stage.setTitle("PROBLEM");
         stage.setScene(scene);
     }
 

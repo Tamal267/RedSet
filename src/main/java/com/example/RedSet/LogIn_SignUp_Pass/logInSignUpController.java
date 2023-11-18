@@ -299,10 +299,6 @@ public class logInSignUpController implements Initializable {
         }else if(signupUniversity.getText().isEmpty()){
             signupUniversity.setText("University name can't be empty!");
         }else if(!Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass)) {
-//            signupshowpasstextfeild1.setVisible(true);
-//            signupshowpasstextfeild2.setVisible(true);
-//            signupshowpasstextfeild1.setText("Password can't be empty!");
-//            signupshowpasstextfeild2.setText("Re_type password can't be empty!");
             if(!signupShowpass.isSelected()){
                 signupPassword.setPromptText("Password can't be empty!");
                 signupRetypePassword.setPromptText("Re-Type password can't be empty!");
@@ -339,6 +335,7 @@ public class logInSignUpController implements Initializable {
             stage.setTitle("Log In");
             stage.setScene(scene);
             stage.centerOnScreen();
+            stage.setResizable(false);
             stage.show();
             String mailSub = "Thanks for creating an account in RedSet";
 
@@ -368,8 +365,6 @@ public class logInSignUpController implements Initializable {
             SendMail.sendEmail(mailBody,mailSub,mail,user);
         }
         else{
-//            signupPassword.setPromptText("Password can't be empty!");
-//            signupRetypePassword.setPromptText("Re-Type password can't be empty!");
         }
         System.out.println(USERPASS);
     }

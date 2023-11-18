@@ -84,6 +84,7 @@ public class editProfileController implements Initializable{
         Stage stage = (Stage) dashboard.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("DASHBOARD");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -94,6 +95,7 @@ public class editProfileController implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),1520,780);
         stage.setScene(scene);
+        stage.setTitle("LATTICELINE");
         stage.centerOnScreen();
     }
 
@@ -102,7 +104,7 @@ public class editProfileController implements Initializable{
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("LOG IN");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -112,7 +114,7 @@ public class editProfileController implements Initializable{
         Stage stage = (Stage) study.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROBLEMS");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -132,22 +134,15 @@ public class editProfileController implements Initializable{
                 query = "UPDATE users SET fullName='" + fullname.getText() + "', email='" + email.getText() + "', password='" + newpass.getText() + "' WHERE username='" + usname + "';";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.executeUpdate();
-//                level.setVisible(true);
-//                level.setText("Update Success");
-            }
-            else {
-//                level.setVisible(true);
-//                level.setText("Check new password");
             }
         }
         else{
-//            level.setVisible(true);
-//            level.setText("Check you old password");
+            //tamal
         }
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROFILE");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
@@ -157,7 +152,7 @@ public class editProfileController implements Initializable{
         Stage stage = (Stage) lattice.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LatticeLine");
+        stage.setTitle("CONTEST");
         stage.setScene(scene);
         stage.centerOnScreen();
 
@@ -169,7 +164,7 @@ public class editProfileController implements Initializable{
         Stage stage = (Stage) back.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
+        stage.setTitle("PROFILE");
         stage.setScene(scene);
         stage.centerOnScreen();
     }
