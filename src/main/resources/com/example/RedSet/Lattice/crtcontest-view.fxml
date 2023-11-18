@@ -157,7 +157,7 @@
                         <Insets right="20.0" top="20.0" />
                      </GridPane.margin>
                      <center>
-                        <TextArea fx:id="ctimebox" prefHeight="34.0" prefWidth="286.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
+                        <TextArea fx:id="ctimebox" maxHeight="-Infinity" prefHeight="34.0" prefWidth="286.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -168,7 +168,7 @@
                         <Insets right="20.0" top="20.0" />
                      </GridPane.margin>
                      <center>
-                        <TextArea fx:id="cdurationbox" prefHeight="200.0" prefWidth="200.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
+                        <TextArea fx:id="cdurationbox" maxHeight="-Infinity" prefHeight="34.0" prefWidth="200.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">

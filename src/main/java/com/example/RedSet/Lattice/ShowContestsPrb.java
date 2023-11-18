@@ -57,11 +57,15 @@ public class ShowContestsPrb implements Initializable {
 
     startEndTime stend = startEndTime.getInstance();
 
+
     @FXML
     private Button rankbtn;
 
     @FXML
     private AnchorPane redsetbtn;
+
+    @FXML
+    private Button editbtn;
 
 
     @Override
@@ -262,9 +266,7 @@ public class ShowContestsPrb implements Initializable {
         String min = sc.next();
         String sec = sc.next();
 
-
         LocalDateTime date1 = LocalDateTime.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), Integer.parseInt(hour), Integer.parseInt(min), Integer.parseInt(sec));
-
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e->{
             LocalDateTime date2 = LocalDateTime.now();
@@ -323,7 +325,6 @@ public class ShowContestsPrb implements Initializable {
         stage.setScene(scene);
     }
 
-
     @FXML
     void rank(MouseEvent event) throws IOException {
         Stage stage = (Stage) rankbtn.getScene().getWindow();
@@ -333,11 +334,19 @@ public class ShowContestsPrb implements Initializable {
         stage.setScene(scene);
     }
 
-
     @FXML
     void redset(MouseEvent event) throws IOException {
         Stage stage = (Stage) redsetbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void edit(MouseEvent event) throws IOException {
+        Stage stage = (Stage) editbtn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);

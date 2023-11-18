@@ -138,5 +138,14 @@
             </Button>
          </children>
       </HBox>
+      <HBox maxHeight="50.0" prefHeight="50.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0">
+         <children>
+            <Button fx:id="editbtn" mnemonicParsing="false" onMouseClicked="#edit" styleClass="back" stylesheets="@btn.css" text="Edit">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>

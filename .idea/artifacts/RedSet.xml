@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jlink" name="RedSet">
-    <output-path>$PROJECT_DIR$/out/artifacts/RedSet</output-path>
-    <root id="root" />
-  </artifact>
-</component>

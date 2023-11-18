@@ -28,6 +28,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -50,6 +51,9 @@ public class ShowContests implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
+    String isTeacher;
+
+    contestInfo info = contestInfo.getInstance();
 
     startEndTime stend = startEndTime.getInstance();
     @Override
@@ -125,6 +129,14 @@ public class ShowContests implements Initializable {
 
         webengine.loadContent(htmlContent);
 
+        File fileT = new File("isteacher.txt");
+        Scanner tec = null;
+        try {
+            tec = new Scanner(fileT);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        isTeacher = tec.next();
 
         File file = new File("userinfo.txt");
         Scanner usinf = null;
@@ -165,8 +177,6 @@ public class ShowContests implements Initializable {
                 Scanner sc = new Scanner(startTime);
                 String year = sc.next(), month = sc.next(), day = sc.next(), hour = sc.next(), min = sc.next(), sec = sc.next();
                 String startTimecon = year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec;
-
-
 
                 duration = resultSet.getString("duration");
 
@@ -212,11 +222,19 @@ public class ShowContests implements Initializable {
                 String finalDuration = duration;
                 String finalStartTime = startTime;
                 String finalContestName = contestName;
+                String finalProblemsIds1 = problemsIds;
+                String finalRanking = ranking;
                 stackPane.setOnMouseClicked(e -> {
-                    if(flag == 1) {
+                    if(flag == 1 || Objects.equals(isTeacher, "teacher")) {
                         stend.setContestName(finalContestName);
                         stend.setEnd(finalDuration);
                         stend.setStart(finalStartTime);
+                        info.setContestName(finalContestName);
+                        info.setDuration(finalDuration);
+                        info.setStartTime(finalStartTime);
+                        info.setProblemsIds(finalProblemsIds1);
+                        info.setRanking(finalRanking);
+                        info.setGroupName(gpname);
                         try {
                             FileWriter fileWriter = new FileWriter("problem.txt");
                             fileWriter.write(finalProblemsIds);
@@ -253,7 +271,6 @@ public class ShowContests implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML
