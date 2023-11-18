@@ -149,6 +149,7 @@ public class CrtAssing implements Initializable {
                 System.out.println(query);
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.executeUpdate();
+                showErrMsg.msg(status, "Assignment Updated");
             } catch (SQLException E){
                 showErrMsg.msg(status, "An error occured.");
             }

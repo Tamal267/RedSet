@@ -178,7 +178,15 @@ public class CrtContest implements Initializable{
             status.setFill(Color.GREEN);
             status.setText("Passed");
         } catch (SQLException e) {
-            showErrMsg.msg(status, "An Error Occured");
+            try {
+                String query = "UPDATE `contest` SET contestName='" + cnamebox.getText() + "', startTime='" + ctimebox.getText() + "', duration='" + cdurationbox.getText() + "', problemsIds='" + caddprbbox.getText() + "', groupName='" + gpname + "' WHERE contestName='" + cnamebox.getText() + "';";
+                System.out.println(query);
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.executeUpdate();
+                showErrMsg.msg(status, "Contest is Updated");
+            } catch (SQLException E){
+                showErrMsg.msg(status, "An Error Occured");
+            }
         }
     }
 
