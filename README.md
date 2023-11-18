@@ -23,7 +23,7 @@ Dashboard gives a vivid idea of what can be done in RedSet. It gives important i
   
   This section gives the user a chance to challenge his current capability by solving various types of  problems.
   
-  ![problemsofparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofparticulartopic.png)
+  ![problemsofaparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofaparticulartopic.png)
 
   contains problems of a certain topic.
 
