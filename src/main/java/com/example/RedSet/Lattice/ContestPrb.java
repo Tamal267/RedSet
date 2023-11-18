@@ -458,7 +458,16 @@ public class ContestPrb extends editorUI implements Initializable {
         LocalDateTime date1 = LocalDateTime.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), Integer.parseInt(hour), Integer.parseInt(min), Integer.parseInt(sec));
         LocalDateTime date2 = LocalDateTime.now();
 
-        if(date2.isAfter(date1)) {
+        File fl = new File("isteacher.txt");
+        Scanner scT = null;
+        try {
+            scT = new Scanner(fl);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String fndTch = scT.next();
+
+        if(date2.isAfter(date1) || Objects.equals(fndTch, "teacher")) {
             statusbtns.setVisible(true);
         }
         else{

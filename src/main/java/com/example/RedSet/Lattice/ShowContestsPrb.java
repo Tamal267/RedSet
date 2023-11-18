@@ -31,6 +31,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -67,6 +68,8 @@ public class ShowContestsPrb implements Initializable {
     @FXML
     private Button editbtn;
 
+    @FXML
+    private HBox statusbtns;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -267,6 +270,20 @@ public class ShowContestsPrb implements Initializable {
         String sec = sc.next();
 
         LocalDateTime date1 = LocalDateTime.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), Integer.parseInt(hour), Integer.parseInt(min), Integer.parseInt(sec));
+
+        File fl = new File("isteacher.txt");
+        Scanner scT = null;
+        try {
+            scT = new Scanner(fl);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String fndTch = scT.next();
+        if (Objects.equals(fndTch, "teacher")) {
+            statusbtns.setVisible(true);
+        } else {
+            statusbtns.setVisible(false);
+        }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e->{
             LocalDateTime date2 = LocalDateTime.now();

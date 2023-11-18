@@ -158,8 +158,6 @@ public class ShowContestsRunning implements Initializable {
                 contestName = resultSet.getString("contestName");
                 startTime = resultSet.getString("startTime");
 
-
-
                 Scanner sc = new Scanner(startTime);
                 String year = sc.next(), month = sc.next(), day = sc.next(), hour = sc.next(), min = sc.next(), sec = sc.next();
                 String startTimecon = year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec;
@@ -180,7 +178,7 @@ public class ShowContestsRunning implements Initializable {
                 DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss");
                 String nowstr = chk.format(fmt);
                 if(startTime.compareTo(nowstr) <= 0 && duration.compareTo(nowstr) >= 0) {
-                    msg = "Upcoming...";
+                    msg = "Running...";
                     problemsIds = resultSet.getString("problemsIds");
                     ranking = resultSet.getString("ranking");
                     String showText = contestName + "\n" + startTimecon + "\n" + durationcon + "\n" + msg;
@@ -278,7 +276,6 @@ public class ShowContestsRunning implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
 
     @FXML
     void redset(MouseEvent event) throws IOException {
