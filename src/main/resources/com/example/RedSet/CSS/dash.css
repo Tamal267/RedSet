@@ -15,7 +15,7 @@
     -fx-border-radius: 5px;
 }
 .pending_course{
-    -fx-background-image: url(pending-tasks.png);
+    -fx-background-image: url(unsolved.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
@@ -27,7 +27,7 @@
     -fx-scale-y: 1.06;
 }
 .completed{
-    -fx-background-image: url(graduate.png);
+    -fx-background-image: url(solved.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
@@ -39,7 +39,7 @@
     -fx-scale-y: 1.06;
 }
 .watch_time{
-    -fx-background-image: url(video.png);
+    -fx-background-image: url(contests.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
@@ -51,7 +51,7 @@
     -fx-scale-y: 1.06;
 }
 .certificate{
-    -fx-background-image: url(certificate.png);
+    -fx-background-image: url(company.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
@@ -64,7 +64,7 @@
 }
 
 .standing{
-    -fx-background-image: url(standing.png);
+    -fx-background-image: url(file.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
