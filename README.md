@@ -1,6 +1,5 @@
 ## RedSet
 
-### Introduction
 
 RedSet creates a beneficial environment for learners that includes a compiler , a classroom feature ,hosting contests, along with study materials and also a notes section where the individual can store their own templates and codes.
 
