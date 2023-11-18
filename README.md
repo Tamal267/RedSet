@@ -86,17 +86,18 @@ Only Teachers can create assignment.
 
 Screenshoot of an assignment.
 
-![maketeacher](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/maketeacher.png)
+![maketeacher](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/maketeacher.png?raw=true)
 
 A teacher can promote a student as teacher.
 
-![viewannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/viewannounce.png)
+![createannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/createannounce.png?raw=true)
+
+Teachers can make necessary announcements if required!
+
+![viewannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/viewannounce.png?raw=true)
 
 Users can view the current announcements that were made up until the teacher doesn't delete it.
 
-![createannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/createannounce.png)
-
-Teachers can make necessary announcements if required!
 
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Contest.png?raw=true)
 
@@ -110,7 +111,7 @@ You can see a countdown at the bottom inside a contest page.
 
 Ranking of every contest. 20 penalty increase for a wrong submission.
 
-![profile](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editprofile.png)
+![profile](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editprofile.png?raw=true)
 
 User can view his current given information and edit them anytime.
 
