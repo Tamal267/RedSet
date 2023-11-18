@@ -5,38 +5,38 @@ RedSet creates a beneficial environment for learners that includes a compiler , 
 
 ### Dashboard
 
-![Dasboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/dashboard.png)
+![Dasboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/dashboard.png?raw=true)
 
 Dashboard gives a vivid idea of what can be done in RedSet. It gives important information to the users about how long he is in the application through graphical representation. Moreover, it also shows the number of different types of problems through a pie-chart. Besides it also provides features such as, 
 * #### Notes: 
-  ![notes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/notes.png)
+  ![notes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/notes.png?raw=true)
   
     It is possible to keep necessary codes,templates and notes inside this section.
 
-   ![addnotes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/addnotes.png)
+   ![addnotes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/addnotes.png?raw=true)
 
   A user can add/update and delete his desired template/code or notes.
   
 * #### Study:
-  ![studyproblems](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/studyproblems.png)
+  ![studyproblems](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/studyproblems.png?raw=true)
   
   This section gives the user a chance to challenge his current capability by solving various types of  problems.
   
-  ![problemsofaparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofaparticulartopic.png)
+  ![problemsofaparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofaparticulartopic.png?raw=true)
 
   contains problems of a certain topic.
 
-  ![solve](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/solve.png)
+  ![solve](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/solve.png?raw=true)
 
   User can attempt a problem and try solving it. If the solution provided by the user is correct, the judge will mark it accepted including required time.
 
-  ![editorial](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editorial.png)
+  ![editorial](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editorial.png?raw=true)
 
   User can read editorials or get the sample accepted solution if he fails to solve the problem.
 
 * #### Leaderboard:
 
-  ![leaderboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/leaderboard.png)
+  ![leaderboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/leaderboard.png?raw=true)
   
   Shows the user his current standing on the basis of the amount of time spent in the application.
 
