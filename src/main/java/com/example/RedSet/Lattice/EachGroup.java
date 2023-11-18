@@ -69,6 +69,8 @@ public class EachGroup implements Initializable {
 
     assigninfo asinfo = assigninfo.getInstance();
 
+    prevpage prevpg = prevpage.getInstance();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -292,6 +294,7 @@ public class EachGroup implements Initializable {
         asinfo.setCode("");
         asinfo.setId("");
         asinfo.setText("");
+        prevpg.setPrev("eachgroup-view.fxml");
         Stage stage = (Stage) crtassignbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtassign-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -341,6 +344,7 @@ public class EachGroup implements Initializable {
 
     @FXML
     void crtcontest(MouseEvent event) throws IOException {
+        prevpg.setPrev("eachgroup-view.fxml");
         asinfo.setInp("");
         asinfo.setTimelimit("");
         asinfo.setCode("");

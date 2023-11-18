@@ -74,7 +74,6 @@ public class CrtConPrb implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
-
     contestInfo info = contestInfo.getInstance();
 
     @FXML
@@ -183,7 +182,7 @@ public class CrtConPrb implements Initializable {
     void back(MouseEvent event) throws IOException {
         System.out.println(info.getContestName());
         Stage stage = (Stage) backbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(prevpg.getPrev()));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);

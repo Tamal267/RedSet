@@ -65,6 +65,10 @@ public class CrtContest implements Initializable{
 
     contestInfo info = contestInfo.getInstance();
 
+    assigninfo prbinfo = assigninfo.getInstance();
+
+    prevpage prevpg = prevpage.getInstance();
+
     @FXML
     void problems(MouseEvent event) throws IOException {
         Stage stage = (Stage) problemsbtn.getScene().getWindow();
@@ -97,7 +101,7 @@ public class CrtContest implements Initializable{
     @FXML
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) backbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("eachgroup-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(prevpg.getPrev()));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
@@ -105,6 +109,7 @@ public class CrtContest implements Initializable{
 
     @FXML
     void add(MouseEvent event) throws IOException {
+        prevpg.setPrev("crtcontest-view.fxml");
         contestName = cnamebox.getText();
         startTime = ctimebox.getText();
         duration = cdurationbox.getText();
@@ -114,6 +119,11 @@ public class CrtContest implements Initializable{
         info.setDuration(duration);
         info.setProblemsIds(problemsId);
         info.setGroupName(gpname);
+        prbinfo.setCode("");
+        prbinfo.setId("");
+        prbinfo.setText("");
+        prbinfo.setId("");
+        prbinfo.setText("");
         System.out.println(contestName + " " + startTime + " " + duration + " " + problemsId);
         Stage stage = (Stage) addbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtconprb-view.fxml"));

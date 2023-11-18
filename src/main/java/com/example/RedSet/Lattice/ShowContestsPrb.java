@@ -58,6 +58,9 @@ public class ShowContestsPrb implements Initializable {
 
     startEndTime stend = startEndTime.getInstance();
 
+    prevpage prevpg = prevpage.getInstance();
+
+
 
     @FXML
     private Button rankbtn;
@@ -362,6 +365,7 @@ public class ShowContestsPrb implements Initializable {
 
     @FXML
     void edit(MouseEvent event) throws IOException {
+        prevpg.setPrev("showcontestsprb-view.fxml");
         Stage stage = (Stage) editbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

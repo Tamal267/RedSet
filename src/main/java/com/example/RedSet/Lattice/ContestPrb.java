@@ -103,6 +103,8 @@ public class ContestPrb extends editorUI implements Initializable {
 
     startEndTime stend = startEndTime.getInstance();
 
+    prevpage prevpg = prevpage.getInstance();
+
     int prevSub = 0;
 
 
@@ -337,6 +339,7 @@ public class ContestPrb extends editorUI implements Initializable {
 
     @FXML
     void edit(MouseEvent event) throws IOException {
+        prevpg.setPrev("contestprb-view.fxml");
         asinfo.setId(id);
         asinfo.setText(txt);
         asinfo.setTimelimit(timelimit);

@@ -93,6 +93,8 @@ public class Assign extends editorUI implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
+    prevpage prevpg = prevpage.getInstance();
+
 
 
     @FXML
@@ -160,6 +162,7 @@ public class Assign extends editorUI implements Initializable {
         asinfo.setTimelimit(timelimit);
         asinfo.setCode(encodeDecode.decode(acceptedCode));
         asinfo.setInp(inp);
+        prevpg.setPrev("assign-view.fxml");
         Stage stage = (Stage) editbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtassign-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
