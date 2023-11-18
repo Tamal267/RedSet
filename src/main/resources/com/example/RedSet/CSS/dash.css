@@ -51,7 +51,7 @@
     -fx-scale-y: 1.06;
 }
 .certificate{
-    -fx-background-image: url(company.png);
+    -fx-background-image: url(file.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;
@@ -64,7 +64,7 @@
 }
 
 .standing{
-    -fx-background-image: url(file.png);
+    -fx-background-image: url(standing.png);
     -fx-background-position: top;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 45% 45%;

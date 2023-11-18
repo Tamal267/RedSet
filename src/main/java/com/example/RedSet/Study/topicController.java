@@ -123,4 +123,14 @@ public class topicController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
+
+    @FXML
+    void contestBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) contest.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("PROFILE");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
 }

@@ -130,16 +130,6 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void watchBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) watch.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/study.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
     void profileBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) profile.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
