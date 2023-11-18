@@ -1,6 +1,7 @@
 package com.example.RedSet.Profile;
 
 import com.example.RedSet.Lattice.DBconnect;
+import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.MAIN;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -109,7 +110,7 @@ public class editProfileController implements Initializable{
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) study.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/study.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Ranking");
         stage.setScene(scene);
@@ -152,7 +153,13 @@ public class editProfileController implements Initializable{
     }
 
     @FXML
-    void contestBtn(MouseEvent event) {
+    void contestBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
     @FXML

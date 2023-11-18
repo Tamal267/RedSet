@@ -104,7 +104,13 @@ public class viewProfileController implements Initializable {
     }
 
     @FXML
-    void contestBtn(MouseEvent event) {
+    void contestBtn(MouseEvent event) throws IOException {
+        Stage stage = (Stage) lattice.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LatticeLine");
+        stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
@@ -113,7 +119,7 @@ public class viewProfileController implements Initializable {
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
         Stage stage = (Stage) study.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/study.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Ranking");
         stage.setScene(scene);
