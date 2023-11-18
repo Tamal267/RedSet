@@ -86,9 +86,17 @@ Only Teachers can create assignment.
 
 Screenshoot of an assignment.
 
-![announce_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Announce.png?raw=true)
+![maketeacher](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/maketeacher.png)
 
-Teachers can create announce, students can read.
+A teacher can promote a student as teacher.
+
+![viewannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/viewannounce.png)
+
+Users can view the current announcements that were made up until the teacher doesn't delete it.
+
+![createannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/createannounce.png)
+
+Teachers can make necessary announcements if required!
 
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Contest.png?raw=true)
 
