@@ -180,12 +180,12 @@
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </TextField>
-                        <TextField fx:id="email" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="yusufrezahasnat0006@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="email" promptText="Your name here" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" text="yusufrezahasnat0006@gmail.com" GridPane.rowIndex="7">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </TextField>
-                        <Label text="EMAIL" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label text="EMAIL" textFill="#e9deff" GridPane.rowIndex="6">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -193,12 +193,12 @@
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <PasswordField fx:id="oldpass" promptText="Old password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <PasswordField fx:id="oldpass" promptText="Old password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </PasswordField>
-                        <Label text="OLD PASSWORD" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label text="OLD PASSWORD" textFill="#e9deff" GridPane.columnIndex="1">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -206,12 +206,12 @@
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <PasswordField fx:id="newpass" promptText="New password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <PasswordField fx:id="newpass" promptText="New password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </PasswordField>
-                        <Label text="NEW PASSWORD" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <Label text="NEW PASSWORD" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>
@@ -219,12 +219,12 @@
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <PasswordField fx:id="renewpass" promptText="Re-type new password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                        <PasswordField fx:id="renewpass" promptText="Re-type new password" style="-fx-background-color: #c8beda; -fx-border-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                             <font>
                                 <Font name="MS Outlook" size="24.0" />
                             </font>
                         </PasswordField>
-                        <Label text="RE-TYPE NEW PASSWORD" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <Label text="RE-TYPE NEW PASSWORD" textFill="#e9deff" GridPane.columnIndex="1" GridPane.rowIndex="4">
                             <font>
                                 <Font name="Cambria" size="24.0" />
                             </font>

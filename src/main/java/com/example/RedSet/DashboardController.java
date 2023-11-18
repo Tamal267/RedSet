@@ -44,8 +44,6 @@ public class DashboardController implements Initializable {
     @FXML
     private Label intro;
     @FXML
-    private Button activities;
-    @FXML
     private StackedAreaChart area;
     @FXML
     private GridPane completed;
@@ -60,58 +58,25 @@ public class DashboardController implements Initializable {
     @FXML
     private Button profile;
     @FXML
-    private ProgressBar prog;
-    @FXML
-    private Button rank;
-
-    @FXML
     private GridPane Notes;
-
     @FXML
     private GridPane standing;
-
     @FXML
     private Button study;
-
     @FXML
     private GridPane watch;
-
     @FXML
     private NumberAxis xAxis;
-
     @FXML
     private VBox vbox;
-
-
     @FXML
     private Label th;
-
     @FXML
     private Label unit;
-
     @FXML
     private Label point;
 
     String usname;
-
-    @FXML
-    void activitiesBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) activities.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Activities/panel.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1520, 780);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void completedBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) completed.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/study.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
@@ -142,18 +107,6 @@ public class DashboardController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
-
-
-    @FXML
-    void rankBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) rank.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Ranking/individualRanking.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ranking");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-    }
-
 
     @FXML
     void standingBtn(MouseEvent event) throws IOException {
