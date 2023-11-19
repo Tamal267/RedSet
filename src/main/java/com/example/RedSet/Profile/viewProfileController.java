@@ -157,7 +157,6 @@ public class viewProfileController implements Initializable {
             String query= "SELECT * FROM `users` WHERE username='" + usname + "';";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
-            System.out.println(query);
             String password = new String(), fullNamee = new String(), studentIde = new String(),  emaile = new String(), institutee = new String();
             while (resultSet.next()){
                 password = resultSet.getString("password");

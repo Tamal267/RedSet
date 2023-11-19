@@ -76,6 +76,16 @@ public class editProfileController implements Initializable{
     @FXML
     private Circle out;
 
+    @FXML
+    private TextField username;
+
+    @FXML
+    private TextField dept;
+
+    @FXML
+    private TextField stdId;
+
+    String password;
     String usname;
 
 
@@ -121,23 +131,23 @@ public class editProfileController implements Initializable{
 
     @FXML
     void saveBtn(MouseEvent event) throws IOException, SQLException {
-        Connection connection = DBconnect.getConnect();
-        String query= "SELECT * FROM `users` WHERE username='" + usname + "';";
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        String password = new String();
-        while (resultSet.next()){
-            password = resultSet.getString("password");
-        }
         if(Objects.equals(password, oldpass.getText())){
-            if(Objects.equals(newpass, renewpass)){
-                query = "UPDATE users SET fullName='" + fullname.getText() + "', email='" + email.getText() + "', password='" + newpass.getText() + "' WHERE username='" + usname + "';";
-                preparedStatement = connection.prepareStatement(query);
+            if(Objects.equals(newpass.getText(), "")){
+                Connection connection = DBconnect.getConnect();
+                String query = "UPDATE users SET fullName='" + fullname.getText() + "', email='" + email.getText() + "', institute='" + dept.getText() + "' WHERE username='" + usname + "';";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.executeUpdate();
+            }
+            else if(Objects.equals(newpass.getText(), renewpass.getText())){
+                Connection connection = DBconnect.getConnect();
+                String query = "UPDATE users SET fullName='" + fullname.getText() + "', email='" + email.getText() + "', password='" + newpass.getText() + "', institute='" + dept.getText() + "' WHERE username='" + usname + "';";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
                 preparedStatement.executeUpdate();
             }
         }
         else{
-            //tamal
+            level.setText("Invalid info");
+            return;
         }
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
@@ -193,5 +203,28 @@ public class editProfileController implements Initializable{
             throw new RuntimeException(e);
         }
         usname = sc.next();
+        Connection connection = null;
+        try {
+            connection = DBconnect.getConnect();
+            String query= "SELECT * FROM `users` WHERE username='" + usname + "';";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            String fullNamee = new String(), studentIde = new String(),  emaile = new String(), institutee = new String();
+            while (resultSet.next()){
+                password = resultSet.getString("password");
+                fullNamee = resultSet.getString("fullName");
+                studentIde = resultSet.getString("studentId");
+                emaile = resultSet.getString("email");
+                institutee = resultSet.getString("institute");
+                System.out.println(fullNamee + " " + studentIde);
+            }
+            username.setText(usname);
+            fullname.setText(fullNamee);
+            stdId.setText(studentIde);
+            email.setText(emaile);
+            dept.setText(institutee);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

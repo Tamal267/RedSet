@@ -39,7 +39,6 @@ public class JoinGrp implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
-
     @FXML
     void redset(MouseEvent event) throws IOException {
         Stage stage = (Stage) redsetbtn.getScene().getWindow();
