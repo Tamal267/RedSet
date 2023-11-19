@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.DashboardController">
    <children>
       <AnchorPane layoutY="-6.0" prefHeight="787.0" prefWidth="200.0" style="-fx-background-color: #404A4D; -fx-background-radius: 10;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -319,14 +319,14 @@
       </GridPane>
       <AnchorPane layoutX="1167.0" layoutY="33.0" prefHeight="720.0" prefWidth="220.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <BorderPane layoutY="169.0" prefHeight="700.0" prefWidth="220.0" style="-fx-background-color: #80ffe1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+            <BorderPane layoutY="169.0" prefHeight="700.0" prefWidth="220.0" style="-fx-background-color: #A9F5F2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                <center>
                   <PieChart fx:id="pie" prefHeight="477.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </center>
                <top>
-                  <Label text="  PROGRESS" BorderPane.alignment="CENTER">
+                  <Label text="PROBLEMS" BorderPane.alignment="CENTER">
                      <font>
-                        <Font name="Californian FB" size="20.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </top>
