@@ -241,6 +241,7 @@ public class Assign extends editorUI implements Initializable {
 
     @FXML
     void Status(MouseEvent event) throws IOException {
+        prevpg.setPrev("assign-view.fxml");
         Stage stage = (Stage) statusbtns.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("status-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -281,7 +282,6 @@ public class Assign extends editorUI implements Initializable {
                 .subscribe(this::applyHighlighting);
 
         // call when no longer need it: `cleanupWhenFinished.unsubscribe();`
-
 
 
         codeArea.replaceText(0, 0, sampleCode);

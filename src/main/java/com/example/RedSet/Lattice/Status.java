@@ -51,6 +51,7 @@ public class Status implements Initializable {
     @FXML
     private AnchorPane redsetbtn;
 
+    prevpage prevpg = prevpage.getInstance();
 
     String id, users, txt, acceptedCode, inp, timelimit;
     @Override
@@ -207,7 +208,7 @@ public class Status implements Initializable {
     @FXML
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) backbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("assign-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(prevpg.getPrev()));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
         stage.setTitle("LatticeLine");

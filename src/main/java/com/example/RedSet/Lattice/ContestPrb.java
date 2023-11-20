@@ -311,22 +311,13 @@ public class ContestPrb extends editorUI implements Initializable {
 
     @FXML
     void status(MouseEvent event) throws IOException {
+        prevpg.setPrev("contestprb-view.fxml");
         Stage stage = (Stage) statusbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("status-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
-    @FXML
-    void accepted(MouseEvent event) throws IOException {
-        Stage stage = (Stage) acceptedbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("accepted-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LatticeLine");
-        stage.setScene(scene);
-    }
-
 
     @FXML
     void redset(MouseEvent event) throws IOException {
@@ -447,7 +438,6 @@ public class ContestPrb extends editorUI implements Initializable {
         curUser = cuSc.next();
         borderPane.setCenter(codeArea);
 
-
         String duration = stend.getEnd();
 
         Scanner sc = new Scanner(duration);
@@ -475,6 +465,13 @@ public class ContestPrb extends editorUI implements Initializable {
         }
         else{
             statusbtns.setVisible(false);
+        }
+
+        if(!Objects.equals(fndTch, "teacher")) {
+            editbtn.setVisible(false);
+        }
+        else {
+            editbtn.setVisible(true);
         }
 
     }

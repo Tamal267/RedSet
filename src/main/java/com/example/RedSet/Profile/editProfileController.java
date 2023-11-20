@@ -86,8 +86,8 @@ public class editProfileController implements Initializable{
     private TextField stdId;
 
     String password;
-    String usname;
 
+    String usname;
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
