@@ -41,6 +41,8 @@ public class ForgotPasswordController {
         randomCode = rand.nextInt(999999);
         FileWriter fileWriter = new FileWriter("randomNum.txt");
         fileWriter.write(Integer.toString(randomCode));
+        fileWriter.write("\n");
+        fileWriter.write(getmail.getText());
         fileWriter.close();
     }
     boolean isEmail(String s){

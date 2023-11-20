@@ -184,6 +184,7 @@ public class CrtConPrb implements Initializable {
         Stage stage = (Stage) backbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(prevpg.getPrev()));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(HelloApplication.class.getResource("java-keywords.css").toExternalForm());
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }

@@ -1,6 +1,7 @@
 package com.example.RedSet.LogIn_SignUp_Pass;
 
 import com.example.RedSet.Lattice.DBconnect;
+import com.example.RedSet.Lattice.showErrMsg;
 import com.example.RedSet.MAIN;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -99,6 +100,10 @@ public class logInSignUpController implements Initializable {
     @FXML
     private TextField signupshowpasstextfeild2;
 
+    @FXML
+    private Label showerr;
+
+
 
     @FXML
     void createaccBtn(MouseEvent event) {
@@ -168,10 +173,11 @@ public class logInSignUpController implements Initializable {
                 FileWriter fileWriter = new FileWriter("userinfo.txt");
                 fileWriter.write(usname);
                 fileWriter.close();
-                Stage stage = (Stage) forgetpass.getScene().getWindow();
+                Stage stage = (Stage) loginLogin.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
-                stage.setTitle("Recover password!");
+                stage.setResizable(true);
+                stage.setTitle("Dashboard");
                 stage.setScene(scene);
                 stage.centerOnScreen();
             }
@@ -245,7 +251,6 @@ public class logInSignUpController implements Initializable {
         }
     }
     boolean isNumber(String s){
-        System.out.println(s);
         int cnt = 0;
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) >= '0' && s.charAt(i) <='9')
@@ -256,14 +261,23 @@ public class logInSignUpController implements Initializable {
         return cnt > 0;
     }
 
-    void isEmail(String s) throws LoginSignupException {
+    void isEmail(String s) throws LoginSignupException, SQLException {
         if(!textValidation.isValid(s, "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")){
             throw new LoginSignupException(s);
         }
+        Connection connection = DBconnect.getConnect();
+        String query = "SELECT * FROM `users` WHERE email='" + s + "';";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()) throw new LoginSignupException(s);
     }
 
     void isFullname(String s) throws LoginSignupException {
-        if(!textValidation.isValid(s, "^[a-zA-Z\\s]+")); throw new LoginSignupException(s);
+        if(!textValidation.isValid(s, "^[a-zA-Z\\s]+")) throw new LoginSignupException(s);
+    }
+
+    void isValidPassword(String s) throws LoginSignupException {
+        if(!textValidation.isValid(s, "^.{8,}$")) throw new LoginSignupException(s);
     }
 
     @FXML
@@ -283,6 +297,9 @@ public class logInSignUpController implements Initializable {
         } catch (LoginSignupException e){
             System.out.println(e);
             signupEmail.setText("Invalid mail address!");
+            return;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
         try{
@@ -292,81 +309,78 @@ public class logInSignUpController implements Initializable {
             signupFullname.setText("Full Name can't be empty!");
         }
 
+
+
         if(!isNumber(signupStdID.getText())) {
             signupStdID.setText("Invalid student ID!");
         }else if(signupUsername.getText().isEmpty()) {
             signupUsername.setText("Username can't be empty!");
         }else if(signupUniversity.getText().isEmpty()){
             signupUniversity.setText("University name can't be empty!");
-        }else if(!Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass)) {
-            if(!signupShowpass.isSelected()){
-                signupPassword.setPromptText("Password can't be empty!");
-                signupRetypePassword.setPromptText("Re-Type password can't be empty!");
-                signupPassword.setText("");
-                signupRetypePassword.setText("");
-            }
-            else{
-                signupshowpasstextfeild1.setPromptText("Password not matched!");
-                signupshowpasstextfeild2.setPromptText("Password not matched!");
-                signupshowpasstextfeild1.setText("");
-                signupshowpasstextfeild2.setText("");
-            }
-        }else if(Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass) && !signupPassword.getText().isEmpty()){
-            USERPASS = actual_sign_up_pass;
-            USERNAME = signupUsername.getText();
-            FULL_NAME = signupFullname.getText();
-            STD_ID = signupStdID.getText();
-            EMAIL = signupEmail.getText();
-            INSTITUTION = signupUniversity.getText();
-
-            Connection connection = null;
+        }else if(Objects.equals(actual_sign_up_pass,actual_sign_up_retype_pass)) {
             try {
-                connection = DBconnect.getConnect();
-                String query = "INSERT INTO `users` VALUES('" + USERNAME + "', '" + USERPASS + "', '" + "', '" + FULL_NAME + "', '" + STD_ID + "', '" + EMAIL + "', '" + INSTITUTION + "', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0');";
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                signupUsername.setText("Username already taken");
+                isValidPassword(actual_sign_up_pass);
+                USERPASS = actual_sign_up_pass;
+                USERNAME = signupUsername.getText();
+                FULL_NAME = signupFullname.getText();
+                STD_ID = signupStdID.getText();
+                EMAIL = signupEmail.getText();
+                INSTITUTION = signupUniversity.getText();
+
+                Connection connection = null;
+                try {
+                    connection = DBconnect.getConnect();
+                    String query = "INSERT INTO `users` VALUES('" + USERNAME + "', '" + USERPASS + "', '" + "', '" + FULL_NAME + "', '" + STD_ID + "', '" + EMAIL + "', '" + INSTITUTION + "', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0');";
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.executeUpdate();
+
+                    String mailSub = "Thanks for creating an account in RedSet";
+
+                    String mailBody = "Dear " + FULL_NAME + ",\n\n\n" +
+                            "We are thrilled to welcome you to RedSet!" +
+                            "Your recent decision to create an account with us has made our day," +
+                            "and we wanted to express our heartfelt thanks for choosing to be a part of our community." +
+                            "\n\n" +
+                            "At RedSet, we are committed to providing an exceptional online judge [LATTICE_LINE] and community experience," +
+                            "and we believe you've made a fantastic choice in joining us. Your new account opens the door to a world of" +
+                            "exciting opportunities, and we can't wait to share them with you." +
+                            "\n" +
+                            "\n\n" +
+                            "Warm regards,\n" +
+                            "RedSet TEAM\n" +
+                            "Yusuf Reza Hasnat\n" +
+                            "Syed Mafijul Islam\n" +
+                            "Tanvin Sarkar Pallab\n" +
+                            "[clubcognita@gmail.com]\n" +
+                            "\n" +
+                            "\n" +
+                            "\n" +
+                            "\n";
+
+                    String mail = EMAIL;
+                    String user = USERNAME;
+                    SendMail.sendEmail(mailBody, mailSub, mail, user);
+
+                    Stage stage = (Stage) signupLogin.getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    stage.setTitle("Log In");
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (SQLException E) {
+                    throw new RuntimeException(E);
+                }
+            } catch (IOException | RuntimeException e) {
+                throw new RuntimeException(e);
+            } catch (LoginSignupException e) {
+                signupPassword.setPromptText("Password should be 8 character long");
+                signupRetypePassword.setPromptText("Password should be 8 character long");
+                System.out.println("hello");
+                throw new RuntimeException(e);
             }
-
-            Stage stage = (Stage) signupLogin.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Log In");
-            stage.setScene(scene);
-            stage.centerOnScreen();
-            stage.setResizable(false);
-            stage.show();
-            String mailSub = "Thanks for creating an account in RedSet";
-
-            String mailBody = "Dear " + FULL_NAME + ",\n\n\n"+
-                    "We are thrilled to welcome you to RedSet!" +
-                    "Your recent decision to create an account with us has made our day," +
-                    "and we wanted to express our heartfelt thanks for choosing to be a part of our community." +
-                    "\n\n"+
-                    "At RedSet, we are committed to providing an exceptional online judge [LATTICE_LINE] and community experience," +
-                    "and we believe you've made a fantastic choice in joining us. Your new account opens the door to a world of" +
-                    "exciting opportunities, and we can't wait to share them with you."+
-                    "\n"+
-                    "\n\n"+
-                    "Warm regards,\n" +
-                    "RedSet TEAM\n" +
-                    "Yusuf Reza Hasnat\n" +
-                    "Syed Mafijul Islam\n" +
-                    "Tanvin Sarkar Pallab\n" +
-                    "[clubcognita@gmail.com]\n" +
-                    "\n" +
-                    "\n" +
-                    "\n" +
-                    "\n";
-
-            String mail = EMAIL;
-            String user = USERNAME;
-            SendMail.sendEmail(mailBody,mailSub,mail,user);
         }
-        else{
-        }
-        System.out.println(USERPASS);
     }
 
     @Override

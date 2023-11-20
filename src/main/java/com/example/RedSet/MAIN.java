@@ -67,7 +67,6 @@ public class MAIN extends Application {
         LocalDateTime date1 = LocalDateTime.of((int) year2, (int) month2, (int) day2, 0, 0, 0);
         if(day1 == day2){
             diff1 = netDiff;
-
         }
         else{
             long hr2 = ChronoUnit.HOURS.between(date1, endTime);
