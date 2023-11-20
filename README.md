@@ -321,7 +321,7 @@ Only Teachers can create assignment.
 
 ![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Assign.png?raw=true)
 ![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/EditAssign.png?raw=true)
-![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ShowInputs?raw=true)
+![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ShowInputs.png?raw=true)
 
 An assignment. Previous accepted solution remains visible with time & space complexity if any. Only teachers can show status and edit the Assignment. Teachers can see inputs and update inputs.
 
