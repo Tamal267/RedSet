@@ -125,6 +125,19 @@ public class ViewAnnounce implements Initializable {
 
         webengine.loadContent(htmlContent);
 
+        File fl = new File("isteacher.txt");
+        Scanner scT = null;
+        try {
+            scT = new Scanner(fl);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String fndTch = scT.next();
+        if (Objects.equals(fndTch, "teacher")) {
+            teacherbtns.setVisible(true);
+        } else {
+            teacherbtns.setVisible(false);
+        }
 
         File file = new File("userinfo.txt");
 
@@ -186,7 +199,7 @@ public class ViewAnnounce implements Initializable {
                     BorderPane.setMargin(stackPane, new Insets(20));
                     BorderPane.setMargin(dlt, new Insets(20));
                     borderPane.setCenter(stackPane);
-                    borderPane.setTop(new HBox(dlt));
+                    if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
                     borderPane.setMaxSize(520, 520);
                     borderPane.setMinSize(520, 520);
                     tilePane.getChildren().add(borderPane);
@@ -194,19 +207,7 @@ public class ViewAnnounce implements Initializable {
             } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        File fl = new File("isteacher.txt");
-        Scanner scT = null;
-        try {
-            scT = new Scanner(fl);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        String fndTch = scT.next();
-        if (Objects.equals(fndTch, "teacher")) {
-            teacherbtns.setVisible(true);
-        } else {
-            teacherbtns.setVisible(false);
-        }
+
     }
 
     @FXML
