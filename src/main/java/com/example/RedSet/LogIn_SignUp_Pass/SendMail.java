@@ -18,8 +18,8 @@ public class SendMail {
             Session session = Session.getInstance(properties, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("clubcognita@gmail.com",
-                            "anfx biyr bonz jjyc");
+                    return new PasswordAuthentication("official.redset@gmail.com",
+                            "isjz uxcb xcau lown");
                 }
             });
             session.setDebug(true);

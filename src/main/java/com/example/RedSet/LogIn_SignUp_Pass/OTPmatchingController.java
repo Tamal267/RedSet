@@ -28,7 +28,7 @@ public class OTPmatchingController {
     @FXML
     void ButtonLogIn(MouseEvent event) throws IOException {
         Stage stage = (Stage) LogIn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/LogInSignUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Log In");
         stage.setResizable(false);

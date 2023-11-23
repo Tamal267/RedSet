@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.LogIn_SignUp_Pass.logInSignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.LogIn_SignUp_Pass.logInSignUpController">
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #02000e;" styleClass="background_log_sign" stylesheets="@image.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -111,7 +111,7 @@
                   </Button>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="315.0" GridPane.rowIndex="8">
                      <children>
-                        <Button fx:id="createacc" mnemonicParsing="false" onMouseClicked="#createaccBtn" prefHeight="33.0" prefWidth="225.0" style="-fx-background-color: #36A420; -fx-border-radius: 8;" text="CREATE AN ACCOUNT" textFill="WHITE">
+                        <Button fx:id="createacc" mnemonicParsing="false" onMouseClicked="#createaccBtn" prefHeight="33.0" prefWidth="182.0" style="-fx-background-color: #36A420; -fx-border-radius: 8;" text="CREATE AN ACCOUNT" textFill="WHITE">
                            <font>
                               <Font name="Candara Bold" size="17.0" />
                            </font>
@@ -278,6 +278,5 @@
                </children>
             </GridPane>
          </children></AnchorPane>
-      <Label fx:id="showerr" textFill="RED" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>
 </AnchorPane>
