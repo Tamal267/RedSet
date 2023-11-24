@@ -351,7 +351,7 @@ public class logInSignUpController implements Initializable {
                             "Yusuf Reza Hasnat\n" +
                             "Syed Mafijul Islam\n" +
                             "Tanvin Sarkar Pallab\n" +
-                            "[clubcognita@gmail.com]\n" +
+                            "[official.redset@gmail.com]\n" +
                             "\n" +
                             "\n" +
                             "\n" +

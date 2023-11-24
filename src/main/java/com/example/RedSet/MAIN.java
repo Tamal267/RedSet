@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,26 +23,12 @@ import java.util.*;
 public class MAIN extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        File file = new File("userinfo.txt");
-        Scanner sc = new Scanner(file);
-        FXMLLoader fxmlLoader;
-        if(!sc.hasNext()) {
-            fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("LOG IN");
-            stage.centerOnScreen();
-            stage.setResizable(false);
-            stage.setScene(scene);
-        }
-        else{
-            fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("DASHBOARD");
-            stage.setScene(scene);
-        }
-        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/PIC/clubcognita.jpg")));
-        stage.getIcons().add(icon);
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("redsetwelcome-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("RedSet");
         stage.centerOnScreen();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
     public static void main(String[] args) throws SQLException, FileNotFoundException {

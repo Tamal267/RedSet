@@ -107,4 +107,11 @@
 .study{
     -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, repeat, #8c52ff, #5ce0e6);
 }
+.redsetIcon{
+    -fx-animated: redsetanim 3s linear infinite;
+}
+@keyframes redsetanim {
+    0%{-fx-rotateZ: 0deg;}
+    100%{-fx-rotateZ: 360deg;}
+}
 
