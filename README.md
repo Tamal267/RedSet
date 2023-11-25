@@ -2,53 +2,26 @@
 
 RedSet creates a beneficial environment for learners that includes topic wise problems with solution, notes section where user can keep notes or templates, notify about running and upcoming contest of groups where user is joined, leaderboard and activity, and the exclusive feature <b>LatticeLine</b>, that includes compiler, groups feature (Individual can create or join groups. The teachers of every group can make announce, assignment - like Google Classroom and contest - like an Online Judge.)
 
-## Config
+## Configuration
 
 You can run the project in your environment through any IDE by cloning the project. Run `git clone https://github.com/Tamal267/RedSet` in your terminal.
 Before run, delete `RedSet/target` if found and create a database named `lattice` in your localhost mysql server. Run `CREATE DATABASE lattice;`. Then run the given sql script for the database `lattice`.
 
 ```mysql
--- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Nov 20, 2023 at 01:35 PM
--- Server version: 8.0.35-0ubuntu0.22.04.1
--- PHP Version: 8.1.2-1ubuntu2.14
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `lattice`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `announce`
---
-
 CREATE TABLE `announce` (
   `text` text,
   `date` varchar(50) DEFAULT NULL,
   `gp` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `assignment`
---
 
 CREATE TABLE `assignment` (
   `group_name` varchar(30) DEFAULT NULL,
@@ -60,12 +33,6 @@ CREATE TABLE `assignment` (
   `timeLimit` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `conProb`
---
-
 CREATE TABLE `conProb` (
   `problemid` varchar(30) NOT NULL,
   `statement` text,
@@ -74,12 +41,6 @@ CREATE TABLE `conProb` (
   `users` text,
   `timeLimit` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contest`
---
 
 CREATE TABLE `contest` (
   `contestName` varchar(30) NOT NULL,
@@ -90,25 +51,11 @@ CREATE TABLE `contest` (
   `ranking` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gp`
---
-
 CREATE TABLE `gp` (
   `name` varchar(30) NOT NULL,
   `stdents` varchar(1000) DEFAULT NULL,
   `teachers` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notes`
---
 
 CREATE TABLE `notes` (
   `title` text,
@@ -116,13 +63,6 @@ CREATE TABLE `notes` (
   `user` varchar(30) DEFAULT NULL,
   `date` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `problems`
---
 
 CREATE TABLE `problems` (
   `problemid` varchar(50) NOT NULL,
@@ -132,12 +72,6 @@ CREATE TABLE `problems` (
   `users` text,
   `timeLimit` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `studyProblems`
---
 
 CREATE TABLE `studyProblems` (
   `problemid` varchar(30) NOT NULL,
@@ -149,23 +83,10 @@ CREATE TABLE `studyProblems` (
   `solution` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `studyTopic`
---
-
 CREATE TABLE `studyTopic` (
   `topicName` varchar(30) NOT NULL,
   `problemids` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
 
 CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
@@ -178,55 +99,28 @@ CREATE TABLE `users` (
   `time` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `assignment`
---
 ALTER TABLE `assignment`
   ADD UNIQUE KEY `assignId` (`assignId`);
 
---
--- Indexes for table `conProb`
---
 ALTER TABLE `conProb`
   ADD PRIMARY KEY (`problemid`);
 
---
--- Indexes for table `contest`
---
 ALTER TABLE `contest`
   ADD PRIMARY KEY (`contestName`);
 
---
--- Indexes for table `gp`
---
 ALTER TABLE `gp`
   ADD PRIMARY KEY (`name`);
 
---
--- Indexes for table `problems`
---
 ALTER TABLE `problems`
   ADD PRIMARY KEY (`problemid`);
 
---
--- Indexes for table `studyProblems`
---
 ALTER TABLE `studyProblems`
   ADD PRIMARY KEY (`problemid`);
 
---
--- Indexes for table `studyTopic`
---
 ALTER TABLE `studyTopic`
   ADD PRIMARY KEY (`topicName`);
 
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`);
 COMMIT;
@@ -243,77 +137,77 @@ Then change username and passowrd in `RedSet/src/main/java/com/example/RedSet/DB
 ![Dasboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/dashboard.png?raw=true)
 
 Dashboard gives a vivid idea of what can be done in RedSet. It gives important information to the users about how long he is in the application through graphical representation. Moreover, it also shows the number of different types of problems through a pie-chart. Besides it also provides features such as, 
-* ### Notes: 
-  ![notes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/notes.png?raw=true)
-  
-    It is possible to keep necessary codes,templates and notes inside this section.
 
-   ![addnotes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/addnotes.png?raw=true)
+### Notes: 
+![notes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/notes.png?raw=true)
 
-  A user can add/update and delete his desired template/code or notes.
-  
-* ### Study:
-  ![studyproblems](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/studyproblems.png?raw=true)
-  
-  This section gives the user a chance to challenge his current capability by solving various types of  problems.
-  
-  ![problemsofaparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofaparticulartopic.png?raw=true)
+  It is possible to keep necessary codes,templates and notes inside this section.
 
-  contains problems of a certain topic.
+ ![addnotes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/addnotes.png?raw=true)
 
-  ![solve](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/solve.png?raw=true)
+A user can add/update and delete his desired template/code or notes.
 
-  User can attempt a problem and try solving it. If the solution provided by the user is correct, the judge will mark it accepted including required time.
+### Study:
+![studyproblems](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/studyproblems.png?raw=true)
 
-  ![editorial](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editorial.png?raw=true)
+This section gives the user a chance to challenge his current capability by solving various types of  problems.
 
-  User can read editorials or get the sample accepted solution if he fails to solve the problem.
+![problemsofaparticulartopic](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/problemsofaparticulartopic.png?raw=true)
 
-* ### Leaderboard:
+contains problems of a certain topic.
 
-  ![leaderboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/leaderboard.png?raw=true)
-  
-  Shows the user his current standing on the basis of the amount of time spent in the application.
+![solve](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/solve.png?raw=true)
 
-* ### Lactticeline:
-  An exclusive part of RedSet which is discussed below:
+User can attempt a problem and try solving it. If the solution provided by the user is correct, the judge will mark it accepted including required time.
 
+![editorial](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editorial.png?raw=true)
+
+User can read editorials or get the sample accepted solution if he fails to solve the problem.
+
+### Leaderboard:
+
+![leaderboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/leaderboard.png?raw=true)
+
+Shows the user his current standing on the basis of the amount of time spent in the application.
+
+### Lactticeline:
+
+An exclusive part of RedSet which is discussed below:
 
   
 ### Features of Latticeline
 
-* Solving Problem from problem section
-* Create Group, Join Group
-* Teachers of a group can make assignment, announce & contest
-* Assignment of a student will accept when all the testcase for this assignemnt passed, like an online judge
+* Solving problem from problem section
+* Users can create group or join an existing group
+* Teachers of a group can create assignments, announcements and contests
+* Assignment of a student will accept when all the testcases for this assignment is passed, like an online judge
 * Teachers can see the status of every assignment
-* Realtime ranking of a contest
-* Others solution of a contest will visible after the contest
-* Contest and Assignment is editable/updatable.
+* Users can see real-time ranking of a contest
+* All the submissions of a contest will visible after the contest end
+* Contests and assignments are editable/updatable
 * Teachers can add a user as teacher from the group
-* And more
 
 ### Problems Section
 
 ![problem_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Problems1.png?raw=true)
 
-It is global problem section. Any user can solve problem here.
+It is global problem section. Any user can solve problem here. These problems are added by RedSet.
 
 ### Compiler Section
 ![compiler_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Compiler1.png?raw=true)
 
-It is a simple editor with highlight C++ code feature that shows output including time and memory complexity. You can choose a file to compile from choose button. Only C++ is available right now.
+It is a simple editor with highlighting syntax of C++ code feature that shows output including time and memory complexity. You can choose a file to compile from choose button. Only C++ is available right now.
 
 ### Groups Section
 ![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Groups1.png?raw=true)
 ![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/CreateGrp.png?raw=true)
 ![group_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/JoinGrp.png?raw=true)
 
-You can create a group. Group name will unique. You can join a group as a student also.
+In the group section user can see the connected groups. User can create a group as a teacher or join a group as a student by clicking Create & Join button showing in the bottom section. While creating a group, the name of that group should be unique.
 
 ![eachgroup_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/EachGroup.png?raw=true)
 
-Create Assignmente, like Google Classroom. Assignment are showing in each of the boxes.
+Create Assignmente, like Google Classroom. Assignments are showing in each of the boxes.
 
 ![crtassign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/CrtAssign.png?raw=true)
 
@@ -323,24 +217,23 @@ Only Teachers can create assignment.
 ![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/EditAssign.png?raw=true)
 ![assign_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ShowInputs.png?raw=true)
 
-An assignment. Previous accepted solution remains visible with time & space complexity if any. Only teachers can show status and edit the Assignment. Teachers can see inputs and update inputs.
+An assignment. Previous accepted solution remains visible with time & space limit. Only teachers can see status and edit the Assignment. Teachers can see inputs and update inputs.
 
 ![maketeacher](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/maketeacher.png?raw=true)
 
-A teacher can promote a student as teacher.
+A teacher can promote a student as a teacher.
 
 ![createannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/createannounce.png?raw=true)
 
-Teachers can make necessary announcements if required!
+Teachers can make necessary announcements .
 
 ![viewannounce](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/viewannounce.png?raw=true)
 
-Users can view the current announcements that were made up until the teacher doesn't delete it.
+Users can view the announcements that were made up until the teacher doesn't delete it.
 
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Contest.png?raw=true)
 
-Students can enter to the contest if the contest is in running or in ended state. Teachers can edit/update contest anytime.
-
+Students can enter to the contest if the contest is running or ended state. Teachers can enter and edit/update the contest anytime.
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ContestPrbs.png?raw=true)
 
 You can see a countdown at the bottom inside a contest page.
@@ -348,11 +241,11 @@ You can see a countdown at the bottom inside a contest page.
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/ContestPrb.png?raw=true)
 ![contest_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Status.png?raw=true)
 
-Students can only see the status after the end time of a contest.
+Students can only see the status after the end time of a contest. But teacher can see the status anytime.
 
 ![ranking_section](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/RedSet/Lattice/icons/Ranking.png?raw=true)
 
-Ranking of every contest. 20 penalty increase for a wrong submission.
+Ranking of every contest. 20 penalty will increase for a wrong submission.
 
 ![profile](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editprofile.png?raw=true)
 
