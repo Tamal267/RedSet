@@ -28,6 +28,8 @@ public class MAIN extends Application {
         stage.setTitle("RedSet");
         stage.centerOnScreen();
         stage.setScene(scene);
+        Image icon = new Image("logoRedset.png");
+        stage.getIcons().add(icon);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }

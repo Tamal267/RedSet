@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="208.0" fitWidth="268.0" layoutX="196.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0">
          <image>
-            <Image url="@../PIC/redset.png" />
+            <Image url="@../PIC/redsetNoB.png" />
          </image>
       </ImageView>
       <Circle fx:id="outer" fill="DODGERBLUE" layoutX="300.0" layoutY="151.0" radius="130.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" style="-fx-fill: transparent; -fx-stroke-dash-array: 40;" />
