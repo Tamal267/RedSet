@@ -170,7 +170,7 @@ User can read editorials or get the sample accepted solution if he fails to solv
 
 Shows the user his current standing on the basis of the amount of time spent in the application.
 
-### Lactticeline:
+### Latticeline:
 
 An exclusive part of RedSet which is discussed below:
 
