@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.RedSetWelcome">
    <children>
-      <ImageView fitHeight="208.0" fitWidth="268.0" layoutX="196.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="208.0" fitWidth="268.0" layoutX="196.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0">
          <image>
             <Image url="@../PIC/redset.png" />
          </image>
       </ImageView>
-      <Label layoutX="254.0" layoutY="277.0" prefHeight="34.0" prefWidth="92.0" text="RedSet" textFill="#ff003a">
+      <Circle fx:id="outer" fill="DODGERBLUE" layoutX="300.0" layoutY="151.0" radius="130.0" stroke="RED" strokeType="INSIDE" strokeWidth="10.0" style="-fx-fill: transparent; -fx-stroke-dash-array: 40;" />
+      <ImageView fitHeight="70.0" fitWidth="172.0" layoutX="196.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0">
+         <image>
+            <Image url="@../PIC/RedSetWrite.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="loadingbar" layoutX="3.0" layoutY="350.0" prefHeight="18.0" prefWidth="571.0" progress="0.7" style="-fx-control-inner-background: black; -fx-text-box-border: black;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text fill="#00b4ff" layoutX="31.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading...." AnchorPane.leftAnchor="5.0">
          <font>
-            <Font name="Times New Roman Bold" size="30.0" />
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="loadingPercentage" layoutX="540.0" layoutY="345.0" text="99" textFill="#00b4ff">
+         <font>
+            <Font name="Cambria" size="20.0" />
          </font>
       </Label>
    </children>
