@@ -18,10 +18,35 @@ public abstract class editorUI {
             "catch","float","public","try","char","for","register","typedef",
             "class","friend","return","union","const","goto","short","unsigned",
             "continue","if","signed","virtual","default","inline","sizeof","void",
-            "delete","int","static","volatile","do","long","struct","while","#include"
+            "delete","int","static","volatile","do","long","struct","while", "using", "namespace"
+    };
+
+    public static final String[] PREPROCESSORS = new String[] {
+            "if",
+            "elif",
+            "else",
+            "endif",
+            "ifdef",
+            "ifndef",
+            "elifdef",
+            "elifndef",
+            "define",
+            "undef",
+            "include",
+            "line",
+            "error",
+            "warning",
+            "pragma",
+            "defined",
+            "__has_include",
+            "__has_cpp_attribute",
+            "export",
+            "import",
+            "module",
     };
 
     public static final String KEYWORD_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
+    public static final String PREPROCESSORS_PATTERN = "\\b?#(" + String.join("|", PREPROCESSORS) + ")\\b";
     public static final String PAREN_PATTERN = "\\(|\\)";
     public static final String BRACE_PATTERN = "\\{|\\}";
     public static final String BRACKET_PATTERN = "\\[|\\]";
@@ -31,6 +56,7 @@ public abstract class editorUI {
 
     public static final Pattern PATTERN = Pattern.compile(
             "(?<KEYWORD>" + KEYWORD_PATTERN + ")"
+                    + "|(?<PREPROCESSOR>" + PREPROCESSORS_PATTERN + ")"
                     + "|(?<PAREN>" + PAREN_PATTERN + ")"
                     + "|(?<BRACE>" + BRACE_PATTERN + ")"
                     + "|(?<BRACKET>" + BRACKET_PATTERN + ")"
@@ -74,13 +100,14 @@ public abstract class editorUI {
         while(matcher.find()) {
             String styleClass =
                     matcher.group("KEYWORD") != null ? "keyword" :
-                            matcher.group("PAREN") != null ? "paren" :
-                                    matcher.group("BRACE") != null ? "brace" :
-                                            matcher.group("BRACKET") != null ? "bracket" :
-                                                    matcher.group("SEMICOLON") != null ? "semicolon" :
-                                                            matcher.group("STRING") != null ? "string" :
-                                                                    matcher.group("COMMENT") != null ? "comment" :
-                                                                            null; /* never happens */ assert styleClass != null;
+                            matcher.group("PREPROCESSOR") != null ? "preprocessors" :
+                                    matcher.group("PAREN") != null ? "paren" :
+                                            matcher.group("BRACE") != null ? "brace" :
+                                                    matcher.group("BRACKET") != null ? "bracket" :
+                                                            matcher.group("SEMICOLON") != null ? "semicolon" :
+                                                                    matcher.group("STRING") != null ? "string" :
+                                                                            matcher.group("COMMENT") != null ? "comment" :
+                                                                                    null; /* never happens */ assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), matcher.start() - lastKwEnd);
             spansBuilder.add(Collections.singleton(styleClass), matcher.end() - matcher.start());
             lastKwEnd = matcher.end();

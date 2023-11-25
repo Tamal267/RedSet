@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class EachGroup implements Initializable {
+public class EachGroup extends backButton implements Initializable {
     @FXML
     private AnchorPane compilerbtn;
 
@@ -278,8 +278,8 @@ public class EachGroup implements Initializable {
         stage.setScene(scene);
     }
 
-    @FXML
-    void group(MouseEvent event) throws IOException {
+    @Override
+    public void group(MouseEvent event) throws IOException {
         Stage stage = (Stage) groupbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("groups-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

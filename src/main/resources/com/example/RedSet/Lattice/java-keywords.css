@@ -1,4 +1,8 @@
 .keyword {
+    -fx-fill: #471f96;
+    -fx-font-weight: bold;
+}
+.preprocessors {
     -fx-fill: purple;
     -fx-font-weight: bold;
 }

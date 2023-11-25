@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -108,6 +109,9 @@ public class CrtNote {
 
     @FXML
     void logoutBtn(MouseEvent event) throws IOException {
+        FileWriter fileWriter = new FileWriter("userinfo.txt");
+        fileWriter.write("");
+        fileWriter.close();
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

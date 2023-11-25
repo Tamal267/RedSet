@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -18,7 +19,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class newPasswordController {
+public class newPasswordController implements showPopUp{
 
     @FXML
     private Button LogIn;
@@ -45,7 +46,7 @@ public class newPasswordController {
 
 
     void isValidPassword(String s) throws LoginSignupException {
-        if(!textValidation.isValid(s, "^.{8,}$")) throw new LoginSignupException(s);
+        if(!textValidation.isValid(s, "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")) throw new LoginSignupException(s);
     }
 
     @FXML
@@ -69,11 +70,25 @@ public class newPasswordController {
                 stage.setScene(scene);
                 stage.centerOnScreen();
             } catch (LoginSignupException e) {
-                System.out.println(e);
+                showErr("⚠\uFE0F Password must be 8 character long and contains lowercase, uppercase, special character (@#%$^) and digit.");
+                throw new RuntimeException(e);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
+    @Override
+    public void showErr(String msg) {
+        Label label = new Label(msg);
+        label.setMinHeight(80);
+        label.setMinWidth(50);
+        label.setMaxHeight(100);
+        label.setWrapText(true);
+        Scene scene = new Scene(label);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Eror Message");
+        stage.show();
+    }
 }

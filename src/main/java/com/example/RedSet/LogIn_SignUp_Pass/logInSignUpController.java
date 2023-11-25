@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class logInSignUpController implements Initializable {
+public class logInSignUpController implements Initializable, showPopUp {
 
 
     @FXML
@@ -277,7 +278,7 @@ public class logInSignUpController implements Initializable {
     }
 
     void isValidPassword(String s) throws LoginSignupException {
-        if(!textValidation.isValid(s, "^.{8,}$")) throw new LoginSignupException(s);
+        if(!textValidation.isValid(s, "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")) throw new LoginSignupException(s);
     }
 
     @FXML
@@ -375,9 +376,7 @@ public class logInSignUpController implements Initializable {
             } catch (IOException | RuntimeException e) {
                 throw new RuntimeException(e);
             } catch (LoginSignupException e) {
-                signupPassword.setPromptText("Password should be 8 character long");
-                signupRetypePassword.setPromptText("Password should be 8 character long");
-                System.out.println("hello");
+                showErr("⚠ Password must be 8 character long and contains lowercase, uppercase, special character (@#%$^) and digit.");
                 throw new RuntimeException(e);
             }
         }
@@ -385,5 +384,19 @@ public class logInSignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    @Override
+    public void showErr(String msg) {
+        Label label = new Label(msg);
+        label.setMinHeight(80);
+        label.setMinWidth(50);
+        label.setMaxHeight(100);
+        label.setWrapText(true);
+        Scene scene = new Scene(label);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Eror Message");
+        stage.show();
     }
 }

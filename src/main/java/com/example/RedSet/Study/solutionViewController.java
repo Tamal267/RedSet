@@ -20,6 +20,7 @@ import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.reactfx.Subscription;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
@@ -104,6 +105,9 @@ public class solutionViewController extends editorUI implements Initializable {
 
     @FXML
     void logoutBtn(MouseEvent event) throws IOException {
+        FileWriter fileWriter = new FileWriter("userinfo.txt");
+        fileWriter.write("");
+        fileWriter.close();
         Stage stage = (Stage) logout.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/LogIn_SignUp_Pass/logInSignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
