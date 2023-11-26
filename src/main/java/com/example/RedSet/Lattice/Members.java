@@ -81,7 +81,7 @@ public class Members implements Initializable {
                     flag = 1;
                     continue;
                 }
-                updateSt += aname;
+                updateSt += aname + " ";
             }
             if(flag == 1){
                 teachers += " " + givenUsr;

@@ -218,11 +218,8 @@ public class ContestPrb extends editorUI implements Initializable {
             String inp = sc.next();
             byte[] decodeInp = Base64.getDecoder().decode(inp);
             String decodedInp = new String(decodeInp);
-            System.out.println(inp);
-            System.out.println(decodedInp);
             Map<String, String> mapAc = CompilerOnline.compile(acceptedCode, inp, "cpp", timelimit);
             Map<String, String> mapUc = CompilerOnline.compile(encodedCode, inp, "cpp", timelimit);
-            System.out.println(mapAc);
             if (!Objects.equals(mapUc.get("status"), "Accepted")) {
                 String msg = mapUc.get("status") + "\n";
                 outBox.setText(msg);
@@ -242,7 +239,7 @@ public class ContestPrb extends editorUI implements Initializable {
                         "\n";
                 outBox.setText(msg);
                 ac = 0;
-                prepen += 20;
+                if(prevSub == 0) prepen += 20;
                 break;
             }
             double t = parseDouble(mapUc.get("time")) * 1000;
