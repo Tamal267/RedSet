@@ -376,7 +376,7 @@ public class logInSignUpController implements Initializable, showPopUp {
             } catch (IOException | RuntimeException e) {
                 throw new RuntimeException(e);
             } catch (LoginSignupException e) {
-                showErr("⚠ Password must be 8 character long and contains lowercase, uppercase, special character (@#%$^) and digit.");
+                showErr("⚠ Password must be at least 8 character long \nand contains lowercase, uppercase, special character (@#%$^) and digit.");
                 throw new RuntimeException(e);
             }
         }
@@ -396,7 +396,7 @@ public class logInSignUpController implements Initializable, showPopUp {
         Scene scene = new Scene(label);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Eror Message");
+        stage.setTitle("Error Message");
         stage.show();
     }
 }
