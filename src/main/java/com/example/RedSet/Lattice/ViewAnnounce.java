@@ -159,6 +159,11 @@ public class ViewAnnounce implements Initializable {
             while(resultSet.next()){
                 String as = resultSet.getString("text");
                 String date = resultSet.getString("date");
+                Scanner cinDate = new Scanner(date);
+                String createTime = cinDate.next() + "/" + cinDate.next() + "/" + cinDate.next() + " " + cinDate.next() + ":" + cinDate.next() + ":" + cinDate.next();
+                Text showDate = new Text(createTime);
+                showDate.setFill(Color.WHITE);
+                showDate.setTextAlignment(TextAlignment.LEFT);
                     String asn = encodeDecode.decode(as);
                     BorderPane borderPane = new BorderPane();
                     Text txt = new Text();
@@ -199,6 +204,7 @@ public class ViewAnnounce implements Initializable {
                     BorderPane.setMargin(stackPane, new Insets(20));
                     BorderPane.setMargin(dlt, new Insets(20));
                     borderPane.setCenter(stackPane);
+                    borderPane.setBottom(showDate);
                     if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
                     borderPane.setMaxSize(520, 520);
                     borderPane.setMinSize(520, 520);

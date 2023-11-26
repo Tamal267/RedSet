@@ -55,7 +55,7 @@ public class CrtGrp implements Initializable {
         File file = new File("userinfo.txt");
         Scanner sc = new Scanner(file);
         String teacher = sc.next();
-        String insertStr = "'" + gpBox.getText() + "', '" + "', '" + teacher + "','" + "'";
+        String insertStr = "'" + gpBox.getText() + "', '" + "', '" + teacher + "'";
         Connection connection = null;
         try {
             connection = DBconnect.getConnect();

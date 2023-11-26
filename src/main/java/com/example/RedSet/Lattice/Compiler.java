@@ -182,7 +182,9 @@ public class Compiler extends editorUI implements Initializable {
         String encodedCode = Base64.getEncoder().encodeToString(codeArea.getText().getBytes());
         String encodedInput = Base64.getEncoder().encodeToString(inputBox.getText().getBytes());
         Map<String, String> map = CompilerOnline.compile(encodedCode, encodedInput, "cpp", "1");
-        outputBox.appendText(map.get("stdout") + "\nTime: " + (int)(Double.parseDouble(map.get("time")) * 1000) + "ms\nMemory: " + map.get("memory") + "KB\nStatus: " + map.get("status"));
+        System.out.println(map);
+        if(map.get("status").equals("Accepted")) outputBox.appendText(map.get("stdout") + "\nTime: " + (int)(Double.parseDouble(map.get("time")) * 1000) + "ms\nMemory: " + map.get("memory") + "KB\nStatus: " + map.get("status"));
+        else outputBox.appendText(map.get("status"));
     }
 
 

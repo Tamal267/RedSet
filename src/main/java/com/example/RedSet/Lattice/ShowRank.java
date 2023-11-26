@@ -118,7 +118,6 @@ public class ShowRank implements Initializable {
 
         webengine.loadContent(htmlContent);
 
-
         tilePane.setMaxWidth(Region.USE_PREF_SIZE);
         scrollPane.setFitToWidth(true);
 
@@ -185,7 +184,6 @@ public class ShowRank implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
 
     @FXML
     void redset(MouseEvent event) throws IOException {
