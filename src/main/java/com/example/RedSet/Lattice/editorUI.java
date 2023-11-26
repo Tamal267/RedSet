@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class editorUI {
-    public static final String[] KEYWORDS = new String[] {
+    public static String[] KEYWORDS = new String[] {
             "asm","double","new","switch","auto","else","operator","template",
             "break","enum","private","this","case","extern","protected","throw",
             "catch","float","public","try","char","for","register","typedef",
@@ -21,7 +21,7 @@ public abstract class editorUI {
             "delete","int","static","volatile","do","long","struct","while", "using", "namespace"
     };
 
-    public static final String[] PREPROCESSORS = new String[] {
+    public static String[] PREPROCESSORS = new String[] {
             "if",
             "elif",
             "else",
@@ -45,16 +45,16 @@ public abstract class editorUI {
             "module",
     };
 
-    public static final String KEYWORD_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
-    public static final String PREPROCESSORS_PATTERN = "\\b?#(" + String.join("|", PREPROCESSORS) + ")\\b";
-    public static final String PAREN_PATTERN = "\\(|\\)";
-    public static final String BRACE_PATTERN = "\\{|\\}";
-    public static final String BRACKET_PATTERN = "\\[|\\]";
-    public static final String SEMICOLON_PATTERN = "\\;";
-    public static final String STRING_PATTERN = "\"([^\"\\\\]|\\\\.)*\"";
-    public static final String COMMENT_PATTERN = "//[^\n]*" + "|" + "/\\*(.|\\R)*?\\*/";
+    public static String KEYWORD_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
+    public static String PREPROCESSORS_PATTERN = "\\b?#(" + String.join("|", PREPROCESSORS) + ")\\b";
+    public static String PAREN_PATTERN = "\\(|\\)";
+    public static String BRACE_PATTERN = "\\{|\\}";
+    public static String BRACKET_PATTERN = "\\[|\\]";
+    public static String SEMICOLON_PATTERN = "\\;";
+    public static String STRING_PATTERN = "\"([^\"\\\\]|\\\\.)*\"";
+    public static String COMMENT_PATTERN = "//[^\n]*" + "|" + "/\\*(.|\\R)*?\\*/";
 
-    public static final Pattern PATTERN = Pattern.compile(
+    public static Pattern PATTERN = Pattern.compile(
             "(?<KEYWORD>" + KEYWORD_PATTERN + ")"
                     + "|(?<PREPROCESSOR>" + PREPROCESSORS_PATTERN + ")"
                     + "|(?<PAREN>" + PAREN_PATTERN + ")"

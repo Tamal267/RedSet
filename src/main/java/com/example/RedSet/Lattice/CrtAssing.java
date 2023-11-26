@@ -143,11 +143,14 @@ public class CrtAssing implements Initializable {
             inp = "";
         } catch (SQLException e) {
             try {
-                query = "UPDATE `assignment` SET text='" + txt + "', code='" + acceptedCode + "', input='" + inp + "', assignId='" + id + "', timeLimit='" + timelimit + "' WHERE assignId='" + id + "';";
-                System.out.println(query);
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.executeUpdate();
-                showErrMsg.msg(status, "Assignment Updated");
+                if("eachgroup-view.fxml".equals(prevpage.peek())) throw e;
+                else {
+                    query = "UPDATE `assignment` SET text='" + txt + "', code='" + acceptedCode + "', input='" + inp + "', assignId='" + id + "', timeLimit='" + timelimit + "' WHERE assignId='" + id + "';";
+                    System.out.println(query);
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.executeUpdate();
+                    showErrMsg.msg(status, "Assignment Updated");
+                }
             } catch (SQLException E){
                 showErrMsg.msg(status, "An error occured.");
             }

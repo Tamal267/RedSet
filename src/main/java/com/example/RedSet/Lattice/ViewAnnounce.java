@@ -164,51 +164,51 @@ public class ViewAnnounce implements Initializable {
                 Text showDate = new Text(createTime);
                 showDate.setFill(Color.WHITE);
                 showDate.setTextAlignment(TextAlignment.LEFT);
-                    String asn = encodeDecode.decode(as);
-                    BorderPane borderPane = new BorderPane();
-                    Text txt = new Text();
-                    txt.setText(asn);
-                    txt.setFont(Font.font(15));
+                String asn = encodeDecode.decode(as);
+                BorderPane borderPane = new BorderPane();
+                Text txt = new Text();
+                txt.setText(asn);
+                txt.setFont(Font.font(15));
 //                txt.setWrappingWidth(250);
-                    borderPane.setId(asn);
-                    StackPane stackPane = new StackPane();
-                    stackPane.getChildren().add(txt);
-                    stackPane.setMaxSize(500, 500);
-                    stackPane.setMinSize(500, 500);
-                    txt.setTextAlignment(TextAlignment.CENTER);
-                    txt.wrappingWidthProperty().bind(stackPane.widthProperty());
-                    txt.setFill(Color.WHITE);
-                    Button dlt = new Button("X");
-                    stackPane.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
+                borderPane.setId(asn);
+                StackPane stackPane = new StackPane();
+                stackPane.getChildren().add(txt);
+                stackPane.setMaxSize(500, 500);
+                stackPane.setMinSize(500, 500);
+                txt.setTextAlignment(TextAlignment.CENTER);
+                txt.wrappingWidthProperty().bind(stackPane.widthProperty());
+                txt.setFill(Color.WHITE);
+                Button dlt = new Button("X");
+                stackPane.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
 //                    dlt.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
-                    dlt.setId("dlt");
-                    dlt.setOnMouseClicked(e -> {
-                        String qu = "DELETE FROM `announce` WHERE text='" + as + "' && (gp='" + gpname + "' && date ='" + date + "');";
-                        System.out.println(qu);
-                        try {
-                            PreparedStatement pre = connection.prepareStatement(qu);
-                            pre.executeUpdate();
-                            Stage stage = (Stage) dlt.getScene().getWindow();
-                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
-                            Scene scene = new Scene(fxmlLoader.load());
-                            scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
-                            stage.setTitle("LatticeLine");
-                            stage.setScene(scene);
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    });
-                    borderPane.setStyle("-fx-padding: 22;");
-                    BorderPane.setMargin(stackPane, new Insets(20));
-                    BorderPane.setMargin(dlt, new Insets(20));
-                    borderPane.setCenter(stackPane);
-                    borderPane.setBottom(showDate);
-                    if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
-                    borderPane.setMaxSize(520, 520);
-                    borderPane.setMinSize(520, 520);
-                    tilePane.getChildren().add(borderPane);
+                dlt.setId("dlt");
+                dlt.setOnMouseClicked(e -> {
+                    String qu = "DELETE FROM `announce` WHERE text='" + as + "' && (gp='" + gpname + "' && date ='" + date + "');";
+                    System.out.println(qu);
+                    try {
+                        PreparedStatement pre = connection.prepareStatement(qu);
+                        pre.executeUpdate();
+                        Stage stage = (Stage) dlt.getScene().getWindow();
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
+                        stage.setTitle("LatticeLine");
+                        stage.setScene(scene);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                });
+                borderPane.setStyle("-fx-padding: 12 12 12 30;");
+                BorderPane.setMargin(stackPane, new Insets(20));
+                BorderPane.setMargin(dlt, new Insets(10));
+                borderPane.setCenter(stackPane);
+                borderPane.setBottom(showDate);
+                if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
+                borderPane.setMaxSize(520, 520);
+                borderPane.setMinSize(520, 520);
+                tilePane.getChildren().add(borderPane);
                 }
             } catch (SQLException ex) {
             throw new RuntimeException(ex);

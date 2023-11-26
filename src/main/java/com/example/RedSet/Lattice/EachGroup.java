@@ -71,6 +71,8 @@ public class EachGroup extends backButton implements Initializable {
 
     prevpage prevpg = prevpage.getInstance();
 
+    contestInfo info = contestInfo.getInstance();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -332,7 +334,6 @@ public class EachGroup extends backButton implements Initializable {
         stage.setTitle("LatticeLine");
         stage.setScene(scene);
     }
-
     @FXML
     void contest(MouseEvent event) throws IOException {
         Stage stage = (Stage) contestbtn.getScene().getWindow();
@@ -350,6 +351,12 @@ public class EachGroup extends backButton implements Initializable {
         asinfo.setCode("");
         asinfo.setId("");
         asinfo.setText("");
+        info.setGroupName("");
+        info.setRanking("");
+        info.setDuration("");
+        info.setStartTime("");
+        info.setProblemsIds("");
+        info.setContestName("");
         Stage stage = (Stage) crtcontestbtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("crtcontest-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

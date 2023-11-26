@@ -33,7 +33,6 @@ import java.util.ResourceBundle;
 
 public class logInSignUpController implements Initializable, showPopUp {
 
-
     @FXML
     private Label IncorrectLabel;
 
@@ -379,6 +378,9 @@ public class logInSignUpController implements Initializable, showPopUp {
                 showErr("⚠ Password must be at least 8 character long \nand contains lowercase, uppercase, special character (@#%$^) and digit.");
                 throw new RuntimeException(e);
             }
+        }else {
+            showErr("Recheck password.");
+            return;
         }
     }
 
