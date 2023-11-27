@@ -32,14 +32,24 @@
     -fx-background-color: #de6cd2;
 }
 .menubar{
+    -fx-background-color: #0b616b;
+    -fx-background-radius: 0 30 30 0;
+    -fx-border-width:  10;
+    -fx-border-radius:  0 30 30 0;
+}
+.menubar:hover{
+    -fx-background-color: #22363a;
+    -fx-background-radius: 0 30 30 0;
+    -fx-border-width:  0;
+    -fx-border-radius:  0 30 30 0;
+}
+.optionbar{
     -fx-border-color:  #08f4fc;
     -fx-border-width:  0 0 2 0;
     -fx-border-radius:  10;
 }
-.menubar:hover{
-    -fx-border-color: #c7fc08;
-    -fx-border-width:  0 0 2 0;
-    -fx-border-radius:  10;
+.optionbar:hover{
+    -fx-border-color: red;
 }
 #dlt{
     -fx-background-radius: 10;
@@ -56,3 +66,15 @@
     -fx-border-color: WHITE;
     -fx-text-fill: #8aff00;
 }
+.crtGroup{
+    -fx-border-color: #344fff;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-width: 3;
+}
+.crtGroupTextField{
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: transparent;
+}
+
