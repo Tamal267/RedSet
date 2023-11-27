@@ -114,4 +114,16 @@
     0%{-fx-rotateZ: 0deg;}
     100%{-fx-rotateZ: 360deg;}
 }
+.background{
+    /*-fx-background-color: linear-gradient(to right, rgba(100, 99, 100, 1) 0%, rgba(237, 235, 243, 1) 51%, rgba(100, 99, 100, 1) 100%);*/
+    -fx-background-color: linear-gradient(to right, rgba(174,174,174,1) 0%, rgba(237, 235, 243, 1) 20%, rgba(237, 235, 243, 1) 50%, rgba(237, 235, 243, 1) 80%, rgba(174,174,174,1) 100%);
+}
 
+.text-area {
+     text-area-background: #f8f7fc;
+ }
+
+
+.text-area .content {
+    -fx-background-color: text-area-background ;
+}
