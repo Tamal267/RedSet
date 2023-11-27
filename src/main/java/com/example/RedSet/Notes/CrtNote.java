@@ -4,6 +4,7 @@ import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.Lattice.encodeDecode;
 import com.example.RedSet.MAIN;
+import com.example.RedSet.SceneTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -77,33 +78,38 @@ public class CrtNote {
 
     @FXML
     void contestBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("CONTEST");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+//        Stage stage = (Stage) lattice.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("CONTEST");
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+        SceneTransition.loadscenefadewithstyle("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml",event,lattice,"CONTEST");
     }
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("DASHBOARD");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+//        Stage stage = (Stage) lattice.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("DASHBOARD");
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+        SceneTransition.loadscenefadewithstyle("/com/example/RedSet/dashboard.fxml",event,lattice,"DASHBOARD");
+
 
     }
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LATTICELINE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+//        Stage stage = (Stage) lattice.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("LATTICELINE");
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+        SceneTransition.loadSceneTranslate("/com/example/RedSet/Lattice/hello-view.fxml",event,lattice,"LATTICELINE");
+
 
     }
 
@@ -124,23 +130,27 @@ public class CrtNote {
 
     @FXML
     void profileBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) profile.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROFILE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+//        Stage stage = (Stage) profile.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("PROFILE");
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+        SceneTransition.loadSceneTranslate("/com/example/RedSet/Profile/viewProfile.fxml",event,profile,"PROFILE");
+
 
     }
 
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) study.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROBLEMS");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+//        Stage stage = (Stage) study.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("PROBLEMS");
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+        SceneTransition.loadSceneTranslate("/com/example/RedSet/Study/topic.fxml",event,study,"PROBLEMS");
+
     }
 
 }

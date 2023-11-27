@@ -3,6 +3,7 @@ package com.example.RedSet.Profile;
 import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.MAIN;
+import com.example.RedSet.SceneTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
@@ -67,12 +68,7 @@ public class viewProfileController implements Initializable {
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),1520,780);
-        stage.setTitle("LATTICELINE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadSceneTranslate("/com/example/RedSet/Lattice/hello-view.fxml",event,lattice,"LATTICELINE");
     }
 
     @FXML
@@ -91,46 +87,28 @@ public class viewProfileController implements Initializable {
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) dashboard.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("DASHBOARD");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadscenefade("dashboard.fxml",event,dashboard,"DASHBOARD");
     }
+
 
     @FXML
     void editBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) edit.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/editProfile.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROFILE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadscenefade("/com/example/RedSet/Profile/editProfile.fxml",event,edit,"PROFILE");
+
     }
 
     @FXML
     void contestBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("CONTEST");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-
+        SceneTransition.loadscenefade("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml",event,lattice,"LATTICELINE");
     }
 
 
 
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) study.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROBLEMS");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadscenefade("/com/example/RedSet/Study/topic.fxml",event,study,"STUDY");
     }
+
     private void setContinuousRotate(Circle c, int angle, double duration) {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
