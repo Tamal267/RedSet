@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -40,13 +41,13 @@ public class CrtContest implements Initializable{
     private TextArea caddprbbox;
 
     @FXML
-    private TextArea cdurationbox;
+    private TextField cdurationbox;
 
     @FXML
-    private TextArea cnamebox;
+    private TextField cnamebox;
 
     @FXML
-    private TextArea ctimebox;
+    private TextField ctimebox;
 
     @FXML
     private AnchorPane groupsbtn;

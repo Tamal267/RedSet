@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.solutionViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.solutionViewController">
     <children>
         <AnchorPane layoutY="-6.0" prefHeight="787.0" prefWidth="200.0" style="-fx-background-color: #404A4D; -fx-background-radius: 10;" stylesheets="@../CSS/dash.css" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -96,7 +97,7 @@
                         </Button>
                     </children>
                 </GridPane>
-                <Button fx:id="logout" layoutX="14.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="36.0" prefWidth="169.0" styleClass="logout" stylesheets="@../CSS/dash.css" text="LOG OUT" textFill="#bebebe">
+                <Button fx:id="logout" layoutX="14.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="36.0" prefWidth="169.0" styleClass="logout" stylesheets="@../CSS/dash.css" text="LOG OUT" textFill="#bebebe" AnchorPane.bottomAnchor="12.0">
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -110,33 +111,32 @@
                 </Button>
             </children>
         </AnchorPane>
-        <GridPane layoutX="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <columnConstraints>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="617.4" minHeight="10.0" prefHeight="28.79999694824219" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="617.4" minHeight="10.0" prefHeight="587.2000030517578" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="313.4" minHeight="10.0" prefHeight="38.00002441406252" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <TextArea fx:id="editorial" editable="false" prefHeight="200.0" prefWidth="200.0" text="No editorial yet&#10;" wrapText="true" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Cambria" size="18.0" />
-                    </font>
-                </TextArea>
-                <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="EDITORIAL" textAlignment="CENTER">
-                    <font>
-                        <Font name="Georgia" size="22.0" />
-                    </font>
-                </Label>
-                <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="SOLUTION" textAlignment="CENTER" GridPane.columnIndex="1">
-                    <font>
-                        <Font name="Georgia" size="22.0" />
-                    </font>
-                </Label>
-                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="EDITORIAL" textAlignment="CENTER" textFill="#651a1a">
+                          <font>
+                              <Font name="System Bold" size="22.0" />
+                          </font>
+                      </Label>
+                      <Label alignment="CENTER" prefHeight="32.0" prefWidth="159.0" text="SOLUTION" textAlignment="CENTER" textFill="#432a2a" GridPane.columnIndex="1">
+                          <font>
+                              <Font name="System Bold" size="22.0" />
+                          </font>
+                      </Label>
+               </children>
+            </GridPane>
+         </top>
+         <bottom>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/profile.css" text="BACK">
                             <font>
@@ -148,8 +148,27 @@
                         <Insets right="25.0" />
                     </padding>
                 </HBox>
-                <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            </children>
-        </GridPane>
+         </bottom>
+         <center>
+            <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                            <TextArea fx:id="editorial" editable="false" layoutX="-2.0" layoutY="-1.0" maxWidth="3000.0" prefHeight="578.0" prefWidth="498.0" text="No editorial yet&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                                <font>
+                                    <Font name="Cambria" size="18.0" />
+                                </font>
+                            </TextArea>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                            <BorderPane fx:id="borderPane" layoutX="-3.0" layoutY="-9.0" maxWidth="3000.0" prefHeight="580.0" prefWidth="503.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
     </children>
 </AnchorPane>
