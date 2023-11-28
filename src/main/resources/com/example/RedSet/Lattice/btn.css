@@ -102,6 +102,18 @@
 .text-area:focused .content {
     -fx-background-color: transparent, white, transparent, #f1eded;
 }
+.makeTeacher{
+    -fx-border-color: #05eeb9;
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-width: 3;
+}
+.makeTeacherTextField{
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: transparent;
+}
 
 
 

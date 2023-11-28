@@ -114,13 +114,13 @@ public class NotesView implements Initializable {
 
     @FXML
     void profileBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) profile.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Ranking");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
-        SceneTransition.loadscenefadewithstyle("/com/example/RedSet/Profile/viewProfile.fxml",event,profile,"Ranking");
+        Stage stage = (Stage) profile.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Ranking");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+//        SceneTransition.loadscenefadewithstyle("/com/example/RedSet/Profile/viewProfile.fxml",event,profile,"Ranking");
 
 
     }

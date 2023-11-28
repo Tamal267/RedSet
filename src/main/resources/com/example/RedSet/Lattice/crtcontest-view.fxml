@@ -253,6 +253,14 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="200.0">
                            <children>
+                              <Text fx:id="status" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Text>
                               <ImageView fitHeight="37.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../PIC/plus.png" />

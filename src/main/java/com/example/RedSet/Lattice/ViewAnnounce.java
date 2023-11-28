@@ -204,6 +204,7 @@ public class ViewAnnounce implements Initializable {
 //                BorderPane.setMargin(dlt, new Insets(10));
 //                BorderPane.setMargin(showDate, new Insets(10));
                 borderPane.setCenter(stackPane);
+                borderPane.setTop(dlt);
                 borderPane.setBottom(showDate);
                 if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
                 borderPane.setMaxSize(520, 520);

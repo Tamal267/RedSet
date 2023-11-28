@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1520.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Profile.editProfileController">
     <children>
-        <AnchorPane layoutY="-10.0" prefHeight="780.0" prefWidth="200.0" style="-fx-background-color: #404A4D; -fx-background-radius: 10;" AnchorPane.topAnchor="0.0">
+        <AnchorPane layoutY="-10.0" prefHeight="780.0" prefWidth="200.0" style="-fx-background-color: #404A4D; -fx-background-radius: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Circle fill="DODGERBLUE" layoutX="100.0" layoutY="54.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
                 <Button fx:id="logout" layoutX="25.0" layoutY="730.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="51.0" prefWidth="138.0" style="-fx-background-radius: 10;" styleClass="logout" stylesheets="@../CSS/dash.css" text="Log Out" textFill="#e7f7fa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="730.0">

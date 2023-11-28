@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -53,10 +54,10 @@ public class Members implements Initializable {
     private AnchorPane redsetbtn;
 
     @FXML
-    private TextArea userbox;
+    private TextField userbox;
 
     @FXML
-    private GridPane makeTeacherGrid;
+    private BorderPane makeTeacherGrid;
 
     String gpname;
 
@@ -95,9 +96,10 @@ public class Members implements Initializable {
                 for (int i=1;i<=2;i++) {
                     BorderPane borderPane = new BorderPane();
                     Text txt = new Text();
+//                    txt.setStyle("-fx-font-size: 30");
                     if (i == 1) txt.setText("Students\n\n" + stdents);
                     else txt.setText("Teachers\n\n" + teachers);
-//                txt.setStyle("-fx-font-size: 30");
+
 //                txt.setWrappingWidth(250);
                     borderPane.setId(gpname);
                     ScrollPane scrollPane1 = new ScrollPane();
