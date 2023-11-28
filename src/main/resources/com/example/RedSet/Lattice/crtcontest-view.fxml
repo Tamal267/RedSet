@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,10 +13,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
-
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Lattice.CrtContest">
     <children>
         <AnchorPane prefHeight="650.0" prefWidth="200.0" style="-fx-background-color:  #404a4d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -126,7 +127,7 @@
                 </VBox>
                 <Line endX="100.0" layoutX="100.0" layoutY="72.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
             </children></AnchorPane>
-        <AnchorPane layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ECF4F5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox layoutX="6.0" layoutY="600.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <HBox layoutX="320.0" layoutY="485.0" prefHeight="50.0" prefWidth="85.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -138,95 +139,149 @@
                   </Button>
                </children>
             </HBox>
-            <GridPane layoutX="42.0" layoutY="38.0" prefHeight="379.0" prefWidth="600.0" AnchorPane.bottomAnchor="221.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="166.0" minHeight="1.0" prefHeight="125.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="349.0" minHeight="0.0" prefHeight="133.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="447.0" minHeight="10.0" prefHeight="144.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="447.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contest Name" BorderPane.alignment="CENTER" />
-                     </top>
-                     <GridPane.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <center>
-                        <TextArea fx:id="cnamebox" prefHeight="200.0" prefWidth="200.0" promptText="Enter the name of the upcoming contest" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Time" BorderPane.alignment="CENTER" />
-                     </top>
-                     <opaqueInsets>
-                        <Insets top="10.0" />
-                     </opaqueInsets>
-                     <GridPane.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <center>
-                        <TextArea fx:id="ctimebox" maxHeight="-Infinity" prefHeight="34.0" prefWidth="286.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ending Time" BorderPane.alignment="CENTER" />
-                     </top>
-                     <GridPane.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <center>
-                        <TextArea fx:id="cdurationbox" maxHeight="-Infinity" prefHeight="34.0" prefWidth="200.0" promptText="Accepted format -&gt; yyyy MM dd HH mm ss" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <center>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Problmes" BorderPane.alignment="CENTER" />
-                     </center>
-                     <bottom>
-                        <Button fx:id="submitbtn" mnemonicParsing="false" onMouseClicked="#submit" styleClass="assign" stylesheets="@btn.css" text="Submit" BorderPane.alignment="CENTER" />
-                     </bottom>
-                     <right>
-                        <Button fx:id="addbtn" mnemonicParsing="false" onMouseClicked="#add" styleClass="assign" stylesheets="@btn.css" text="ADD" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Added Problems" BorderPane.alignment="CENTER" />
-                     </top>
-                     <center>
-                        <TextArea fx:id="caddprbbox" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-                     <center>
-                        <Text fx:id="status" strokeType="OUTSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <center>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-text-fill: red;" text="Note: Starting and Ending time must be inserted in predefined formate. Ex: 2023 10 31 20 30 00 (year, month, day, hour, minute, second)" wrapText="true" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </BorderPane.margin>
+            <BorderPane layoutX="83.0" layoutY="89.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+               <top>
+                  <GridPane prefHeight="210.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="263.60003662109375" minWidth="10.0" prefWidth="127.9999755859375" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="512.0000244140625" minWidth="10.0" prefWidth="512.0000244140625" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text fill="#5e3232" strokeType="OUTSIDE" strokeWidth="0.0" text="Contest Name:">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="cnamebox" prefHeight="24.0" prefWidth="4000.0" promptText="Enter the name of the upcoming contest" style="-fx-background-color: #ECF4F5; -fx-border-width: 0 0 1 0; -fx-border-color: red;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="263.60003662109375" minWidth="10.0" prefWidth="128.8" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="511.2" minWidth="10.0" prefWidth="511.2" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fill="#5e3232" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Time:">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="ctimebox" prefHeight="24.0" prefWidth="4000.0" promptText="Accepted format -&gt; YYYY MM DD HH MM SS" style="-fx-background-color: #ECF4F5; -fx-border-width: 0 0 1 0; -fx-border-color: red;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="263.60003662109375" minWidth="10.0" prefWidth="132.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="529.5999755859375" minWidth="10.0" prefWidth="508.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fill="#5e3232" strokeType="OUTSIDE" strokeWidth="0.0" text="Ending Time:">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="cdurationbox" prefHeight="24.0" prefWidth="4000.0" promptText="Accepted format -&gt; YYYY MM DD HH MM SS" style="-fx-background-color: #ECF4F5; -fx-border-width: 0 0 1 0; -fx-border-color: red;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-text-fill: red;" text="Note: Starting and Ending time must be inserted in predefined format. For example: 2023 10 31 20 30 00 (year, month, day, hour, minute, second)" wrapText="true" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
                         </TextArea>
-                     </center>
-                  </BorderPane>
-               </children>
-            </GridPane>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+               </top>
+               <center>
+                  <TextArea fx:id="caddprbbox" prefHeight="308.0" prefWidth="579.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: red;" styleClass="content" stylesheets="@../CSS/dash.css" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <opaqueInsets>
+                        <Insets top="5.0" />
+                     </opaqueInsets>
+                  </TextArea>
+               </center>
+               <bottom>
+                  <GridPane prefHeight="44.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../PIC/plus.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button fx:id="addbtn" mnemonicParsing="false" onMouseClicked="#add" prefHeight="40.0" prefWidth="182.0" styleClass="assign" stylesheets="@btn.css" text="ADD PROBLEM">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="42.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../PIC/arrow.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="submitbtn" mnemonicParsing="false" onMouseClicked="#submit" prefHeight="40.0" prefWidth="121.0" styleClass="assign" stylesheets="@btn.css" text="Submit">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </bottom>
+            </BorderPane>
          </children>
         </AnchorPane>
     </children>

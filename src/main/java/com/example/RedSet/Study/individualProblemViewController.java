@@ -2,6 +2,7 @@ package com.example.RedSet.Study;
 
 import com.example.RedSet.Lattice.*;
 import com.example.RedSet.MAIN;
+import com.example.RedSet.SceneTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -97,45 +98,25 @@ public class individualProblemViewController extends editorUI implements Initial
 
     @FXML
     void backBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Study/problem.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROBLEMS");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadscenefade("/com/example/RedSet/Study/problem.fxml",event,lattice,"STUDY");
     }
 
     @FXML
     void contestBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("CONTEST");
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        SceneTransition.loadscenefade("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml",event,lattice,"LATTICELINE");
     }
+
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("DASHBOARD");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-
+        SceneTransition.loadscenefade("dashboard.fxml",event,dashboard,"DASHBOARD");
     }
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LATTICELINE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-
+        SceneTransition.loadscenefade("/com/example/RedSet/Lattice/hello-view.fxml",event,lattice,"LATTICELINE");
     }
+
 
     @FXML
     void logoutBtn(MouseEvent event) throws IOException {
@@ -150,13 +131,7 @@ public class individualProblemViewController extends editorUI implements Initial
 
     @FXML
     void profileBtn(MouseEvent event) throws IOException {
-        Stage stage = (Stage) profile.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Profile/viewProfile.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PROFILE");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-
+        SceneTransition.loadscenefade("/com/example/RedSet/Profile/viewProfile.fxml",event,profile,"PROFILE");
     }
 
     FileChooser fileChooser = new FileChooser();

@@ -128,7 +128,7 @@
                 </VBox>
                 <Line endX="100.0" layoutX="100.0" layoutY="72.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
             </children></AnchorPane>
-        <AnchorPane layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane layoutX="200.0" layoutY="7.0" minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0" styleClass="background" stylesheets="@../CSS/dash.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox layoutX="6.0" layoutY="600.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <HBox layoutX="320.0" layoutY="485.0" prefHeight="50.0" prefWidth="85.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -140,11 +140,11 @@
                   </Button>
                </children>
             </HBox>
-            <Label fx:id="status" layoutX="173.0" layoutY="146.0">
+            <Label fx:id="status" alignment="CENTER" layoutX="329.0" layoutY="372.0" prefHeight="40.0" prefWidth="600.0" textFill="#732a2a" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Times New Roman Bold" size="18.0" />
                </font></Label>
-            <StackPane layoutY="255.0" prefHeight="150.0" prefWidth="503.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <StackPane layoutY="278.0" prefHeight="93.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="587.0" styleClass="crtGroup" stylesheets="@btn.css">
                      <right>
@@ -168,6 +168,15 @@
                         </TextField>
                      </center>
                   </BorderPane>
+               </children>
+            </StackPane>
+            <StackPane layoutX="468.0" layoutY="14.0" prefHeight="258.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="279.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../PIC/creategrpbg.png" />
+                     </image>
+                  </ImageView>
                </children>
             </StackPane>
          </children>

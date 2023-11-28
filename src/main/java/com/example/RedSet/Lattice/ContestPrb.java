@@ -1,5 +1,6 @@
 package com.example.RedSet.Lattice;
 
+import com.example.RedSet.SceneTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -110,11 +111,12 @@ public class ContestPrb extends editorUI implements Initializable {
 
     @FXML
     void problems(MouseEvent event) throws IOException {
-        Stage stage = (Stage) problemsbtn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LatticeLine");
-        stage.setScene(scene);
+//        Stage stage = (Stage) problemsbtn.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("LatticeLine");
+//        stage.setScene(scene);
+        SceneTransition.loadscenefade("hello-view.fxml",event,problemsbtn,"LatticeLine");
     }
 
     @FXML

@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.Problem">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #ECF4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Study.Problem">
     <children>
       <AnchorPane maxHeight="45.0" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #004c65;" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
         <AnchorPane layoutY="-6.0" prefHeight="787.0" prefWidth="200.0" style="-fx-background-color: #404A4D; -fx-background-radius: 10;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -53,7 +54,7 @@
                         <Font name="Colonna MT" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="logout" layoutX="25.0" layoutY="670.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 10;" styleClass="logout" stylesheets="@../CSS/dash.css" text="Log Out" textFill="#e7f7fa" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="680.0">
+                <Button fx:id="logout" layoutX="25.0" layoutY="670.0" mnemonicParsing="false" onMouseClicked="#logoutBtn" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 10;" styleClass="logout" stylesheets="@../CSS/dash.css" text="Log Out" textFill="#e7f7fa" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <font>
                         <Font name="Cambria Bold" size="16.0" />
                     </font>
@@ -133,72 +134,66 @@
                 </GridPane>
             </children>
         </AnchorPane>
-      <GridPane layoutX="208.0" layoutY="14.0" maxHeight="20.0" style="-fx-background-color: #004c65; -fx-border-color: #004c65;" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
-        <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Serial" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label text="Problem Name" textFill="WHITE" GridPane.columnIndex="1">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label text="Solve" textFill="WHITE" GridPane.columnIndex="2">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label text="Solution" textFill="WHITE" GridPane.columnIndex="3">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label text="Accepted" textFill="WHITE" GridPane.columnIndex="4">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-        <GridPane prefHeight="675.0" prefWidth="1171.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="659.9999877929688" minHeight="10.0" prefHeight="642.2000244140625" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="327.0000061035156" minHeight="10.0" prefHeight="32.799975585937545" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <ScrollPane fx:id="scrollPane">
+      <BorderPane layoutX="200.0" prefHeight="698.0" prefWidth="1130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <GridPane maxHeight="60.0" prefHeight="51.0" prefWidth="1200.0" style="-fx-background-color: #004c65; -fx-border-color: #004c65;" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Serial" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Problem Name" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Solve" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Solution" textFill="WHITE" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Accepted" textFill="WHITE" GridPane.columnIndex="4">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </top>
+         <bottom>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="33.0" prefWidth="99.0" styleClass="save" stylesheets="@../Profile/profile.css" text="BACK">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+                <ScrollPane fx:id="scrollPane" prefHeight="634.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                <content>
                   <VBox fx:id="tilepane" spacing="10.0" />
                </content>
                 </ScrollPane>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="60.0" prefWidth="62.0" styleClass="save" stylesheets="@../Profile/profile.css" text="BACK">
-                     <font>
-                        <Font name="Cambria Bold" size="16.0" />
-                     </font>
-                  </Button>
-               </children>
-               <GridPane.margin>
-                  <Insets right="15.0" />
-               </GridPane.margin>
-            </HBox>
-            </children>
-        </GridPane>
+         </center>
+      </BorderPane>
     </children>
 </AnchorPane>
