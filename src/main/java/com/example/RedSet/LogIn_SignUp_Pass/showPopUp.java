@@ -6,23 +6,5 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 public interface showPopUp {
-    @FXML
-    Button cancel = null;
-
-    @FXML
-    Label msglabel = null;
-
-    @FXML
-    Button ok = null;
-
-    @FXML
-    default void cancelBtn(MouseEvent event) {
-
-    }
-
-    @FXML
-    default void okBtn(MouseEvent event) {
-
-    }
     void showErr(String msg);
 }
