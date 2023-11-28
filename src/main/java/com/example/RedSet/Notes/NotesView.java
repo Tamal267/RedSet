@@ -60,6 +60,8 @@ public class NotesView implements Initializable {
     @FXML
     private Button addbtn;
 
+    @FXML
+    private AnchorPane parentPane;
 
     String usname;
 
@@ -173,6 +175,7 @@ public class NotesView implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(NotesView.class.getResource("/com/example/RedSet/Notes/singlenote.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 SingleNote singleNote = fxmlLoader.getController();
+                singleNote.setPane(parentPane);
                 singleNote.setData(i);
                 tilepane.getChildren().add(anchorPane);
             }

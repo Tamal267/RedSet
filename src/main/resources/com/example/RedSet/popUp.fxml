@@ -5,24 +5,36 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="263.0" prefWidth="430.0" style="-fx-background-color: #D8E2EB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.ERRORcontrolller">
    <children>
-      <Label fx:id="MSG" alignment="CENTER" layoutY="117.0" prefHeight="16.0" prefWidth="344.0" text="Label" textFill="#171111" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="117.0">
-         <font>
-            <Font name="Jamrul" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="okbtn" layoutX="162.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#ok" prefHeight="37.0" prefWidth="106.0" styleClass="save" stylesheets="@Profile/profile.css" text="OK" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="162.0">
+      <Button fx:id="okbtn" layoutX="304.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#ok" prefHeight="37.0" prefWidth="106.0" styleClass="save" stylesheets="@Profile/profile.css" text="OK" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0">
          <font>
             <Font name="Bitstream Vera Sans Bold" size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="178.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="178.0" AnchorPane.rightAnchor="178.0">
-         <image>
-            <Image url="@../PIC/erroricon.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="cancelbtn" layoutX="178.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="37.0" prefWidth="106.0" styleClass="save" stylesheets="@Profile/profile.css" text="CANCEL" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="146.0">
+         <font>
+            <Font name="Bitstream Vera Sans Bold" size="18.0" />
+         </font>
+      </Button>
+      <BorderPane prefHeight="139.0" prefWidth="430.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <bottom>
+            <Label fx:id="MSG" alignment="CENTER" prefHeight="16.0" prefWidth="344.0" text="Label" textFill="#171111" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Jamrul" size="18.0" />
+               </font>
+            </Label>
+         </bottom>
+         <center>
+            <ImageView fitHeight="74.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../PIC/warning.png" />
+               </image>
+            </ImageView>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

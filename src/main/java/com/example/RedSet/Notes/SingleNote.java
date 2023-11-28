@@ -1,5 +1,6 @@
 package com.example.RedSet.Notes;
 
+import com.example.RedSet.ERRORcontrolller;
 import com.example.RedSet.Lattice.DBconnect;
 import com.example.RedSet.Lattice.HelloApplication;
 import com.example.RedSet.Lattice.encodeDecode;
@@ -11,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,7 +36,13 @@ public class SingleNote {
     @FXML
     private Button dlt;
 
+    Pane parentPane;
+
     noteinfo info;
+
+    void setPane(Pane p){
+        parentPane = p;
+    }
 
     public void setData(noteinfo i){
         info = i;
@@ -43,6 +52,22 @@ public class SingleNote {
 
     @FXML
     void delete(MouseEvent event) throws SQLException, IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/com/example/RedSet/popUp.fxml"));
+        try {
+            AnchorPane anchorPane = fxmlLoader.load();
+            ERRORcontrolller erroRcontrolller = fxmlLoader.getController();
+            erroRcontrolller.setMSG("Do you want to delete?");
+            Scene scene = new Scene(anchorPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            parentPane.setDisable(true);
+            stage.showAndWait();
+            parentPane.setDisable(false);
+            if(erroRcontrolller.getVal() == 0) return;
+        } catch (Exception E){
+            System.out.println(E);
+        }
         Connection connection = DBconnect.getConnect();
         String qu = "DELETE FROM `notes` WHERE title='" + encodeDecode.encode(titlebox.getText()) + "' && (user='" + info.getUser() + "' && date ='" + info.getDate() + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(qu);

@@ -1,5 +1,6 @@
 package com.example.RedSet.Lattice;
 
+import com.example.RedSet.ERRORcontrolller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,7 +30,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class ViewAnnounce implements Initializable {
+public class ViewAnnounce extends ERRORcontrolller implements Initializable {
     @FXML
     private AnchorPane compilerbtn;
 
@@ -53,6 +54,9 @@ public class ViewAnnounce implements Initializable {
 
     @FXML
     private AnchorPane redsetbtn;
+
+    @FXML
+    private AnchorPane parentPane;
 
 
     @Override
@@ -182,14 +186,30 @@ public class ViewAnnounce implements Initializable {
 //                    dlt.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: WHITE;");
                 dlt.setId("dlt");
                 dlt.setOnMouseClicked(e -> {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/com/example/RedSet/popUp.fxml"));
+                    try {
+                        AnchorPane anchorPane = fxmlLoader.load();
+                        ERRORcontrolller erroRcontrolller = fxmlLoader.getController();
+                        erroRcontrolller.setMSG("Do you want to delete?");
+                        Scene scene = new Scene(anchorPane);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        parentPane.setDisable(true);
+                        stage.showAndWait();
+                        parentPane.setDisable(false);
+                        if(erroRcontrolller.getVal() == 0) return;
+                    } catch (Exception E){
+                        System.out.println(E);
+                    }
                     String qu = "DELETE FROM `announce` WHERE text='" + as + "' && (gp='" + gpname + "' && date ='" + date + "');";
                     System.out.println(qu);
                     try {
                         PreparedStatement pre = connection.prepareStatement(qu);
                         pre.executeUpdate();
                         Stage stage = (Stage) dlt.getScene().getWindow();
-                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
+                        FXMLLoader fxmlLoader1 = new FXMLLoader(HelloApplication.class.getResource("announce-view.fxml"));
+                        Scene scene = new Scene(fxmlLoader1.load());
                         scene.getStylesheets().add(HelloApplication.class.getResource("btn.css").toExternalForm());
                         stage.setTitle("LatticeLine");
                         stage.setScene(scene);

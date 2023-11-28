@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class ERRORcontrolller {
 
+    private int val = 0;
+
     @FXML
     private Label MSG;
 
@@ -15,7 +17,18 @@ public class ERRORcontrolller {
     private Button okbtn;
 
     @FXML
-    void ok(MouseEvent event) {
+    private Button cancelbtn;
+
+    @FXML
+    void ok(MouseEvent event){
+        val = 1;
+        Stage stage = (Stage) okbtn.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    void cancel(MouseEvent event) {
+        val = 0;
         Stage stage = (Stage) okbtn.getScene().getWindow();
         stage.close();
     }
@@ -24,4 +37,7 @@ public class ERRORcontrolller {
         MSG.setText(msg);
     }
 
+    public int getVal(){
+        return val;
+    }
 }
