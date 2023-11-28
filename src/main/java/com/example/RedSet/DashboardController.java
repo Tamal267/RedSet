@@ -81,12 +81,6 @@ public class DashboardController implements Initializable {
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
-        /*Stage stage = (Stage) lattice.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("LATTICELINE");
-        stage.setScene(scene);
-        stage.centerOnScreen();*/
         SceneTransition.loadSceneTranslate("/com/example/RedSet/Lattice/hello-view.fxml",event,lattice,"LATTICELINE");
     }
 
@@ -106,36 +100,16 @@ public class DashboardController implements Initializable {
 
     @FXML
     void pendingBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) pending.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Lattice/showcontestsrunning-view.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("CONTEST");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Lattice/showcontestsrunning-view.fxml",event,pending,"CONTEST");
     }
 
     @FXML
     void standingBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) standing.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/showleaderboard.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("RANKING");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Notes/showleaderboard.fxml",event,standing,"RANKING");
     }
 
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) study.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("STUDY");
-//        //stage.setScene(scene);
-////        SceneTransition.loadSceneTranslate(scene,stage);
-//        stage.centerOnScreen();
-//           String title="Study";
           SceneTransition.loadscenefade("/com/example/RedSet/Study/topic.fxml",event,study,"Study");
     }
 
@@ -210,7 +184,7 @@ public class DashboardController implements Initializable {
             int month = sc.nextInt();
             int day = sc.nextInt();
             int hour = sc.nextInt();
-            lastdays.setName("Activity of " + usname + " for Last 30 days (Hour vs Day)");
+            lastdays.setName("Activity of " + usname + " for Last 30 days (DAY vs HOUR)");
             for (int i = 1; i < 31; i++) {
                 double hours = Double.parseDouble(timeInfo.get(day));
                 lastdays.getData().add(new XYChart.Data<>(31 - i, hours));

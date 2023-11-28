@@ -4,8 +4,8 @@ RedSet creates a beneficial environment for learners that includes topic wise pr
 
 ## Configuration
 
-You can run the project in your environment through any IDE by cloning the project. Run `git clone https://github.com/Tamal267/RedSet` in your terminal.
-Before run, delete `RedSet/target` if found and create a database named `lattice` in your localhost mysql server. Run `CREATE DATABASE lattice;`. Then run the given sql script for the database `lattice`.
+You can run our project in your system by cloning the project. Run `git clone https://github.com/Tamal267/RedSet` in your terminal.
+Before run, delete `RedSet/target` (if found) and create a database named `lattice` in your localhost mysql server. Run `CREATE DATABASE lattice;`. Then run the given sql script for the full database `lattice`.
 
 ```mysql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -130,9 +130,9 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ```
 
-Then change username and passowrd in `RedSet/src/main/java/com/example/RedSet/DBconnect.java`.
+Then change username and password in `RedSet/src/main/java/com/example/RedSet/DBconnect.java`.
 
-## Dashboard
+## DASHBOARD
 
 ![Dasboard](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/dashboard.png?raw=true)
 
@@ -141,7 +141,7 @@ Dashboard gives a vivid idea of what can be done in RedSet. It gives important i
 ### Notes: 
 ![notes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/notes.png?raw=true)
 
-  It is possible to keep necessary codes,templates and notes inside this section.
+It is possible to keep necessary codes,templates and notes inside this section.
 
  ![addnotes](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/addnotes.png?raw=true)
 
@@ -158,7 +158,7 @@ contains problems of a certain topic.
 
 ![solve](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/solve.png?raw=true)
 
-User can attempt a problem and try solving it. If the solution provided by the user is correct, the judge will mark it accepted including required time.
+User can attempt a problem and try solving it. If the solution provided by the user is correct, the judge will mark it as accepted including required time.
 
 ![editorial](https://github.com/Tamal267/RedSet/blob/main/src/main/resources/com/example/PIC/readmepic/editorial.png?raw=true)
 
