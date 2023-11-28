@@ -1,0 +1,76 @@
+<html>
+<head>
+    <style>
+        body {
+            margin:0;
+        }
+        html{
+            height:100%;
+            overflow: hidden;
+        }
+        canvas{
+            background:white;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas1">
+</canvas>
+<script>
+    var n=0
+    var increasing = true
+    var canvas=document.getElementById("canvas1");
+    var ctx=canvas.getContext("2d");
+    canvas.width=screen.width
+    canvas.height=screen.height
+    ctx.height=screen.height
+    ctx.width=screen.width
+    var gradient = ctx.createLinearGradient(0, 0, screen.width, 0);
+    gradient.addColorStop("0", "cyan");
+    gradient.addColorStop("0.1", "blue");
+    gradient.addColorStop("0.2", "purple");
+    gradient.addColorStop("0.3","deeppink")
+    gradient.addColorStop("0.4", "red")
+    gradient.addColorStop("0.5","orangered")
+    gradient.addColorStop("0.6","orange")
+    gradient.addColorStop("0.7","yellow")
+    gradient.addColorStop("0.8","#0f0")
+    gradient.addColorStop("0.9","#00ff88")
+    gradient.addColorStop("1","cyan")
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 1;
+    var xCoord=[]
+    var yCoord=[]
+    function poly(){
+        if(n >64){n=64}
+        xCoord=[]
+        yCoord=[]
+        ctx.clearRect(0,0,screen.width,screen.height)
+
+
+        for(k=0;k<=n;k++){
+            xCoord.push(screen.width/2*Math.sin(k*(2*Math.PI/n))+screen.width/2)
+            yCoord.push(screen.width/2*Math.cos(k*(2*Math.PI/n))+screen.width/2)
+        }
+
+        for(i=0;i<xCoord.length;i++){
+            for(j=0;j<xCoord.length;j++){
+                ctx.beginPath()
+                ctx.moveTo(xCoord[i],yCoord[i])
+                ctx.lineTo(xCoord[j],yCoord[j])
+                ctx.stroke()
+            }
+        }
+        if(n<0){increasing=true}
+        if(n>24){increasing=false}
+        if(increasing){n+=(n+4)/200}else{n-=(n+4)/200}
+    }
+    var ani=setInterval(poly,1)
+
+
+
+
+</script>
+</body>
+</html>

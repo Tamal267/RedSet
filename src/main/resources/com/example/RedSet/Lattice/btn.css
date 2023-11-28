@@ -77,4 +77,31 @@
     -fx-border-radius: 0;
     -fx-background-color: transparent;
 }
+.announcePane{
+    -fx-background-color: #20d9c3;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
+.announcePane:hover{
+    -fx-background-color: #02b0ff;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.text-area .content {
+    -fx-background-color: transparent, white, transparent, #f1eded;
+    -fx-padding: 10px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #6007cc;
+}
+
+.text-area:focused .content {
+    -fx-background-color: transparent, white, transparent, #f1eded;
+}
+
+
 

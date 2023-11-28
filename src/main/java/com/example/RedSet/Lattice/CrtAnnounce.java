@@ -2,32 +2,37 @@ package com.example.RedSet.Lattice;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class CrtAnnounce {
+public class CrtAnnounce implements Initializable {
 
     @FXML
     private TextArea anbox;
 
     @FXML
-    private Button anbtn;
+    private AnchorPane anbtn;
 
     @FXML
     private Button backbtn;
@@ -43,6 +48,10 @@ public class CrtAnnounce {
 
     @FXML
     private AnchorPane redsetbtn;
+
+
+    @FXML
+    private WebView webview;
 
 
     @FXML
@@ -110,4 +119,21 @@ public class CrtAnnounce {
         stage.setScene(scene);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        WebEngine webengine = webview.getEngine();
+
+        File hf = new File("whiteAnim.html");
+        Scanner htmlSc = null;
+        try {
+            htmlSc = new Scanner(hf);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        StringBuilder htmlContent = new StringBuilder();
+        while(htmlSc.hasNext()){
+            htmlContent.append(htmlSc.nextLine()).append("\n");
+        }
+        webengine.loadContent(htmlContent.toString());
+    }
 }

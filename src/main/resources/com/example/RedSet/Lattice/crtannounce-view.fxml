@@ -13,10 +13,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
-
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RedSet.Lattice.CrtAnnounce">
     <children>
         <AnchorPane prefHeight="650.0" prefWidth="200.0" style="-fx-background-color:  #404a4d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -129,6 +130,7 @@
             </children></AnchorPane>
         <AnchorPane layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <WebView fx:id="webview" maxHeight="-1.0" maxWidth="-1.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <HBox layoutX="6.0" layoutY="600.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <HBox layoutX="320.0" layoutY="485.0" prefHeight="50.0" prefWidth="85.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
@@ -139,23 +141,60 @@
                   </Button>
                </children>
             </HBox>
-            <AnchorPane layoutX="83.0" layoutY="63.0" prefHeight="423.0" prefWidth="558.0">
+            <AnchorPane layoutX="83.0" layoutY="63.0" prefHeight="423.0" prefWidth="558.0" />
+            <Label fx:id="status" layoutX="73.0" layoutY="525.0" />
+            <GridPane alignment="CENTER" layoutX="155.0" layoutY="513.0" prefHeight="450.0" prefWidth="558.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <BorderPane layoutX="186.0" layoutY="74.0" prefHeight="423.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <bottom>
-                        <Button fx:id="anbtn" mnemonicParsing="false" onMouseClicked="#announce" styleClass="assign" stylesheets="@btn.css" text="Create Announce" BorderPane.alignment="CENTER" />
-                     </bottom>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="558.0">
                      <top>
-                        <TextArea fx:id="anbox" prefHeight="388.0" prefWidth="558.0" promptText="Write announce" BorderPane.alignment="CENTER">
+                        <TextArea fx:id="anbox" prefHeight="388.0" prefWidth="558.0" promptText="Write announcement" styleClass="text-area" stylesheets="@btn.css" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets bottom="20.0" />
                            </BorderPane.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </TextArea>
                      </top>
+                     <bottom>
+                        <AnchorPane fx:id="anbtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#announce" prefHeight="32.0" prefWidth="200.0" styleClass="announcePane" stylesheets="@btn.css" BorderPane.alignment="BOTTOM_RIGHT">
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="39.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="161.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/submitAnnounce.png" />
+                                       </image>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label prefHeight="18.0" prefWidth="144.0" text="Create Announce" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </bottom>
                   </BorderPane>
                </children>
-            </AnchorPane>
-            <Label fx:id="status" layoutX="73.0" layoutY="525.0" />
+            </GridPane>
          </children>
         </AnchorPane>
     </children>

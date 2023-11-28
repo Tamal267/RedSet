@@ -168,8 +168,7 @@ public class ViewAnnounce implements Initializable {
                 BorderPane borderPane = new BorderPane();
                 Text txt = new Text();
                 txt.setText(asn);
-                txt.setFont(Font.font(15));
-//                txt.setWrappingWidth(250);
+                txt.setFont(Font.font(18));
                 borderPane.setId(asn);
                 StackPane stackPane = new StackPane();
                 stackPane.getChildren().add(txt);
@@ -200,9 +199,10 @@ public class ViewAnnounce implements Initializable {
                         throw new RuntimeException(ex);
                     }
                 });
-                borderPane.setStyle("-fx-padding: 12 12 12 30;");
-                BorderPane.setMargin(stackPane, new Insets(20));
-                BorderPane.setMargin(dlt, new Insets(10));
+                borderPane.setStyle("-fx-padding: 12 12 12 20;");
+//                BorderPane.setMargin(stackPane, new Insets(10));
+//                BorderPane.setMargin(dlt, new Insets(10));
+//                BorderPane.setMargin(showDate, new Insets(10));
                 borderPane.setCenter(stackPane);
                 borderPane.setBottom(showDate);
                 if(Objects.equals(fndTch, "teacher")) borderPane.setTop(new HBox(dlt));
