@@ -72,12 +72,6 @@ public class SingleNote {
         String qu = "DELETE FROM `notes` WHERE title='" + encodeDecode.encode(titlebox.getText()) + "' && (user='" + info.getUser() + "' && date ='" + info.getDate() + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(qu);
         preparedStatement.executeUpdate();
-//        Stage stage = (Stage) dlt.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/notesview.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Notes");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Notes/notesview.fxml",event,dlt,"NOTES");
     }
 
@@ -87,12 +81,6 @@ public class SingleNote {
         String qu = "UPDATE `notes` SET title='" + encodeDecode.encode(titlebox.getText()) + "', note='" + encodeDecode.encode(notebox.getText()) + "' WHERE title='" + encodeDecode.encode(titlebox.getText()) + "' && (user='" + info.getUser() + "' && date ='" + info.getDate() + "');";
         PreparedStatement preparedStatement = connection.prepareStatement(qu);
         preparedStatement.executeUpdate();
-//        Stage stage = (Stage) dlt.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Notes/notesview.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Notes");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Notes/notesview.fxml",event,dlt,"NOTES");
     }
 

@@ -140,7 +140,6 @@ public class SceneTransition {
             Parent root = button.getScene().getRoot();
             stage.setScene(newScene);
             TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), newScene.getRoot());
-            //translateTransition.setByX(newScene.getWidth());
             translateTransition.setFromX(newScene.getWidth());
             translateTransition.setToX(0);
             translateTransition.play();
@@ -161,7 +160,6 @@ public class SceneTransition {
             Parent root = button.getScene().getRoot();
             stage.setScene(newScene);
             TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), newScene.getRoot());
-            //translateTransition.setByX(newScene.getWidth());
             translateTransition.setFromX(newScene.getWidth());
             translateTransition.setToX(0);
             translateTransition.play();

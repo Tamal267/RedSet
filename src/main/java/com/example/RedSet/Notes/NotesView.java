@@ -67,37 +67,17 @@ public class NotesView implements Initializable {
 
     @FXML
     void contestBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) lattice.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("LatticeLine");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Lattice/showcontestsupcoming-view.fxml",event,lattice,"LatticeLine");
     }
 
     @FXML
     void dashboardBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) lattice.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/dashboard.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("LatticeLine");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
-        SceneTransition.loadscenefade("/com/example/RedSet/Profile/viewProfile.fxml",event,lattice,"DASHBOARD");
-
+        SceneTransition.loadscenefade("/com/example/RedSet/dashboard.fxml",event,lattice,"DASHBOARD");
     }
 
     @FXML
     void latticeBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) lattice.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Lattice/hello-view.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("LatticeLine");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadSceneTranslate("/com/example/RedSet/Lattice/hello-view.fxml",event,lattice,"LatticeLine");
-
     }
 
     @FXML
@@ -122,29 +102,15 @@ public class NotesView implements Initializable {
         stage.setTitle("Ranking");
         stage.setScene(scene);
         stage.centerOnScreen();
-//        SceneTransition.loadscenefadewithstyle("/com/example/RedSet/Profile/viewProfile.fxml",event,profile,"Ranking");
-
-
     }
 
     @FXML
     void studyBtn(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) study.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(MAIN.class.getResource("/com/example/RedSet/Study/topic.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Ranking");
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
         SceneTransition.loadscenefade("/com/example/RedSet/Study/topic.fxml",event,study,"Ranking");
     }
 
     @FXML
     void add(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) addbtn.getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/RedSet/Notes/crtnote.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setTitle("Add Note");
-//        stage.setScene(scene);
         SceneTransition.loadscenefade("/com/example/RedSet/Notes/crtnote.fxml",event,addbtn,"Add Note");
     }
 

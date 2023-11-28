@@ -53,13 +53,7 @@ public class viewProfileController implements Initializable {
     private TextField email;
     @FXML
     private TextField fullname;
-    @FXML
-    private TextField level;
-    @FXML
-    private TextField phone;
-
     String usname;
-
     @FXML
     private Circle in;
     @FXML
@@ -94,7 +88,6 @@ public class viewProfileController implements Initializable {
     @FXML
     void editBtn(MouseEvent event) throws IOException {
         SceneTransition.loadscenefade("/com/example/RedSet/Profile/editProfile.fxml",event,edit,"PROFILE");
-
     }
 
     @FXML
@@ -112,11 +105,9 @@ public class viewProfileController implements Initializable {
     private void setContinuousRotate(Circle c, int angle, double duration) {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
-
         KeyFrame keyFrame = new KeyFrame(Duration.seconds(duration), event -> {
             c.setRotate(c.getRotate() + angle);
         });
-
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
