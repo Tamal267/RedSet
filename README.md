@@ -4,7 +4,7 @@ RedSet creates a beneficial environment for learners that includes topic wise pr
 
 ## Configuration
 
-You can run our project in your system by cloning the project. Run `git clone https://github.com/Tamal267/RedSet` in your terminal.
+You can run our project in your system by cloning the project. Run `git clone https://github.com/hasnat0006/RedSet` in your terminal.
 Before run, delete `RedSet/target` (if found) and create a database named `lattice` in your localhost mysql server. Run `CREATE DATABASE lattice;`. Then run the given sql script for the full database `lattice`.
 
 ```mysql
